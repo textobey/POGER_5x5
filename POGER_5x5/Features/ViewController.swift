@@ -11,9 +11,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
+        let viewController2 = ViewController2()
+        let navigationController = UINavigationController(rootViewController: viewController2)
+        navigationController.modalPresentationStyle = .overFullScreen
+        self.present(navigationController, animated: true)
     }
-
-
 }
 
