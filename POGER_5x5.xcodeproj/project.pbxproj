@@ -9,26 +9,50 @@
 /* Begin PBXBuildFile section */
 		A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60519D2298BA66B00557E7E /* AppDelegate.swift */; };
 		A60519D5298BA66B00557E7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60519D4298BA66B00557E7E /* SceneDelegate.swift */; };
-		A60519D7298BA66B00557E7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60519D6298BA66B00557E7E /* ViewController.swift */; };
 		A60519DC298BA66C00557E7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60519DB298BA66C00557E7E /* Assets.xcassets */; };
 		A60519DF298BA66C00557E7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60519DD298BA66C00557E7E /* LaunchScreen.storyboard */; };
 		A68E5F88298CA41100112ED7 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F87298CA41100112ED7 /* ReactorKit */; };
 		A68E5F8B298CA45000112ED7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F8A298CA45000112ED7 /* SnapKit */; };
 		A68E5F8E298CA48E00112ED7 /* RxKingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F8D298CA48E00112ED7 /* RxKingfisher */; };
-		A6BCAD97298BB7670069ABA5 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BCAD96298BB7670069ABA5 /* ViewController2.swift */; };
-		A6BCAD99298BB8660069ABA5 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BCAD98298BB8660069ABA5 /* ViewController3.swift */; };
+		A68E5F91298CA5E900112ED7 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */; };
+		A68E5F94298CA61E00112ED7 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5F93298CA61E00112ED7 /* Then.swift */; };
+		A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5F95298CC20900112ED7 /* StartViewController.swift */; };
+		A68E5F99298CC5A200112ED7 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */; };
+		A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5F9A298CCFC200112ED7 /* UIFont+.swift */; };
+		A6CD38FD298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38F7298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf */; };
+		A6CD38FE298CD65000FB5642 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38F8298CD65000FB5642 /* Montserrat-Medium.ttf */; };
+		A6CD38FF298CD65000FB5642 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38F9298CD65000FB5642 /* Montserrat-Regular.ttf */; };
+		A6CD3900298CD65000FB5642 /* NOTOSANSKR-BOLD-HESTIA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38FA298CD65000FB5642 /* NOTOSANSKR-BOLD-HESTIA.ttf */; };
+		A6CD3901298CD65000FB5642 /* NOTOSANSKR-MEDIUM-HESTIA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38FB298CD65000FB5642 /* NOTOSANSKR-MEDIUM-HESTIA.ttf */; };
+		A6CD3902298CD65000FB5642 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38FC298CD65000FB5642 /* Montserrat-Bold.ttf */; };
+		A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3903298CDE5200FB5642 /* Resource.swift */; };
+		A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */; };
+		A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3909298CE8A600FB5642 /* PickerButton.swift */; };
+		A6CD390C298CFB9400FB5642 /* LevelCheckListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD390B298CFB9400FB5642 /* LevelCheckListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A60519CF298BA66B00557E7E /* POGER_5x5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POGER_5x5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60519D2298BA66B00557E7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A60519D4298BA66B00557E7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A60519D6298BA66B00557E7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A60519DB298BA66C00557E7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A60519DE298BA66C00557E7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A60519E0298BA66C00557E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6BCAD96298BB7670069ABA5 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
-		A6BCAD98298BB8660069ABA5 /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		A68E5F93298CA61E00112ED7 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		A68E5F95298CC20900112ED7 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		A68E5F9A298CCFC200112ED7 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		A6CD38F7298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NOTOSANSKR-REGULAR-HESTIA.ttf"; sourceTree = "<group>"; };
+		A6CD38F8298CD65000FB5642 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		A6CD38F9298CD65000FB5642 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		A6CD38FA298CD65000FB5642 /* NOTOSANSKR-BOLD-HESTIA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NOTOSANSKR-BOLD-HESTIA.ttf"; sourceTree = "<group>"; };
+		A6CD38FB298CD65000FB5642 /* NOTOSANSKR-MEDIUM-HESTIA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NOTOSANSKR-MEDIUM-HESTIA.ttf"; sourceTree = "<group>"; };
+		A6CD38FC298CD65000FB5642 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		A6CD3903298CDE5200FB5642 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCheckViewController.swift; sourceTree = "<group>"; };
+		A6CD3909298CE8A600FB5642 /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
+		A6CD390B298CFB9400FB5642 /* LevelCheckListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCheckListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +90,11 @@
 			children = (
 				A60519E0298BA66C00557E7E /* Info.plist */,
 				A6BCAD93298BB12C0069ABA5 /* Application */,
+				A68E5F8F298CA5C800112ED7 /* Extension */,
+				A68E5F92298CA60C00112ED7 /* Foundation */,
 				A6BCAD95298BB1560069ABA5 /* Features */,
 				A6BCAD94298BB13D0069ABA5 /* Resources */,
+				A68E5F9C298CCFE800112ED7 /* Supporting files */,
 			);
 			path = POGER_5x5;
 			sourceTree = "<group>";
@@ -75,15 +102,49 @@
 		A68E5F84298CA01A00112ED7 /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				A68E5F95298CC20900112ED7 /* StartViewController.swift */,
+				A6CD3905298CDFA200FB5642 /* Subview */,
 			);
 			path = Start;
 			sourceTree = "<group>";
 		};
-		A68E5F85298CA05700112ED7 /* New Group */ = {
+		A68E5F8F298CA5C800112ED7 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */,
+				A68E5F9A298CCFC200112ED7 /* UIFont+.swift */,
 			);
-			path = "New Group";
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		A68E5F92298CA60C00112ED7 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				A68E5F93298CA61E00112ED7 /* Then.swift */,
+				A6CD3909298CE8A600FB5642 /* PickerButton.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		A68E5F97298CC57200112ED7 /* Training */ = {
+			isa = PBXGroup;
+			children = (
+				A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */,
+			);
+			path = Training;
+			sourceTree = "<group>";
+		};
+		A68E5F9C298CCFE800112ED7 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				A6CD38FC298CD65000FB5642 /* Montserrat-Bold.ttf */,
+				A6CD38F8298CD65000FB5642 /* Montserrat-Medium.ttf */,
+				A6CD38F9298CD65000FB5642 /* Montserrat-Regular.ttf */,
+				A6CD38FA298CD65000FB5642 /* NOTOSANSKR-BOLD-HESTIA.ttf */,
+				A6CD38FB298CD65000FB5642 /* NOTOSANSKR-MEDIUM-HESTIA.ttf */,
+				A6CD38F7298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 		A6BCAD93298BB12C0069ABA5 /* Application */ = {
@@ -100,6 +161,7 @@
 			children = (
 				A60519DB298BA66C00557E7E /* Assets.xcassets */,
 				A60519DD298BA66C00557E7E /* LaunchScreen.storyboard */,
+				A6CD3903298CDE5200FB5642 /* Resource.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -107,13 +169,27 @@
 		A6BCAD95298BB1560069ABA5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				A68E5F85298CA05700112ED7 /* New Group */,
+				A68E5F97298CC57200112ED7 /* Training */,
 				A68E5F84298CA01A00112ED7 /* Start */,
-				A60519D6298BA66B00557E7E /* ViewController.swift */,
-				A6BCAD96298BB7670069ABA5 /* ViewController2.swift */,
-				A6BCAD98298BB8660069ABA5 /* ViewController3.swift */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		A6CD3905298CDFA200FB5642 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				A6CD3908298CDFC000FB5642 /* LevelCheck */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
+		A6CD3908298CDFC000FB5642 /* LevelCheck */ = {
+			isa = PBXGroup;
+			children = (
+				A6CD390B298CFB9400FB5642 /* LevelCheckListCell.swift */,
+				A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */,
+			);
+			path = LevelCheck;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +261,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A60519DF298BA66C00557E7E /* LaunchScreen.storyboard in Resources */,
+				A6CD3901298CD65000FB5642 /* NOTOSANSKR-MEDIUM-HESTIA.ttf in Resources */,
+				A6CD3900298CD65000FB5642 /* NOTOSANSKR-BOLD-HESTIA.ttf in Resources */,
+				A6CD38FD298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf in Resources */,
+				A6CD3902298CD65000FB5642 /* Montserrat-Bold.ttf in Resources */,
+				A6CD38FE298CD65000FB5642 /* Montserrat-Medium.ttf in Resources */,
+				A6CD38FF298CD65000FB5642 /* Montserrat-Regular.ttf in Resources */,
 				A60519DC298BA66C00557E7E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,11 +278,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6BCAD99298BB8660069ABA5 /* ViewController3.swift in Sources */,
-				A60519D7298BA66B00557E7E /* ViewController.swift in Sources */,
-				A6BCAD97298BB7670069ABA5 /* ViewController2.swift in Sources */,
+				A68E5F99298CC5A200112ED7 /* TrainingViewController.swift in Sources */,
+				A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */,
+				A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */,
+				A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */,
+				A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */,
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
+				A68E5F91298CA5E900112ED7 /* UIViewController+Rx.swift in Sources */,
+				A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */,
+				A6CD390C298CFB9400FB5642 /* LevelCheckListCell.swift in Sources */,
 				A60519D5298BA66B00557E7E /* SceneDelegate.swift in Sources */,
+				A68E5F94298CA61E00112ED7 /* Then.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
