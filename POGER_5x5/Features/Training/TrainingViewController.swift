@@ -9,6 +9,15 @@ import UIKit
 
 class TrainingViewController: UIViewController {
     
+    /// run once
+    private lazy var takeOncePush: Void = {
+        let startViewController = StartViewController()
+        let navigationController = UINavigationController(rootViewController: startViewController)
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: false)
+    }()
+    
     let titleLabel = UILabel().then {
         $0.text = "Training"
         $0.textColor = .white
@@ -26,10 +35,6 @@ class TrainingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let startViewController = StartViewController()
-        let navigationController = UINavigationController(rootViewController: startViewController)
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: false)
+        _ = takeOncePush
     }
 }

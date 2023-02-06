@@ -18,7 +18,7 @@ class LevelCheckListCell: UITableViewCell {
     var disposeBag = DisposeBag()
     
     let wrapperView = UIView().then {
-        $0.backgroundColor = .clear
+        $0.backgroundColor = .secondarySystemBackground
     }
     
     let typeLabel = UILabel().then {
@@ -49,23 +49,27 @@ class LevelCheckListCell: UITableViewCell {
         super.prepareForReuse()
         disposeBag = DisposeBag()
     }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        selectionStyle = .none
+    }
 
     private func setupLayout() {
         contentView.addSubview(wrapperView)
         wrapperView.snp.makeConstraints {
-            $0.directionalEdges.equalToSuperview()
-            $0.height.equalTo(32)
+            $0.edges.equalToSuperview()
         }
         
         wrapperView.addSubview(typeLabel)
         typeLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(12)
-            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.bottom.equalToSuperview().inset(12)
         }
         
         wrapperView.addSubview(pickerButton)
         pickerButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(-12)
+            $0.trailing.equalToSuperview().offset(-16)
             $0.centerY.equalToSuperview()
         }
     }

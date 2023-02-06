@@ -19,6 +19,11 @@
 		A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5F95298CC20900112ED7 /* StartViewController.swift */; };
 		A68E5F99298CC5A200112ED7 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */; };
 		A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5F9A298CCFC200112ED7 /* UIFont+.swift */; };
+		A6A519142990D0EB002CBC01 /* DynamicHeightTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A519132990D0EB002CBC01 /* DynamicHeightTableView.swift */; };
+		A6A519162990D348002CBC01 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A519152990D348002CBC01 /* UIButton+.swift */; };
+		A6A519192990DB30002CBC01 /* TrainingEnvironmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A519182990DB30002CBC01 /* TrainingEnvironmentViewController.swift */; };
+		A6A5191C2990DF9D002CBC01 /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A5191B2990DF9D002CBC01 /* BMIViewController.swift */; };
+		A6A519222990E359002CBC01 /* ExpectedLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A519212990E359002CBC01 /* ExpectedLevelViewController.swift */; };
 		A6CD38FD298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38F7298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf */; };
 		A6CD38FE298CD65000FB5642 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38F8298CD65000FB5642 /* Montserrat-Medium.ttf */; };
 		A6CD38FF298CD65000FB5642 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38F9298CD65000FB5642 /* Montserrat-Regular.ttf */; };
@@ -43,6 +48,11 @@
 		A68E5F95298CC20900112ED7 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		A68E5F9A298CCFC200112ED7 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		A6A519132990D0EB002CBC01 /* DynamicHeightTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightTableView.swift; sourceTree = "<group>"; };
+		A6A519152990D348002CBC01 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		A6A519182990DB30002CBC01 /* TrainingEnvironmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingEnvironmentViewController.swift; sourceTree = "<group>"; };
+		A6A5191B2990DF9D002CBC01 /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
+		A6A519212990E359002CBC01 /* ExpectedLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedLevelViewController.swift; sourceTree = "<group>"; };
 		A6CD38F7298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NOTOSANSKR-REGULAR-HESTIA.ttf"; sourceTree = "<group>"; };
 		A6CD38F8298CD65000FB5642 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		A6CD38F9298CD65000FB5642 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -112,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */,
+				A6A519152990D348002CBC01 /* UIButton+.swift */,
 				A68E5F9A298CCFC200112ED7 /* UIFont+.swift */,
 			);
 			path = Extension;
@@ -122,6 +133,7 @@
 			children = (
 				A68E5F93298CA61E00112ED7 /* Then.swift */,
 				A6CD3909298CE8A600FB5642 /* PickerButton.swift */,
+				A6A519132990D0EB002CBC01 /* DynamicHeightTableView.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -145,6 +157,30 @@
 				A6CD38F7298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		A6A519172990DAE5002CBC01 /* TrainingEnvironment */ = {
+			isa = PBXGroup;
+			children = (
+				A6A519182990DB30002CBC01 /* TrainingEnvironmentViewController.swift */,
+			);
+			path = TrainingEnvironment;
+			sourceTree = "<group>";
+		};
+		A6A5191A2990DEF2002CBC01 /* BMI */ = {
+			isa = PBXGroup;
+			children = (
+				A6A5191B2990DF9D002CBC01 /* BMIViewController.swift */,
+			);
+			path = BMI;
+			sourceTree = "<group>";
+		};
+		A6A519202990E34B002CBC01 /* ExpectedLevel */ = {
+			isa = PBXGroup;
+			children = (
+				A6A519212990E359002CBC01 /* ExpectedLevelViewController.swift */,
+			);
+			path = ExpectedLevel;
 			sourceTree = "<group>";
 		};
 		A6BCAD93298BB12C0069ABA5 /* Application */ = {
@@ -179,6 +215,9 @@
 			isa = PBXGroup;
 			children = (
 				A6CD3908298CDFC000FB5642 /* LevelCheck */,
+				A6A519172990DAE5002CBC01 /* TrainingEnvironment */,
+				A6A5191A2990DEF2002CBC01 /* BMI */,
+				A6A519202990E34B002CBC01 /* ExpectedLevel */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -278,17 +317,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6A519142990D0EB002CBC01 /* DynamicHeightTableView.swift in Sources */,
 				A68E5F99298CC5A200112ED7 /* TrainingViewController.swift in Sources */,
+				A6A519192990DB30002CBC01 /* TrainingEnvironmentViewController.swift in Sources */,
 				A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */,
 				A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */,
 				A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */,
 				A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */,
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
+				A6A519162990D348002CBC01 /* UIButton+.swift in Sources */,
 				A68E5F91298CA5E900112ED7 /* UIViewController+Rx.swift in Sources */,
 				A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */,
 				A6CD390C298CFB9400FB5642 /* LevelCheckListCell.swift in Sources */,
 				A60519D5298BA66B00557E7E /* SceneDelegate.swift in Sources */,
+				A6A5191C2990DF9D002CBC01 /* BMIViewController.swift in Sources */,
 				A68E5F94298CA61E00112ED7 /* Then.swift in Sources */,
+				A6A519222990E359002CBC01 /* ExpectedLevelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

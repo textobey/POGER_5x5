@@ -1,8 +1,8 @@
 //
-//  LevelCheckViewController.swift
+//  TrainingEnvironmentViewController.swift
 //  POGER_5x5
 //
-//  Created by 이서준 on 2023/02/03.
+//  Created by 이서준 on 2023/02/06.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
-class LevelCheckViewController: UIViewController {
+class TrainingEnvironmentViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
@@ -24,8 +24,8 @@ class LevelCheckViewController: UIViewController {
         $0.backgroundColor = .clear
     }
     
-    let levelCheckDescriptionLabel = UILabel().then {
-        $0.text = "본인의 최고 1회기록(1RM)의\n80% 무게값으로 설정하시는걸 권장드려요."
+    let trainingEnvironmentDescriptionLabel = UILabel().then {
+        $0.text = "진행될 프로그램에 필요한 훈련 환경을 입력해주세요.\n처음 입력된 값은 훈련의 기본 권장값이에요."
         $0.textColor = .secondaryLabel
         $0.font = .notoSans(size: 18, style: .medium)
         $0.textAlignment = .left
@@ -45,7 +45,7 @@ class LevelCheckViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "스트렝스 레벨 입력"
+        self.title = "훈련 환경 입력"
         view.backgroundColor = .systemBackground
         setupLayout()
         bind()
@@ -64,18 +64,17 @@ class LevelCheckViewController: UIViewController {
             $0.width.equalTo(UIScreen.main.bounds.size.width)
         }
         
-        scrollViewContainer.addSubview(levelCheckDescriptionLabel)
-        levelCheckDescriptionLabel.snp.makeConstraints {
+        scrollViewContainer.addSubview(trainingEnvironmentDescriptionLabel)
+        trainingEnvironmentDescriptionLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(28)
             $0.leading.trailing.equalToSuperview().offset(16)
         }
         
         scrollViewContainer.addSubview(tableView)
         tableView.snp.makeConstraints {
-            $0.top.equalTo(levelCheckDescriptionLabel.snp.bottom).offset(36)
+            $0.top.equalTo(trainingEnvironmentDescriptionLabel.snp.bottom).offset(36)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.greaterThanOrEqualTo(tableView.contentSize.height)
-            //$0.bottom.equalToSuperview()
         }
         
         view.addSubview(nextButton)
@@ -88,23 +87,19 @@ class LevelCheckViewController: UIViewController {
     }
     
     private func bind() {
-        Observable.just(["스쿼트", "벤치프레스", "데드리프트", "펜들레이로우", "오버헤드프레스"])
+        Observable.just(["횟수", "세트간 무게차이", "가장 작은 원판의 무게", "본인의 기록과 같아지는 훈련의 주"])
             .bind(to: tableView.rx.items(
                 cellIdentifier: LevelCheckListCell.identifier,
                 cellType: LevelCheckListCell.self)
             ) { row, element, cell in
                 cell.configureCell(type: element)
-//                cell.bookmarkTap
-//                    .map { NewBookReactor.Action.bookmark($0, bookItem) }
-//                    .bind(to: reactor.action)
-//                    .disposed(by: cell.disposeBag)
             }.disposed(by: disposeBag)
         
         nextButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                let trainingEnvironmentViewController = TrainingEnvironmentViewController()
-                owner.navigationController?.pushViewController(trainingEnvironmentViewController, animated: true)
+                let bmiViewController = BMIViewController()
+                owner.navigationController?.pushViewController(bmiViewController, animated: true)
             }).disposed(by: disposeBag)
     }
 }

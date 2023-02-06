@@ -18,14 +18,7 @@ class StartViewController: UIViewController {
         $0.image = UIImage(named: "splash_logo_dark")
     }
     
-    let nextButton = UIButton().then {
-        $0.setTitle("시작하기", for: .normal)
-        $0.setTitleColor(.label, for: .normal)
-        $0.titleLabel?.font = .notoSans(size: 18, style: .bold)
-        $0.titleLabel?.textAlignment = .center
-        $0.backgroundColor = .tertiarySystemBackground
-        $0.layer.cornerRadius = 16
-    }
+    let nextButton = UIButton.commonButton(title: "시작하기")
     
     override func viewDidLoad() {
         super.viewDidLoad()
