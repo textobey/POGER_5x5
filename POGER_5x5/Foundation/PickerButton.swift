@@ -12,9 +12,9 @@ import SnapKit
 
 class PickerButton: UIButton {
     
-    var disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
-    let pickerView = UIPickerView().then {
+    private let pickerView = UIPickerView().then {
         $0.backgroundColor = .secondarySystemBackground
     }
     
@@ -40,7 +40,7 @@ class PickerButton: UIButton {
         return pickerView
     }
     
-    let closeButton = UIBarButtonItem(
+    private let closeButton = UIBarButtonItem(
         title: "Close",
         style: .plain,
         target: nil,
@@ -53,14 +53,14 @@ class PickerButton: UIButton {
         action: nil
     )
     
-    let doneButton = UIBarButtonItem(
+    private let doneButton = UIBarButtonItem(
         title: "Done",
         style: .done,
         target: nil,
         action: nil
     )
     
-    lazy var toolbar = UIView().then {
+    private lazy var toolbar = UIView().then {
         let button = UIButton()
         button.setTitle("Done", for: .normal)
         button.setTitleColor(UIColor.label, for: .normal)
@@ -89,10 +89,10 @@ class PickerButton: UIButton {
     
     // MARK: - Variables
     
-    var closeButtonTitle: String = "Close"
-    var doneButtonTitle: String = "Done"
-    var closeButtonTintColor: UIColor = .white
-    var doneButtonTintColor: UIColor = .white
+    private var closeButtonTitle: String = "Close"
+    private var doneButtonTitle: String = "Done"
+    private var closeButtonTintColor: UIColor = .white
+    private var doneButtonTintColor: UIColor = .white
     
     // MARK: - Initializer
     
