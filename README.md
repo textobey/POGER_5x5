@@ -7,3 +7,7 @@
 ## 초급 와이어프레임
 ![POGER_초급와이어프레임](https://user-images.githubusercontent.com/54608828/217127853-27b26967-dbc0-4d58-9902-ded35e0a02c0.jpg)
 
+
+## GUI
+- iOS '활동' 앱을 Reference로 하여 HIG를 만족하도록 디자인 가이드 기초 설정
+<img width="480" alt="POGER_GUI" src="https://user-images.githubusercontent.com/54608828/217197335-cd460d52-7a08-46f4-ac0d-a5869e6d9b74.png">
