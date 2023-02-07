@@ -22,15 +22,15 @@ class LevelCheckListCell: UITableViewCell {
     }
     
     let typeLabel = UILabel().then {
-        $0.text = "운동타입"
+        $0.text = "type"
         $0.textColor = .label
-        $0.font = .notoSans(size: 16, style: .regular)
+        $0.font = .preferredFont(forTextStyle: .body)
     }
 
     lazy var pickerButton = PickerButton().then {
         $0.setTitle("선택", for: .normal)
         $0.setTitleColor(UIColor.secondaryLabel, for: .normal)
-        $0.titleLabel?.font = .notoSans(size: 16, style: .regular)
+        $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
         $0.pickerViewDelegate = self
         $0.pickerViewDataSource = self
     }
@@ -85,19 +85,19 @@ extension LevelCheckListCell: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Resource.Weight.weightDataSource.count
+        return R.Weight.weightDataSource.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(Resource.Weight.weightDataSource[row])"
+        return "\(R.Weight.weightDataSource[row])"
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("didSelect", Resource.Weight.weightDataSource[row])
+        print("didSelect", R.Weight.weightDataSource[row])
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow: Int) {
-        print("Done Button Detected", Resource.Weight.weightDataSource[titleForRow])
+        print("Done Button Detected", R.Weight.weightDataSource[titleForRow])
     }
 }
 

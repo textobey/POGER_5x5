@@ -12,10 +12,10 @@ extension UIButton {
         return UIButton().then {
             $0.setTitle(title, for: .normal)
             $0.setTitleColor(.label, for: .normal)
-            $0.titleLabel?.font = .notoSans(size: 18, style: .bold)
+            $0.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
             $0.titleLabel?.textAlignment = .center
-            $0.backgroundColor = .tertiarySystemBackground
-            $0.layer.cornerRadius = 16
+            $0.backgroundColor = .secondarySystemBackground
+            $0.layer.cornerRadius = 14
         }
     }
 }

@@ -26,8 +26,8 @@ class TrainingEnvironmentViewController: UIViewController {
     
     let trainingEnvironmentDescriptionLabel = UILabel().then {
         $0.text = "진행될 프로그램에 필요한 훈련 환경을 입력해주세요.\n처음 입력된 값은 훈련의 기본 권장값이에요."
-        $0.textColor = .secondaryLabel
-        $0.font = .notoSans(size: 18, style: .medium)
+        $0.textColor = .label
+        $0.font = .preferredFont(forTextStyle: .body)
         $0.textAlignment = .left
         $0.numberOfLines = 0
     }
@@ -66,23 +66,23 @@ class TrainingEnvironmentViewController: UIViewController {
         
         scrollViewContainer.addSubview(trainingEnvironmentDescriptionLabel)
         trainingEnvironmentDescriptionLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(28)
-            $0.leading.trailing.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(16)
+            $0.leading.trailing.equalToSuperview().offset(30)
         }
         
         scrollViewContainer.addSubview(tableView)
         tableView.snp.makeConstraints {
-            $0.top.equalTo(trainingEnvironmentDescriptionLabel.snp.bottom).offset(36)
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(trainingEnvironmentDescriptionLabel.snp.bottom).offset(40)
+            $0.leading.trailing.equalToSuperview().inset(24)
             $0.height.greaterThanOrEqualTo(tableView.contentSize.height)
         }
         
         view.addSubview(nextButton)
         nextButton.snp.makeConstraints {
             $0.top.equalTo(scrollView.snp.bottom)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-28)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-52)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(56)
+            $0.height.equalTo(52)
         }
     }
     

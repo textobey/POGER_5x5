@@ -7,10 +7,16 @@
 
 import Foundation
 
-struct Resource {
+struct R {
+    struct Margin { }
     struct Weight { }
 }
 
-extension Resource.Weight {
+extension R.Margin {
+    static let paddingLeft: CGFloat = 20.0
+    static let paddingRight: CGFloat = 20.0
+}
+
+extension R.Weight {
     static let weightDataSource: [Int] = (0 ..< 455).map { $0 }
 }

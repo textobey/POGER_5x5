@@ -24,6 +24,8 @@
 		A6A519192990DB30002CBC01 /* TrainingEnvironmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A519182990DB30002CBC01 /* TrainingEnvironmentViewController.swift */; };
 		A6A5191C2990DF9D002CBC01 /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A5191B2990DF9D002CBC01 /* BMIViewController.swift */; };
 		A6A519222990E359002CBC01 /* ExpectedLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A519212990E359002CBC01 /* ExpectedLevelViewController.swift */; };
+		A6AAEC902991E42300F15E21 /* LevelTrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AAEC8F2991E42300F15E21 /* LevelTrendViewController.swift */; };
+		A6C612B92991E470005F5BB7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C612B82991E470005F5BB7 /* SettingsViewController.swift */; };
 		A6CD38FD298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38F7298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf */; };
 		A6CD38FE298CD65000FB5642 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38F8298CD65000FB5642 /* Montserrat-Medium.ttf */; };
 		A6CD38FF298CD65000FB5642 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38F9298CD65000FB5642 /* Montserrat-Regular.ttf */; };
@@ -53,6 +55,8 @@
 		A6A519182990DB30002CBC01 /* TrainingEnvironmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingEnvironmentViewController.swift; sourceTree = "<group>"; };
 		A6A5191B2990DF9D002CBC01 /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
 		A6A519212990E359002CBC01 /* ExpectedLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedLevelViewController.swift; sourceTree = "<group>"; };
+		A6AAEC8F2991E42300F15E21 /* LevelTrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTrendViewController.swift; sourceTree = "<group>"; };
+		A6C612B82991E470005F5BB7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A6CD38F7298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NOTOSANSKR-REGULAR-HESTIA.ttf"; sourceTree = "<group>"; };
 		A6CD38F8298CD65000FB5642 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		A6CD38F9298CD65000FB5642 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -183,6 +187,22 @@
 			path = ExpectedLevel;
 			sourceTree = "<group>";
 		};
+		A6AAEC8E2991E3E800F15E21 /* LevelTrend */ = {
+			isa = PBXGroup;
+			children = (
+				A6AAEC8F2991E42300F15E21 /* LevelTrendViewController.swift */,
+			);
+			path = LevelTrend;
+			sourceTree = "<group>";
+		};
+		A6AAEC912991E43800F15E21 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A6C612B82991E470005F5BB7 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A6BCAD93298BB12C0069ABA5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,8 +225,10 @@
 		A6BCAD95298BB1560069ABA5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				A68E5F97298CC57200112ED7 /* Training */,
 				A68E5F84298CA01A00112ED7 /* Start */,
+				A68E5F97298CC57200112ED7 /* Training */,
+				A6AAEC8E2991E3E800F15E21 /* LevelTrend */,
+				A6AAEC912991E43800F15E21 /* Settings */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -327,12 +349,14 @@
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
 				A6A519162990D348002CBC01 /* UIButton+.swift in Sources */,
 				A68E5F91298CA5E900112ED7 /* UIViewController+Rx.swift in Sources */,
+				A6AAEC902991E42300F15E21 /* LevelTrendViewController.swift in Sources */,
 				A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */,
 				A6CD390C298CFB9400FB5642 /* LevelCheckListCell.swift in Sources */,
 				A60519D5298BA66B00557E7E /* SceneDelegate.swift in Sources */,
 				A6A5191C2990DF9D002CBC01 /* BMIViewController.swift in Sources */,
 				A68E5F94298CA61E00112ED7 /* Then.swift in Sources */,
 				A6A519222990E359002CBC01 /* ExpectedLevelViewController.swift in Sources */,
+				A6C612B92991E470005F5BB7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

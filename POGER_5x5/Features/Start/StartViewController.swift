@@ -41,9 +41,9 @@ class StartViewController: UIViewController {
         
         view.addSubview(nextButton)
         nextButton.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-52)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-28)
-            $0.height.equalTo(56)
+            $0.height.equalTo(52)
         }
     }
     

@@ -26,8 +26,8 @@ class ExpectedLevelViewController: UIViewController {
     
     let expectedLevelDescriptionLabel = UILabel().then {
         $0.text = "입력된 값을 바탕으로 구성된 예상 기록을 확인해보세요!"
-        $0.textColor = .secondaryLabel
-        $0.font = .notoSans(size: 18, style: .medium)
+        $0.textColor = .label
+        $0.font = .preferredFont(forTextStyle: .body)
         $0.textAlignment = .left
         $0.numberOfLines = 0
     }
@@ -65,22 +65,22 @@ class ExpectedLevelViewController: UIViewController {
         
         scrollViewContainer.addSubview(expectedLevelDescriptionLabel)
         expectedLevelDescriptionLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(28)
-            $0.leading.trailing.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(16)
+            $0.leading.trailing.equalToSuperview().offset(24)
         }
         
         scrollViewContainer.addSubview(stackView)
         stackView.snp.makeConstraints {
-            $0.top.equalTo(expectedLevelDescriptionLabel.snp.bottom).offset(36)
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(expectedLevelDescriptionLabel.snp.bottom).offset(40)
+            $0.leading.trailing.equalToSuperview().inset(24)
         }
         
         view.addSubview(confirmButton)
         confirmButton.snp.makeConstraints {
             $0.top.equalTo(scrollView.snp.bottom)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-28)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-52)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(56)
+            $0.height.equalTo(52)
         }
     }
     
@@ -124,14 +124,14 @@ fileprivate class ExpectedLevelInformationView: UIView {
     
     let informationTitle = UILabel().then {
         $0.textColor = .secondaryLabel
-        $0.font = .notoSans(size: 14, style: .medium)
+        $0.font = .systemFont(ofSize: 14, weight: .medium)
         $0.textAlignment = .left
         $0.numberOfLines = 0
     }
     
     let expectedLevel = UILabel().then {
         $0.textColor = .systemGreen
-        $0.font = .notoSans(size: 18, style: .medium)
+        $0.font = .systemFont(ofSize: 18, weight: .medium)
         $0.textAlignment = .left
         $0.numberOfLines = 0
     }

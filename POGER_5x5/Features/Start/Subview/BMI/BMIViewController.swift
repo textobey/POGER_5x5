@@ -26,8 +26,8 @@ class BMIViewController: UIViewController {
     
     let bmiDescriptionLabel = UILabel().then {
         $0.text = "개인 정보 입력은 필수로 요구되지 않아요.\n개인 정보를 입력할 경우 개인별 프로그램 레벨을 확인할 수 있어요."
-        $0.textColor = .secondaryLabel
-        $0.font = .notoSans(size: 18, style: .medium)
+        $0.textColor = .label
+        $0.font = .preferredFont(forTextStyle: .body)
         $0.textAlignment = .left
         $0.numberOfLines = 0
     }
@@ -66,23 +66,23 @@ class BMIViewController: UIViewController {
         
         scrollViewContainer.addSubview(bmiDescriptionLabel)
         bmiDescriptionLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(28)
-            $0.leading.trailing.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(16)
+            $0.leading.trailing.equalToSuperview().offset(24)
         }
         
         scrollViewContainer.addSubview(tableView)
         tableView.snp.makeConstraints {
-            $0.top.equalTo(bmiDescriptionLabel.snp.bottom).offset(36)
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(bmiDescriptionLabel.snp.bottom).offset(40)
+            $0.leading.trailing.equalToSuperview().inset(24)
             $0.height.greaterThanOrEqualTo(tableView.contentSize.height)
         }
         
         view.addSubview(completeButton)
         completeButton.snp.makeConstraints {
             $0.top.equalTo(scrollView.snp.bottom)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-28)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-52)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(56)
+            $0.height.equalTo(52)
         }
     }
     
