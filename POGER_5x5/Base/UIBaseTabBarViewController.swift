@@ -27,6 +27,7 @@ final class UIBaseTabBarController: UITabBarController {
         super.viewDidLoad()
         self.viewControllers = fetchRootViewControllers()
         self.setupTabBarController()
+        self.setupNavigationController()
     }
     
     private func setupTabBarController() {
@@ -38,21 +39,23 @@ final class UIBaseTabBarController: UITabBarController {
         //self.tabBar.items?.forEach { $0.image?.withTintColor(.white) }
     }
     
+    private func setupNavigationController() {
+        let style = NSMutableParagraphStyle()
+        style.firstLineHeadIndent = 8
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.paragraphStyle: style]
+    }
+    
     private func fetchRootViewControllers() -> [UINavigationController] {
-        return UIComponets.rootViewControllers.enumerated().map { index, rootViewController -> UINavigationController in
-            rootViewController.view.backgroundColor = .systemBackground
-            rootViewController.tabBarItem = UIComponets.tabBarItems[index]
-            
-            let navigationController = UINavigationController(rootViewController: rootViewController)
-            navigationController.navigationBar.topItem?.title = UIComponets.tabBarItems[index].title
-            navigationController.navigationBar.prefersLargeTitles = true
-            
-            let style = NSMutableParagraphStyle()
-            style.firstLineHeadIndent = 8
-            UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.paragraphStyle: style]
-            
-            return navigationController
-        }
+        return zip(UIComponets.rootViewControllers, UIComponets.tabBarItems)
+            .map { rootViewController, tabbarItem -> UINavigationController in
+                rootViewController.view.backgroundColor = .systemBackground
+                rootViewController.tabBarItem = tabbarItem
+                
+                return UINavigationController(rootViewController: rootViewController).then {
+                    $0.navigationBar.topItem?.title = tabbarItem.title
+                    $0.navigationBar.prefersLargeTitles = true
+                }
+            }
     }
 }
 
