@@ -20,12 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .systemBackground
         window?.overrideUserInterfaceStyle = UIUserInterfaceStyle.dark
-        let trainingViewController = TrainingViewController()
-        let navigationController = UINavigationController(rootViewController: trainingViewController)
-        window?.rootViewController = navigationController
-        let style = NSMutableParagraphStyle()
-        style.firstLineHeadIndent = 8
-        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.paragraphStyle: style]
+        window?.rootViewController = UIBaseTabBarController()
         window?.makeKeyAndVisible()
     }
 

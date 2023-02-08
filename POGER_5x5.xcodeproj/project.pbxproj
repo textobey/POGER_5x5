@@ -11,6 +11,8 @@
 		A60519D5298BA66B00557E7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60519D4298BA66B00557E7E /* SceneDelegate.swift */; };
 		A60519DC298BA66C00557E7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60519DB298BA66C00557E7E /* Assets.xcassets */; };
 		A60519DF298BA66C00557E7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60519DD298BA66C00557E7E /* LaunchScreen.storyboard */; };
+		A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */; };
+		A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */; };
 		A68E5F88298CA41100112ED7 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F87298CA41100112ED7 /* ReactorKit */; };
 		A68E5F8B298CA45000112ED7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F8A298CA45000112ED7 /* SnapKit */; };
 		A68E5F8E298CA48E00112ED7 /* RxKingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F8D298CA48E00112ED7 /* RxKingfisher */; };
@@ -45,6 +47,8 @@
 		A60519DB298BA66C00557E7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A60519DE298BA66C00557E7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A60519E0298BA66C00557E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseNavigationController.swift; sourceTree = "<group>"; };
+		A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTabBarViewController.swift; sourceTree = "<group>"; };
 		A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		A68E5F93298CA61E00112ED7 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		A68E5F95298CC20900112ED7 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			children = (
 				A60519E0298BA66C00557E7E /* Info.plist */,
 				A6BCAD93298BB12C0069ABA5 /* Application */,
+				A683743D29936C5C00A37A8D /* Base */,
 				A68E5F8F298CA5C800112ED7 /* Extension */,
 				A68E5F92298CA60C00112ED7 /* Foundation */,
 				A6BCAD95298BB1560069ABA5 /* Features */,
@@ -111,6 +116,15 @@
 				A68E5F9C298CCFE800112ED7 /* Supporting files */,
 			);
 			path = POGER_5x5;
+			sourceTree = "<group>";
+		};
+		A683743D29936C5C00A37A8D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */,
+				A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		A68E5F84298CA01A00112ED7 /* Start */ = {
@@ -345,6 +359,7 @@
 				A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */,
 				A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */,
 				A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */,
+				A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */,
 				A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */,
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
 				A6A519162990D348002CBC01 /* UIButton+.swift in Sources */,
@@ -352,6 +367,7 @@
 				A6AAEC902991E42300F15E21 /* LevelTrendViewController.swift in Sources */,
 				A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */,
 				A6CD390C298CFB9400FB5642 /* LevelCheckListCell.swift in Sources */,
+				A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */,
 				A60519D5298BA66B00557E7E /* SceneDelegate.swift in Sources */,
 				A6A5191C2990DF9D002CBC01 /* BMIViewController.swift in Sources */,
 				A68E5F94298CA61E00112ED7 /* Then.swift in Sources */,

@@ -18,23 +18,24 @@ class TrainingViewController: UIViewController {
         self.present(navigationController, animated: false)
     }()
     
-    let titleLabel = UILabel().then {
-        $0.text = "Training"
-        $0.textColor = .white
-        $0.font = .systemFont(ofSize: 22, weight: .bold)
-    }
+    //let titleLabel = UILabel().then {
+    //    $0.text = "Training"
+    //    $0.textColor = .white
+    //    $0.font = .systemFont(ofSize: 22, weight: .bold)
+    //}
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
+        //view.backgroundColor = .systemBackground
+        //view.addSubview(titleLabel)
+        //titleLabel.snp.makeConstraints {
+        //    $0.center.equalToSuperview()
+        //}
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        _ = takeOncePush
+        //MARK: - Start Guide Flow 잠시 비활성화
+        //_ = takeOncePush
     }
 }
