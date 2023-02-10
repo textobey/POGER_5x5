@@ -11,6 +11,8 @@
 		A60519D5298BA66B00557E7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60519D4298BA66B00557E7E /* SceneDelegate.swift */; };
 		A60519DC298BA66C00557E7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60519DB298BA66C00557E7E /* Assets.xcassets */; };
 		A60519DF298BA66C00557E7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60519DD298BA66C00557E7E /* LaunchScreen.storyboard */; };
+		A619F042299675F600BD55B6 /* TrainingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A619F041299675F600BD55B6 /* TrainingListCell.swift */; };
+		A619F0442996771800BD55B6 /* TrainingBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A619F0432996771800BD55B6 /* TrainingBoxCell.swift */; };
 		A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */; };
 		A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */; };
 		A68E5F88298CA41100112ED7 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F87298CA41100112ED7 /* ReactorKit */; };
@@ -47,6 +49,8 @@
 		A60519DB298BA66C00557E7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A60519DE298BA66C00557E7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A60519E0298BA66C00557E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A619F041299675F600BD55B6 /* TrainingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListCell.swift; sourceTree = "<group>"; };
+		A619F0432996771800BD55B6 /* TrainingBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoxCell.swift; sourceTree = "<group>"; };
 		A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseNavigationController.swift; sourceTree = "<group>"; };
 		A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTabBarViewController.swift; sourceTree = "<group>"; };
 		A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
@@ -118,6 +122,15 @@
 			path = POGER_5x5;
 			sourceTree = "<group>";
 		};
+		A619F0402996758F00BD55B6 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				A619F041299675F600BD55B6 /* TrainingListCell.swift */,
+				A619F0432996771800BD55B6 /* TrainingBoxCell.swift */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
 		A683743D29936C5C00A37A8D /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +172,7 @@
 		A68E5F97298CC57200112ED7 /* Training */ = {
 			isa = PBXGroup;
 			children = (
+				A619F0402996758F00BD55B6 /* Subview */,
 				A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */,
 			);
 			path = Training;
@@ -359,6 +373,7 @@
 				A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */,
 				A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */,
 				A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */,
+				A619F042299675F600BD55B6 /* TrainingListCell.swift in Sources */,
 				A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */,
 				A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */,
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
@@ -369,6 +384,7 @@
 				A6CD390C298CFB9400FB5642 /* LevelCheckListCell.swift in Sources */,
 				A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */,
 				A60519D5298BA66B00557E7E /* SceneDelegate.swift in Sources */,
+				A619F0442996771800BD55B6 /* TrainingBoxCell.swift in Sources */,
 				A6A5191C2990DF9D002CBC01 /* BMIViewController.swift in Sources */,
 				A68E5F94298CA61E00112ED7 /* Then.swift in Sources */,
 				A6A519222990E359002CBC01 /* ExpectedLevelViewController.swift in Sources */,

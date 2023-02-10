@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import SnapKit
 
 class TrainingViewController: UIViewController {
+    
+    var disposeBag = DisposeBag()
     
     /// run once
     private lazy var takeOncePush: Void = {
@@ -15,27 +20,42 @@ class TrainingViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: startViewController)
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: false)
+        self.present(navigationController, animated: true)
     }()
     
-    //let titleLabel = UILabel().then {
-    //    $0.text = "Training"
-    //    $0.textColor = .white
-    //    $0.font = .systemFont(ofSize: 22, weight: .bold)
-    //}
+    let tableView = DynamicHeightTableView().then {
+        $0.estimatedRowHeight = 44
+        $0.rowHeight = UITableView.automaticDimension
+        $0.backgroundColor = .clear
+        $0.register(TrainingListCell.self, forCellReuseIdentifier: TrainingListCell.identifier)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //view.backgroundColor = .systemBackground
-        //view.addSubview(titleLabel)
-        //titleLabel.snp.makeConstraints {
-        //    $0.center.equalToSuperview()
-        //}
+        setupLayout()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //MARK: - Start Guide Flow 잠시 비활성화
-        //_ = takeOncePush
+        _ = takeOncePush
+    }
+    
+    private func setupLayout() {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints {
+            $0.directionalEdges.equalToSuperview()
+        }
+    }
+    
+    private func bind() {
+        Observable.just(["DAY 1", "DAY 2", "DAY 3"])
+            .bind(to: tableView.rx.items(
+                cellIdentifier: TrainingListCell.identifier,
+                cellType: TrainingListCell.self)
+            ) { row, element, cell in
+                cell.configureCell(day: element)
+            }.disposed(by: disposeBag)
     }
 }
