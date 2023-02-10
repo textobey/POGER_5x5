@@ -10,6 +10,9 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
+//TODO: WEEK 1부터 12까지 구성하는 Swipable TabBar UI 만들기
+//TODO: CompositionalCollectionView 또는 StackView로 TrainingBoxCell 구조 변경하기
+
 class TrainingEnvironmentViewController: UIViewController {
     
     var disposeBag = DisposeBag()

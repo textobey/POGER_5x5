@@ -39,7 +39,7 @@ class TrainingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //MARK: - Start Guide Flow 잠시 비활성화
-        _ = takeOncePush
+        //_ = takeOncePush
     }
     
     private func setupLayout() {
