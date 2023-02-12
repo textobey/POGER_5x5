@@ -11,6 +11,7 @@
 		A60519D5298BA66B00557E7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60519D4298BA66B00557E7E /* SceneDelegate.swift */; };
 		A60519DC298BA66C00557E7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60519DB298BA66C00557E7E /* Assets.xcassets */; };
 		A60519DF298BA66C00557E7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60519DD298BA66C00557E7E /* LaunchScreen.storyboard */; };
+		A60B49262997DDF700565520 /* WeekCircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B49252997DDF700565520 /* WeekCircleCell.swift */; };
 		A619F042299675F600BD55B6 /* TrainingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A619F041299675F600BD55B6 /* TrainingListCell.swift */; };
 		A619F0442996771800BD55B6 /* TrainingBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A619F0432996771800BD55B6 /* TrainingBoxCell.swift */; };
 		A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */; };
@@ -49,6 +50,7 @@
 		A60519DB298BA66C00557E7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A60519DE298BA66C00557E7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A60519E0298BA66C00557E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A60B49252997DDF700565520 /* WeekCircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCircleCell.swift; sourceTree = "<group>"; };
 		A619F041299675F600BD55B6 /* TrainingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListCell.swift; sourceTree = "<group>"; };
 		A619F0432996771800BD55B6 /* TrainingBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoxCell.swift; sourceTree = "<group>"; };
 		A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseNavigationController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				A619F041299675F600BD55B6 /* TrainingListCell.swift */,
 				A619F0432996771800BD55B6 /* TrainingBoxCell.swift */,
+				A60B49252997DDF700565520 /* WeekCircleCell.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */,
 				A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */,
 				A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */,
+				A60B49262997DDF700565520 /* WeekCircleCell.swift in Sources */,
 				A619F042299675F600BD55B6 /* TrainingListCell.swift in Sources */,
 				A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */,
 				A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */,
