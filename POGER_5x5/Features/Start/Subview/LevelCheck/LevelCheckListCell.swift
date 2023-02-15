@@ -13,8 +13,6 @@ import SnapKit
 class LevelCheckListCell: UITableViewCell {
     
     // MARK: - stored properties
-    static let identifier = String(describing: LevelCheckListCell.self)
-    
     var disposeBag = DisposeBag()
     
     let wrapperView = UIView().then {

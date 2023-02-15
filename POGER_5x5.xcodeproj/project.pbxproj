@@ -38,6 +38,7 @@
 		A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */; };
 		A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3909298CE8A600FB5642 /* PickerButton.swift */; };
 		A6CD390C298CFB9400FB5642 /* LevelCheckListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD390B298CFB9400FB5642 /* LevelCheckListCell.swift */; };
+		CBE1DD58299C9504003E717D /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1DD57299C9504003E717D /* UITableViewCell+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +49,7 @@
 		A60519DE298BA66C00557E7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A60519E0298BA66C00557E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseNavigationController.swift; sourceTree = "<group>"; };
-		A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTabBarViewController.swift; sourceTree = "<group>"; };
+		A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = UIBaseTabBarViewController.swift; sourceTree = "<group>"; };
 		A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		A68E5F93298CA61E00112ED7 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		A68E5F95298CC20900112ED7 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 		A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCheckViewController.swift; sourceTree = "<group>"; };
 		A6CD3909298CE8A600FB5642 /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
 		A6CD390B298CFB9400FB5642 /* LevelCheckListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCheckListCell.swift; sourceTree = "<group>"; };
+		CBE1DD57299C9504003E717D /* UITableViewCell+.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */,
 				A6A519152990D348002CBC01 /* UIButton+.swift */,
 				A68E5F9A298CCFC200112ED7 /* UIFont+.swift */,
+				CBE1DD57299C9504003E717D /* UITableViewCell+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */,
 				A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */,
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
+				CBE1DD58299C9504003E717D /* UITableViewCell+.swift in Sources */,
 				A6A519162990D348002CBC01 /* UIButton+.swift in Sources */,
 				A68E5F91298CA5E900112ED7 /* UIViewController+Rx.swift in Sources */,
 				A6AAEC902991E42300F15E21 /* LevelTrendViewController.swift in Sources */,
