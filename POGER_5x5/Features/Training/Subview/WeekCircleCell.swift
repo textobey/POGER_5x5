@@ -54,4 +54,8 @@ class WeekCircleCell: UICollectionViewCell {
             $0.center.equalToSuperview()
         }
     }
+    
+    func configureCell(_ week: Week) {
+        weekLabel.text = week.number
+    }
 }

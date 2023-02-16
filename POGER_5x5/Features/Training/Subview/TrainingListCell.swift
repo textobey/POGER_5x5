@@ -12,9 +12,6 @@ import SnapKit
 
 class TrainingListCell: UITableViewCell {
     
-    // MARK: - stored properties
-    static let identifier = String(describing: TrainingListCell.self)
-    
     var disposeBag = DisposeBag()
     
     let dayLabel = UILabel().then {
@@ -73,6 +70,7 @@ class TrainingListCell: UITableViewCell {
         contentView.addSubview(collectionView)
         collectionView.snp.makeConstraints {
             $0.top.equalTo(dayLabel.snp.bottom).offset(18)
+            $0.leading.trailing.equalToSuperview().inset(24)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-22)
             $0.height.equalTo(100)
