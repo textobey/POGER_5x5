@@ -15,8 +15,8 @@
 		A614B287299CB03300B9652D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A614B286299CB03300B9652D /* Kingfisher */; };
 		A614B28A299CB05600B9652D /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = A614B289299CB05600B9652D /* RxDataSources */; };
 		A614B28D299CB0B600B9652D /* TrainingSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */; };
-		A619F042299675F600BD55B6 /* TrainingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A619F041299675F600BD55B6 /* TrainingListCell.swift */; };
 		A619F0442996771800BD55B6 /* TrainingBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A619F0432996771800BD55B6 /* TrainingBoxCell.swift */; };
+		A6301757299F1DB60014DBF2 /* TrainingBoxHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6301756299F1DB60014DBF2 /* TrainingBoxHeaderView.swift */; };
 		A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */; };
 		A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */; };
 		A68E5F88298CA41100112ED7 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F87298CA41100112ED7 /* ReactorKit */; };
@@ -55,8 +55,8 @@
 		A60519E0298BA66C00557E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A60B49252997DDF700565520 /* WeekCircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCircleCell.swift; sourceTree = "<group>"; };
 		A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSectionModel.swift; sourceTree = "<group>"; };
-		A619F041299675F600BD55B6 /* TrainingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListCell.swift; sourceTree = "<group>"; };
 		A619F0432996771800BD55B6 /* TrainingBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoxCell.swift; sourceTree = "<group>"; };
+		A6301756299F1DB60014DBF2 /* TrainingBoxHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoxHeaderView.swift; sourceTree = "<group>"; };
 		A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseNavigationController.swift; sourceTree = "<group>"; };
 		A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTabBarViewController.swift; sourceTree = "<group>"; };
 		A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
@@ -142,11 +142,18 @@
 		A619F0402996758F00BD55B6 /* Subview */ = {
 			isa = PBXGroup;
 			children = (
-				A619F041299675F600BD55B6 /* TrainingListCell.swift */,
+				A6301756299F1DB60014DBF2 /* TrainingBoxHeaderView.swift */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
+		A6301755299F1DA00014DBF2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 				A619F0432996771800BD55B6 /* TrainingBoxCell.swift */,
 				A60B49252997DDF700565520 /* WeekCircleCell.swift */,
 			);
-			path = Subview;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		A683743D29936C5C00A37A8D /* Base */ = {
@@ -191,6 +198,7 @@
 		A68E5F97298CC57200112ED7 /* Training */ = {
 			isa = PBXGroup;
 			children = (
+				A6301755299F1DA00014DBF2 /* Cell */,
 				A619F0402996758F00BD55B6 /* Subview */,
 				A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */,
 			);
@@ -395,8 +403,8 @@
 				A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */,
 				A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */,
 				A60B49262997DDF700565520 /* WeekCircleCell.swift in Sources */,
-				A619F042299675F600BD55B6 /* TrainingListCell.swift in Sources */,
 				A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */,
+				A6301757299F1DB60014DBF2 /* TrainingBoxHeaderView.swift in Sources */,
 				A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */,
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
 				A614B28D299CB0B600B9652D /* TrainingSectionModel.swift in Sources */,

@@ -31,16 +31,6 @@ extension TrainingViewSection: SectionModelType {
     
     typealias Item = TrainingViewSectionItem
     
-    var days: String {
-        switch self {
-        case .week:
-            return ""
-            
-        case .training(let day, _):
-            return day
-        }
-    }
-    
     var items: [TrainingViewSectionItem] {
         switch self {
         case .week(let items):
