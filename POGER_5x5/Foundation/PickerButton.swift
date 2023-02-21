@@ -142,16 +142,19 @@ class PickerButton: UIButton {
             }).disposed(by: disposeBag)
     }
     
-    private func closePickerView() {
+    func closePickerView() {
+        DispatchQueue.main.async {
+            self.titleLabel?.textColor = .secondaryLabel
+        }
         resignFirstResponder()
     }
     
     /// Close the picker view
-    private func didTapClose(_ button: UIBarButtonItem) {
+    func didTapClose(_ button: UIBarButtonItem) {
         closePickerView()
     }
     
-    private func didTapDone() {
+    func didTapDone() {
         let row = pickerView.selectedRow(inComponent: pickerView.numberOfComponents - 1)
         //delegate?.pickerView(pickerView, titleForRow: row)
         if let title = pickerView.delegate?.pickerView?(pickerView, titleForRow: row, forComponent: pickerView.numberOfComponents) {
@@ -163,7 +166,10 @@ class PickerButton: UIButton {
     }
     
     /// Open the picker view
-    private func didTapButton() {
+    func didTapButton() {
+        DispatchQueue.main.async {
+            self.titleLabel?.textColor = .systemBlue
+        }
         becomeFirstResponder()
     }
 }

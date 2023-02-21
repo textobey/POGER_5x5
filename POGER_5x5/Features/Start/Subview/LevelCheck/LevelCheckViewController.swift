@@ -88,17 +88,21 @@ class LevelCheckViewController: UIViewController {
     }
     
     private func bind() {
-        Observable.just(["스쿼트", "벤치프레스", "데드리프트", "펜들레이로우", "오버헤드프레스"])
+        Observable.just(R.strengths)
             .bind(to: tableView.rx.items(
                 cellIdentifier: LevelCheckListCell.identifier,
                 cellType: LevelCheckListCell.self)
             ) { row, element, cell in
                 cell.configureCell(type: element)
-//                cell.bookmarkTap
-//                    .map { NewBookReactor.Action.bookmark($0, bookItem) }
-//                    .bind(to: reactor.action)
-//                    .disposed(by: cell.disposeBag)
             }.disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .withUnretained(self)
+            .subscribe(onNext: { owner, indexPath in
+                let cell = owner.tableView.cellForRow(at: indexPath) as! LevelCheckListCell
+                cell.pickerButton.didTapButton()
+            })
+            .disposed(by: disposeBag)
         
         nextButton.rx.tap
             .withUnretained(self)

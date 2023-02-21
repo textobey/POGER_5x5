@@ -26,11 +26,18 @@ class LevelCheckListCell: UITableViewCell {
     }
 
     lazy var pickerButton = PickerButton().then {
-        $0.setTitle("선택", for: .normal)
+        $0.setTitle("20", for: .normal)
         $0.setTitleColor(UIColor.secondaryLabel, for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
         $0.pickerViewDelegate = self
         $0.pickerViewDataSource = self
+    }
+    
+    let kgLabel = UILabel().then {
+        $0.text = "KG"
+        $0.textAlignment = .right
+        $0.textColor = .secondaryLabel
+        $0.font = .systemFont(ofSize: 16, weight: .regular)
     }
     
     // MARK: - initialze method
@@ -65,9 +72,15 @@ class LevelCheckListCell: UITableViewCell {
             $0.top.bottom.equalToSuperview().inset(12)
         }
         
+        wrapperView.addSubview(kgLabel)
+        kgLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.centerY.equalToSuperview()
+        }
+        
         wrapperView.addSubview(pickerButton)
         pickerButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(-16)
+            $0.trailing.equalTo(kgLabel.snp.leading).offset(-2)
             $0.centerY.equalToSuperview()
         }
     }

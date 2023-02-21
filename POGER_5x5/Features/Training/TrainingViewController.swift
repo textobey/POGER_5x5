@@ -86,7 +86,7 @@ class TrainingViewController: UIViewController {
         super.viewWillAppear(animated)
         //MARK: - Start Guide Flow 잠시 비활성화
         //TODO: 초기 실행시, TrainingViewController 잠시 표시된 이후에 present 되는 문제 해결
-        //_ = takeOncePush
+        _ = takeOncePush
     }
     
     private func setupLayout() {
