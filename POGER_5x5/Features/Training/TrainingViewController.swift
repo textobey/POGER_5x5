@@ -108,12 +108,12 @@ class TrainingViewController: UIViewController {
             }
         
         let trainingItem: [TrainingViewSectionItem] = [
-            .training(Training(name: "데드리프트", weight: "50")),
-            .training(Training(name: "스쿼트", weight: "50")),
-            .training(Training(name: "벤치프레스", weight: "50")),
-            .training(Training(name: "펜들레이로우", weight: "50")),
-            .training(Training(name: "하이바", weight: "50")),
-            .training(Training(name: "오버헤드프레스", weight: "50")),
+            .training(Training2(name: "데드리프트", weight: "50")),
+            .training(Training2(name: "스쿼트", weight: "50")),
+            .training(Training2(name: "벤치프레스", weight: "50")),
+            .training(Training2(name: "펜들레이로우", weight: "50")),
+            .training(Training2(name: "하이바", weight: "50")),
+            .training(Training2(name: "오버헤드프레스", weight: "50")),
         ]
         
         let sections: [TrainingViewSection] = [

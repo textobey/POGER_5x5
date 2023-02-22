@@ -8,7 +8,7 @@
 import Foundation
 import RxDataSources
 
-struct Training {
+struct Training2 {
     let name: String
     let weight: String
 }
@@ -24,7 +24,7 @@ enum TrainingViewSection {
 
 enum TrainingViewSectionItem {
     case week(Week)
-    case training(Training)
+    case training(Training2)
 }
 
 extension TrainingViewSection: SectionModelType {

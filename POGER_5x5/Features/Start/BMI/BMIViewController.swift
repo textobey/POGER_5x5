@@ -25,7 +25,7 @@ class BMIViewController: UIViewController {
     }
     
     let bmiDescriptionLabel = UILabel().then {
-        $0.text = "개인 정보 입력은 필수로 요구되지 않아요.\n개인 정보를 입력할 경우 개인별 프로그램 레벨을 확인할 수 있어요."
+        $0.text = "개인 정보를 입력할 경우 적절한 트레이닝 중량을 설정해드려요.\n개인 정보는 이 외 다른 목적으로는 이용되지 않아요."
         $0.textColor = .label
         $0.font = .preferredFont(forTextStyle: .body)
         $0.textAlignment = .left
@@ -38,7 +38,7 @@ class BMIViewController: UIViewController {
         $0.rowHeight = UITableView.automaticDimension
         $0.backgroundColor = .secondarySystemBackground
         $0.layer.cornerRadius = 12
-        $0.register(LevelCheckListCell.self, forCellReuseIdentifier: LevelCheckListCell.identifier)
+        $0.register(InputListCell.self, forCellReuseIdentifier: InputListCell.identifier)
     }
     
     let completeButton = UIButton.commonButton(title: "완료")
@@ -67,7 +67,7 @@ class BMIViewController: UIViewController {
         scrollViewContainer.addSubview(bmiDescriptionLabel)
         bmiDescriptionLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(16)
-            $0.leading.trailing.equalToSuperview().offset(24)
+            $0.leading.trailing.equalToSuperview().inset(24)
         }
         
         scrollViewContainer.addSubview(tableView)
@@ -87,12 +87,12 @@ class BMIViewController: UIViewController {
     }
     
     private func bind() {
-        Observable.just(["성별", "신장", "체중"])
+        Observable.just(Personal.allCases)
             .bind(to: tableView.rx.items(
-                cellIdentifier: LevelCheckListCell.identifier,
-                cellType: LevelCheckListCell.self)
+                cellIdentifier: InputListCell.identifier,
+                cellType: InputListCell.self)
             ) { row, element, cell in
-                cell.configureCell(type: element)
+                cell.configureCell(model: element)
             }.disposed(by: disposeBag)
         
         completeButton.rx.tap

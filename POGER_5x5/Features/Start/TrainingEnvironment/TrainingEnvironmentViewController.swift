@@ -28,7 +28,7 @@ class TrainingEnvironmentViewController: UIViewController {
     }
     
     let trainingEnvironmentDescriptionLabel = UILabel().then {
-        $0.text = "진행될 프로그램에 필요한 훈련 환경을 입력해주세요.\n처음 입력된 값은 훈련의 기본 권장값이에요."
+        $0.text = "진행될 프로그램에 필요한 훈련 환경을 입력해주세요.\n처음 입력된 값은 권장값으로 바꾸지 않으시는걸 추천드려요."
         $0.textColor = .label
         $0.font = .preferredFont(forTextStyle: .body)
         $0.textAlignment = .left
@@ -41,7 +41,7 @@ class TrainingEnvironmentViewController: UIViewController {
         $0.rowHeight = UITableView.automaticDimension
         $0.backgroundColor = .secondarySystemBackground
         $0.layer.cornerRadius = 12
-        $0.register(LevelCheckListCell.self, forCellReuseIdentifier: LevelCheckListCell.identifier)
+        $0.register(InputListCell.self, forCellReuseIdentifier: InputListCell.identifier)
     }
     
     let nextButton = UIButton.commonButton(title: "계속")
@@ -70,7 +70,7 @@ class TrainingEnvironmentViewController: UIViewController {
         scrollViewContainer.addSubview(trainingEnvironmentDescriptionLabel)
         trainingEnvironmentDescriptionLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(16)
-            $0.leading.trailing.equalToSuperview().offset(30)
+            $0.leading.trailing.equalToSuperview().inset(24)
         }
         
         scrollViewContainer.addSubview(tableView)
@@ -90,12 +90,12 @@ class TrainingEnvironmentViewController: UIViewController {
     }
     
     private func bind() {
-        Observable.just(["횟수", "세트간 무게차이", "가장 작은 원판의 무게", "본인의 기록과 같아지는 훈련의 주"])
+        Observable.just(Precondition.allCases)
             .bind(to: tableView.rx.items(
-                cellIdentifier: LevelCheckListCell.identifier,
-                cellType: LevelCheckListCell.self)
+                cellIdentifier: InputListCell.identifier,
+                cellType: InputListCell.self)
             ) { row, element, cell in
-                cell.configureCell(type: element)
+                cell.configureCell(model: element)
             }.disposed(by: disposeBag)
         
         nextButton.rx.tap

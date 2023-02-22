@@ -25,7 +25,7 @@ class ExpectedLevelViewController: UIViewController {
     }
     
     let expectedLevelDescriptionLabel = UILabel().then {
-        $0.text = "입력된 값을 바탕으로 구성된 예상 기록을 확인해보세요!"
+        $0.text = "입력된 값을 바탕으로 구성된 예상 스트렝스 레벨과\n기록을 확인해보세요!"
         $0.textColor = .label
         $0.font = .preferredFont(forTextStyle: .body)
         $0.textAlignment = .left
@@ -66,7 +66,7 @@ class ExpectedLevelViewController: UIViewController {
         scrollViewContainer.addSubview(expectedLevelDescriptionLabel)
         expectedLevelDescriptionLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(16)
-            $0.leading.trailing.equalToSuperview().offset(24)
+            $0.leading.trailing.equalToSuperview().inset(24)
         }
         
         scrollViewContainer.addSubview(stackView)

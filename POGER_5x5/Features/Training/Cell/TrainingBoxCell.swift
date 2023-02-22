@@ -80,7 +80,7 @@ class TrainingBoxCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(_ training: Training) {
+    func configureCell(_ training: Training2) {
         //dayLabel.text = training.number
         trainingName.text = training.name
         weightLabel.text = training.weight + "KG"

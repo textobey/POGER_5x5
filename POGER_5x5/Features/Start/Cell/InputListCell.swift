@@ -1,8 +1,8 @@
 //
-//  LevelCheckListCell.swift
+//  InputListCell.swift
 //  POGER_5x5
 //
-//  Created by 이서준 on 2023/02/03.
+//  Created by 이서준 on 2023/02/22.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class LevelCheckListCell: UITableViewCell {
+class InputListCell: UITableViewCell {
     
     // MARK: - stored properties
     var disposeBag = DisposeBag()
@@ -20,24 +20,18 @@ class LevelCheckListCell: UITableViewCell {
     }
     
     let typeLabel = UILabel().then {
-        $0.text = "type"
+        $0.text = "주제"
         $0.textColor = .label
         $0.font = .preferredFont(forTextStyle: .body)
     }
 
-    lazy var pickerButton: PickerButton = {
-        let model = PickerButtonModel(
-            dataSource: R.Weight.weightDataSource.map { "\($0)" },
-            unit: "KG"
-        )
-        return PickerButton(model: model).then {
-            $0.setTitle("20 KG", for: .normal)
-            $0.titleLabel?.textAlignment = .right
-            $0.contentHorizontalAlignment = .right
-            $0.setTitleColor(UIColor.secondaryLabel, for: .normal)
-            $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
-        }
-    }()
+    let pickerButton = PickerButton().then {
+        $0.setTitle("선택", for: .normal)
+        $0.titleLabel?.textAlignment = .right
+        $0.contentHorizontalAlignment = .right
+        $0.setTitleColor(UIColor.secondaryLabel, for: .normal)
+        $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
+    }
     
     // MARK: - initialze method
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -88,7 +82,9 @@ class LevelCheckListCell: UITableViewCell {
             .disposed(by: disposeBag)
     }
     
-    func configureCell(type: String) {
-        typeLabel.text = type
+    func configureCell(model: InputRequirable) {
+        typeLabel.text = model.category
+        pickerButton.setTitle(model.placeholder, for: .normal)
+        pickerButton.modelStream.accept(model)
     }
 }

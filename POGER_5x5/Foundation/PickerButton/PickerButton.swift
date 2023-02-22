@@ -10,17 +10,11 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-
-struct PickerButtonModel {
-    var dataSource: [String]
-    var unit: String
-}
-
 class PickerButton: UIButton {
     
     private let disposeBag = DisposeBag()
-
-    let model: PickerButtonModel
+    
+    let modelStream = PublishRelay<InputRequirable>()
     
     let pickerView = UIPickerView().then {
         $0.backgroundColor = .secondarySystemBackground
@@ -47,9 +41,8 @@ class PickerButton: UIButton {
         return true
     }
     
-    init(model: PickerButtonModel) {
-        self.model = model
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         bindRx()
     }
     
@@ -60,10 +53,9 @@ class PickerButton: UIButton {
     // MARK: - Private Methods
     
     private func bindRx() {
-        Observable.just(model.dataSource)
-            .bind(to: pickerView.rx.itemTitles) { _, item in
-                return item
-            }
+        modelStream
+            .map { $0.dataSource }
+            .bind(to: pickerView.rx.itemTitles) { $1 }
             .disposed(by: disposeBag)
         
         self.rx.tap
@@ -73,9 +65,13 @@ class PickerButton: UIButton {
             }).disposed(by: disposeBag)
         
         toolbar.doneButton.rx.tap
+            .withLatestFrom(modelStream)
+            .map {  $0.unit }
             .withUnretained(self)
-            .subscribe(onNext: { owner, _ in
-                owner.didTapDone()
+            .subscribe(onNext: { owner, unit in
+                let result = owner.didTapDone()
+                owner.setTitle(result + " " + unit, for: .normal)
+                owner.closePickerView()
             })
             .disposed(by: disposeBag)
         
@@ -101,15 +97,14 @@ class PickerButton: UIButton {
         closePickerView()
     }
     
-    private func didTapDone() {
+    private func didTapDone() -> String {
         let row = pickerView.selectedRow(inComponent: pickerView.numberOfComponents - 1)
-        //delegate?.pickerView(pickerView, titleForRow: row)
         if let title = pickerView.delegate?.pickerView?(pickerView, titleForRow: row, forComponent: pickerView.numberOfComponents) {
-            setTitle(title + " " + model.unit, for: .normal)
+            return title
         } else {
             assertionFailure("Failed to get pickerView value.")
+            return ""
         }
-        closePickerView()
     }
     
     /// Open the picker view

@@ -38,7 +38,7 @@ class LevelCheckViewController: UIViewController {
         $0.rowHeight = UITableView.automaticDimension
         $0.backgroundColor = .secondarySystemBackground
         $0.layer.cornerRadius = 12
-        $0.register(LevelCheckListCell.self, forCellReuseIdentifier: LevelCheckListCell.identifier)
+        $0.register(InputListCell.self, forCellReuseIdentifier: InputListCell.identifier)
     }
     
     let nextButton = UIButton.commonButton(title: "계속")
@@ -67,7 +67,7 @@ class LevelCheckViewController: UIViewController {
         scrollViewContainer.addSubview(levelCheckDescriptionLabel)
         levelCheckDescriptionLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(16)
-            $0.leading.trailing.equalToSuperview().offset(24)
+            $0.leading.trailing.equalToSuperview().inset(24)
         }
         
         scrollViewContainer.addSubview(tableView)
@@ -88,12 +88,12 @@ class LevelCheckViewController: UIViewController {
     }
     
     private func bind() {
-        Observable.just(R.strengths)
+        Observable.just(Training.allCases)
             .bind(to: tableView.rx.items(
-                cellIdentifier: LevelCheckListCell.identifier,
-                cellType: LevelCheckListCell.self)
+                cellIdentifier: InputListCell.identifier,
+                cellType: InputListCell.self)
             ) { row, element, cell in
-                cell.configureCell(type: element)
+                cell.configureCell(model: element)
             }.disposed(by: disposeBag)
         
         nextButton.rx.tap
