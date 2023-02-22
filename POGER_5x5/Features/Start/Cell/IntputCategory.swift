@@ -49,9 +49,9 @@ enum Precondition: String, InputRequirable, CaseIterable {
     var dataSource: [String] {
         switch self {
         case .rep: return R.Weight.repDataSource.map { "\($0)" }
-        case .weightGap: return []
+        case .weightGap: return R.Weight.weightGapDataSource.map { "\($0)" }
         case .minimumPlate: return R.Weight.minPlateDataSource.map { "\($0)" }
-        case .originalLevel: return []
+        case .originalLevel: return R.Weight.originalLevelDataSource.map { "\($0)" }
         }
     }
     
@@ -67,7 +67,7 @@ enum Precondition: String, InputRequirable, CaseIterable {
     var unit: String {
         switch self {
         case .rep: return R.Unit.rep
-        case .weightGap: return R.Unit.kg
+        case .weightGap: return R.Unit.per
         case .minimumPlate: return R.Unit.kg
         case .originalLevel: return R.Unit.week
         }

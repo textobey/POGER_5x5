@@ -86,5 +86,17 @@ class InputListCell: UITableViewCell {
         typeLabel.text = model.category
         pickerButton.setTitle(model.placeholder, for: .normal)
         pickerButton.modelStream.accept(model)
+        selectDefaultRow(model)
+    }
+
+    private func selectDefaultRow(_ model: InputRequirable) {
+        let placeholder = model.placeholder.replacingOccurrences(
+            of: model.unit,
+            with: ""
+        ).trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if let row = model.dataSource.firstIndex(of: placeholder) {
+            pickerButton.pickerView.selectRow(row, inComponent: 0, animated: false)
+        }
     }
 }
