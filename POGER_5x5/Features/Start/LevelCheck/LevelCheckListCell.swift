@@ -25,25 +25,25 @@ class LevelCheckListCell: UITableViewCell {
         $0.font = .preferredFont(forTextStyle: .body)
     }
 
-    lazy var pickerButton = PickerButton().then {
-        $0.setTitle("20", for: .normal)
-        $0.setTitleColor(UIColor.secondaryLabel, for: .normal)
-        $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
-        $0.pickerViewDelegate = self
-        $0.pickerViewDataSource = self
-    }
-    
-    let kgLabel = UILabel().then {
-        $0.text = "KG"
-        $0.textAlignment = .right
-        $0.textColor = .secondaryLabel
-        $0.font = .systemFont(ofSize: 16, weight: .regular)
-    }
+    lazy var pickerButton: PickerButton = {
+        let model = PickerButtonModel(
+            dataSource: R.Weight.weightDataSource.map { "\($0)" },
+            unit: "KG"
+        )
+        return PickerButton(model: model).then {
+            $0.setTitle("20 KG", for: .normal)
+            $0.titleLabel?.textAlignment = .right
+            $0.contentHorizontalAlignment = .right
+            $0.setTitleColor(UIColor.secondaryLabel, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
+        }
+    }()
     
     // MARK: - initialze method
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
+        bindRx()
     }
 
     required init?(coder: NSCoder) {
@@ -72,43 +72,23 @@ class LevelCheckListCell: UITableViewCell {
             $0.top.bottom.equalToSuperview().inset(12)
         }
         
-        wrapperView.addSubview(kgLabel)
-        kgLabel.snp.makeConstraints {
+        wrapperView.addSubview(pickerButton)
+        pickerButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
             $0.centerY.equalToSuperview()
         }
-        
-        wrapperView.addSubview(pickerButton)
-        pickerButton.snp.makeConstraints {
-            $0.trailing.equalTo(kgLabel.snp.leading).offset(-2)
-            $0.centerY.equalToSuperview()
-        }
+    }
+    
+    private func bindRx() {
+        pickerButton.pickerView.rx.modelSelected(String.self)
+            .subscribe(onNext: { model in
+                print(model)
+            })
+            .disposed(by: disposeBag)
     }
     
     func configureCell(type: String) {
         typeLabel.text = type
     }
 }
-
-extension LevelCheckListCell: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return R.Weight.weightDataSource.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(R.Weight.weightDataSource[row])"
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("didSelect", R.Weight.weightDataSource[row])
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow: Int) {
-        print("Done Button Detected", R.Weight.weightDataSource[titleForRow])
-    }
-}
-

@@ -96,14 +96,6 @@ class LevelCheckViewController: UIViewController {
                 cell.configureCell(type: element)
             }.disposed(by: disposeBag)
         
-        tableView.rx.itemSelected
-            .withUnretained(self)
-            .subscribe(onNext: { owner, indexPath in
-                let cell = owner.tableView.cellForRow(at: indexPath) as! LevelCheckListCell
-                cell.pickerButton.didTapButton()
-            })
-            .disposed(by: disposeBag)
-        
         nextButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in

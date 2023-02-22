@@ -10,6 +10,7 @@ import Foundation
 struct R {
     struct Margin { }
     struct Weight { }
+    struct Unit { }
 }
 
 extension R {
@@ -28,4 +29,12 @@ extension R.Weight {
     static let minPlateDataSource: [CGFloat] = [1.25, 2.5, 5, 10]
     static let humanHeightDataSource: [Int] = Array(0 ..< 300)
     static let humanWeightDataSource: [Int] = Array(0 ..< 300)
+}
+
+extension R.Unit {
+    static let kg = "KG"
+    static let cm = "CM"
+    static let rep = "회"
+    static let day = "일"
+    static let week = "주"
 }

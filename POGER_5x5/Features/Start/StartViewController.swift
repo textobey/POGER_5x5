@@ -18,19 +18,6 @@ class StartViewController: UIViewController {
         $0.image = UIImage(named: "splash_logo_dark")
     }
     
-    //*Deprecated. 후에 UILabel 사용시 이것으로 변경
-    //let logoWrapperView = UIView().then {
-    //    $0.backgroundColor = .clear
-    //}
-    //
-    //let logoTitle = UILabel().then {
-    //    $0.text = "5x5\nPOGER"
-    //    $0.textColor = .label
-    //    $0.font = .systemFont(ofSize: 96, weight: .bold)
-    //    $0.textAlignment = .center
-    //    $0.numberOfLines = 0
-    //}
-    
     let nextButton = UIButton.commonButton(title: "시작하기")
     
     override func viewDidLoad() {
@@ -82,14 +69,4 @@ class StartViewController: UIViewController {
             }
         }
     }
-    
-    //LaunchScreen.storyboard 에서는 CustomFont 사용불가
-    //private func setAttributedText() {
-    //    let attrString = NSMutableAttributedString(string: "5x5\nPOGER")
-    //    attrString.addAttributes(
-    //        [.font: UIFont.montserrat(size: 48, style: .regular)],
-    //        range: (attrString.string as NSString).range(of: "POGER")
-    //    )
-    //    logoLabel.attributedText = attrString
-    //}
 }
