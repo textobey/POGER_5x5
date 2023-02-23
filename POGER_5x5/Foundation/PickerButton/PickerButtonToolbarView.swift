@@ -22,7 +22,7 @@ class PickerButtonToolbarView: UIView {
     }
     
     let doneButton = UIButton().then {
-        $0.setTitle("Done", for: .normal)
+        $0.setTitle("완료", for: .normal)
         $0.setTitleColor(UIColor.label, for: .normal)
         $0.titleLabel?.font = .preferredFont(forTextStyle: .callout)
     }
@@ -51,7 +51,7 @@ class PickerButtonToolbarView: UIView {
         
         toolbarWrapper.addSubview(doneButton)
         doneButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(-12)
+            $0.trailing.equalToSuperview().offset(-24)
             $0.centerY.equalToSuperview()
         }
     }

@@ -11,9 +11,22 @@ import RxCocoa
 import SnapKit
 
 class InputListCell: UITableViewCell {
-    
+
     // MARK: - stored properties
+    
     var disposeBag = DisposeBag()
+    
+    let selectedRawValue = BehaviorRelay<String?>(value: nil)
+    
+    var model: Questionnaire? {
+        willSet {
+            guard let newValue = newValue else { return }
+            typeLabel.text = newValue.category
+            pickerButton.setTitle(newValue.placeholder, for: .normal)
+            pickerButton.modelStream.accept(newValue)
+            selectDefaultRow(newValue)
+        }
+    }
     
     let wrapperView = UIView().then {
         $0.backgroundColor = .secondarySystemBackground
@@ -76,26 +89,15 @@ class InputListCell: UITableViewCell {
     
     private func bindRx() {
         pickerButton.pickerView.rx.modelSelected(String.self)
-            .subscribe(onNext: { model in
-                print(model)
-            })
+            .map { $0.first }
+            .bind(to: selectedRawValue)
             .disposed(by: disposeBag)
     }
-    
-    func configureCell(model: InputRequirable) {
-        typeLabel.text = model.category
-        pickerButton.setTitle(model.placeholder, for: .normal)
-        pickerButton.modelStream.accept(model)
-        selectDefaultRow(model)
-    }
 
-    private func selectDefaultRow(_ model: InputRequirable) {
-        let placeholder = model.placeholder.replacingOccurrences(
-            of: model.unit,
-            with: ""
-        ).trimmingCharacters(in: .whitespacesAndNewlines)
+    private func selectDefaultRow(_ model: Questionnaire) {
+        let rawValue = model.filterUnit()
         
-        if let row = model.dataSource.firstIndex(of: placeholder) {
+        if let row = model.dataSource.firstIndex(of: rawValue) {
             pickerButton.pickerView.selectRow(row, inComponent: 0, animated: false)
         }
     }

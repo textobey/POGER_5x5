@@ -14,7 +14,9 @@ class PickerButton: UIButton {
     
     private let disposeBag = DisposeBag()
     
-    let modelStream = PublishRelay<InputRequirable>()
+    let modelStream = PublishRelay<Questionnaire>()
+    
+    let didTapButtonStream = PublishRelay<Void>()
     
     let pickerView = UIPickerView().then {
         $0.backgroundColor = .secondarySystemBackground
@@ -58,11 +60,12 @@ class PickerButton: UIButton {
             .bind(to: pickerView.rx.itemTitles) { $1 }
             .disposed(by: disposeBag)
         
-        self.rx.tap
+        didTapButtonStream
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
                 owner.didTapButton()
-            }).disposed(by: disposeBag)
+            })
+            .disposed(by: disposeBag)
         
         toolbar.doneButton.rx.tap
             .withLatestFrom(modelStream)

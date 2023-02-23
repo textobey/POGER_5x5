@@ -7,20 +7,29 @@
 
 import Foundation
 
-protocol InputRequirable {
+protocol Questionnaire {
     var category: String { get }
     var dataSource: [String] { get }
     var placeholder: String { get }
     var unit: String { get }
+    var alertMessage: String? { get }
+    func filterUnit() -> String
 }
 
-extension InputRequirable where Self: RawRepresentable, RawValue == String {
+extension Questionnaire where Self: RawRepresentable, RawValue == String {
     var category: String {
         return rawValue
     }
+    
+    func filterUnit() -> String {
+        return placeholder.replacingOccurrences(
+            of: unit,
+            with: ""
+        ).trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 }
 
-enum Training: String, InputRequirable, CaseIterable {
+enum Training: String, Questionnaire, CaseIterable {
     case squat = "스쿼트"
     case benchpress = "벤치프레스"
     case deadlift = "데드리프트"
@@ -28,21 +37,25 @@ enum Training: String, InputRequirable, CaseIterable {
     case overheadpress = "오버헤드프레스"
     
     var dataSource: [String] {
-        R.Weight.weightDataSource.map { "\($0)" }
+        return R.Weight.weightDataSource.map { "\($0)" }
     }
     
     var placeholder: String {
-        "20 KG"
+        return "20 KG"
     }
     
     var unit: String {
-        R.Unit.kg
+        return R.Unit.kg
+    }
+    
+    var alertMessage: String? {
+        return nil
     }
 }
 
-enum Precondition: String, InputRequirable, CaseIterable {
+enum Precondition: String, Questionnaire, CaseIterable {
     case rep = "횟수"
-    case weightGap = "세트간 무게차이"
+    case weightGap = "세트 간 무게차이"
     case minimumPlate = "가장 작은 원판의 무게"
     case originalLevel = "본인의 기록과 같아지는 훈련의 주"
     
@@ -72,9 +85,17 @@ enum Precondition: String, InputRequirable, CaseIterable {
         case .originalLevel: return R.Unit.week
         }
     }
+    
+    var alertMessage: String? {
+        return "정말로 설정된 권장 값을 변경하시겠어요?"
+    }
+    
+    //func isEqual(_ compare: Questionnaire) -> Bool {
+    //    return self.category == compare.category && self.filterUnit() == compare.filterUnit()
+    //}
 }
 
-enum Personal: String, InputRequirable, CaseIterable {
+enum Personal: String, Questionnaire, CaseIterable {
     case gender = "성별"
     case height = "신장"
     case weight = "체중"
@@ -101,5 +122,9 @@ enum Personal: String, InputRequirable, CaseIterable {
         case .weight: return R.Unit.cm
         case .height: return R.Unit.kg
         }
+    }
+    
+    var alertMessage: String? {
+        return nil
     }
 }

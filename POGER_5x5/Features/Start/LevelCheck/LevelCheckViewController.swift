@@ -93,7 +93,11 @@ class LevelCheckViewController: UIViewController {
                 cellIdentifier: InputListCell.identifier,
                 cellType: InputListCell.self)
             ) { row, element, cell in
-                cell.configureCell(model: element)
+                cell.model = element
+                
+                cell.pickerButton.rx.tap
+                    .bind(to: cell.pickerButton.didTapButtonStream)
+                    .disposed(by: cell.disposeBag)
             }.disposed(by: disposeBag)
         
         nextButton.rx.tap

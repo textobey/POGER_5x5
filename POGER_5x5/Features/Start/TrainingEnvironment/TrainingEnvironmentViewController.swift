@@ -10,9 +10,6 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
-//TODO: WEEK 1부터 12까지 구성하는 Swipable TabBar UI 만들기
-//TODO: CompositionalCollectionView 또는 StackView로 TrainingBoxCell 구조 변경하기
-
 class TrainingEnvironmentViewController: UIViewController {
     
     var disposeBag = DisposeBag()
@@ -95,7 +92,20 @@ class TrainingEnvironmentViewController: UIViewController {
                 cellIdentifier: InputListCell.identifier,
                 cellType: InputListCell.self)
             ) { row, element, cell in
-                cell.configureCell(model: element)
+                cell.model = element
+                
+                cell.pickerButton.rx.tap
+                    .withUnretained(self)
+                    .subscribe(onNext: { owner, _ in
+                        if cell.selectedRawValue.value != nil {
+                            cell.pickerButton.didTapButtonStream.accept(())
+                        } else {
+                            owner.showAlert(element.alertMessage ?? "", completionHandler: {
+                                cell.pickerButton.didTapButtonStream.accept(())
+                            })
+                        }
+                    })
+                    .disposed(by: cell.disposeBag)
             }.disposed(by: disposeBag)
         
         nextButton.rx.tap
@@ -104,5 +114,24 @@ class TrainingEnvironmentViewController: UIViewController {
                 let bmiViewController = BMIViewController()
                 owner.navigationController?.pushViewController(bmiViewController, animated: true)
             }).disposed(by: disposeBag)
+    }
+    
+    private func showAlert(_ message: String, completionHandler: @escaping () -> Void) {
+        let alert = UIAlertController(
+            title: "권장 값 변경하기",
+            message: message,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "취소",
+            style: .cancel
+        ))
+        alert.addAction(UIAlertAction(
+            title: "확인",
+            style: .default,
+            handler: { _ in
+                completionHandler()
+        }))
+        present(alert, animated: true)
     }
 }
