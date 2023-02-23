@@ -119,8 +119,8 @@ enum Personal: String, Questionnaire, CaseIterable {
     var unit: String {
         switch self {
         case .gender: return ""
-        case .weight: return R.Unit.cm
-        case .height: return R.Unit.kg
+        case .weight: return R.Unit.kg
+        case .height: return R.Unit.cm
         }
     }
     

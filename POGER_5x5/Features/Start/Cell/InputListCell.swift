@@ -24,7 +24,6 @@ class InputListCell: UITableViewCell {
             typeLabel.text = newValue.category
             pickerButton.setTitle(newValue.placeholder, for: .normal)
             pickerButton.modelStream.accept(newValue)
-            selectDefaultRow(newValue)
         }
     }
     
@@ -92,13 +91,5 @@ class InputListCell: UITableViewCell {
             .map { $0.first }
             .bind(to: selectedRawValue)
             .disposed(by: disposeBag)
-    }
-
-    private func selectDefaultRow(_ model: Questionnaire) {
-        let rawValue = model.filterUnit()
-        
-        if let row = model.dataSource.firstIndex(of: rawValue) {
-            pickerButton.pickerView.selectRow(row, inComponent: 0, animated: false)
-        }
     }
 }

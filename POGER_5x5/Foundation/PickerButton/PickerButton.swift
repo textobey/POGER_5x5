@@ -14,9 +14,15 @@ class PickerButton: UIButton {
     
     private let disposeBag = DisposeBag()
     
-    let modelStream = PublishRelay<Questionnaire>()
-    
+    let modelStream = BehaviorRelay<Questionnaire?>(value: nil)
     let didTapButtonStream = PublishRelay<Void>()
+    
+    var selectedRawValue: String? {
+        willSet {
+            guard let newValue = newValue, let unit = modelStream.value?.unit else { return }
+            setTitle(newValue + " " + unit, for: .normal)
+        }
+    }
     
     let pickerView = UIPickerView().then {
         $0.backgroundColor = .secondarySystemBackground
@@ -56,7 +62,10 @@ class PickerButton: UIButton {
     
     private func bindRx() {
         modelStream
-            .map { $0.dataSource }
+            .do(onNext: { [weak self] in
+                self?.selectedRawValue = $0?.filterUnit()
+            })
+            .compactMap { $0?.dataSource }
             .bind(to: pickerView.rx.itemTitles) { $1 }
             .disposed(by: disposeBag)
         
@@ -69,11 +78,10 @@ class PickerButton: UIButton {
         
         toolbar.doneButton.rx.tap
             .withLatestFrom(modelStream)
-            .map {  $0.unit }
+            .compactMap { $0?.unit }
             .withUnretained(self)
             .subscribe(onNext: { owner, unit in
-                let result = owner.didTapDone()
-                owner.setTitle(result + " " + unit, for: .normal)
+                owner.selectedRawValue = owner.didTapDone()
                 owner.closePickerView()
             })
             .disposed(by: disposeBag)
@@ -112,11 +120,18 @@ class PickerButton: UIButton {
     
     /// Open the picker view
     private func didTapButton() {
+        updateSelectedRow()
         DispatchQueue.main.async {
             self.titleLabel?.textColor = .systemBlue
         }
         UIView.animate(withDuration: 0.3) {
             self.becomeFirstResponder()
+        }
+    }
+    
+    private func updateSelectedRow() {
+        if let rawValue = selectedRawValue, let row = modelStream.value?.dataSource.firstIndex(of: rawValue) {
+            pickerView.selectRow(row, inComponent: 0, animated: false)
         }
     }
 }
