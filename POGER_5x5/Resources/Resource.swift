@@ -11,6 +11,7 @@ struct R {
     struct Margin { }
     struct Weight { }
     struct Unit { }
+    struct Expectation { }
 }
 
 extension R {

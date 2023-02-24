@@ -30,6 +30,7 @@
 		A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5F95298CC20900112ED7 /* StartViewController.swift */; };
 		A68E5F99298CC5A200112ED7 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */; };
 		A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5F9A298CCFC200112ED7 /* UIFont+.swift */; };
+		A690252129A8791A00BE42F5 /* ExpectedLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A690252029A8791A00BE42F5 /* ExpectedLevelCell.swift */; };
 		A6A519142990D0EB002CBC01 /* DynamicHeightTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A519132990D0EB002CBC01 /* DynamicHeightTableView.swift */; };
 		A6A519162990D348002CBC01 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A519152990D348002CBC01 /* UIButton+.swift */; };
 		A6A519192990DB30002CBC01 /* TrainingEnvironmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A519182990DB30002CBC01 /* TrainingEnvironmentViewController.swift */; };
@@ -71,6 +72,7 @@
 		A68E5F95298CC20900112ED7 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		A68E5F9A298CCFC200112ED7 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		A690252029A8791A00BE42F5 /* ExpectedLevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedLevelCell.swift; sourceTree = "<group>"; };
 		A6A519132990D0EB002CBC01 /* DynamicHeightTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightTableView.swift; sourceTree = "<group>"; };
 		A6A519152990D348002CBC01 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		A6A519182990DB30002CBC01 /* TrainingEnvironmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingEnvironmentViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 		A6A519202990E34B002CBC01 /* ExpectedLevel */ = {
 			isa = PBXGroup;
 			children = (
+				A690252029A8791A00BE42F5 /* ExpectedLevelCell.swift */,
 				A6A519212990E359002CBC01 /* ExpectedLevelViewController.swift */,
 			);
 			path = ExpectedLevel;
@@ -430,6 +433,7 @@
 				A614B28D299CB0B600B9652D /* TrainingSectionModel.swift in Sources */,
 				CBE1DD58299C9504003E717D /* UITableViewCell+.swift in Sources */,
 				A6A519162990D348002CBC01 /* UIButton+.swift in Sources */,
+				A690252129A8791A00BE42F5 /* ExpectedLevelCell.swift in Sources */,
 				A68E5F91298CA5E900112ED7 /* UIViewController+Rx.swift in Sources */,
 				A6AAEC902991E42300F15E21 /* LevelTrendViewController.swift in Sources */,
 				A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */,

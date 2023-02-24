@@ -32,11 +32,14 @@ class ExpectedLevelViewController: UIViewController {
         $0.numberOfLines = 0
     }
     
-    let stackView = UIStackView().then {
-        $0.distribution = .equalSpacing
-        $0.alignment = .fill
-        $0.axis = .vertical
-        $0.spacing = 4
+    let tableView = DynamicHeightTableView().then {
+        $0.separatorStyle = .none
+        $0.isScrollEnabled = false
+        $0.estimatedRowHeight = 44
+        $0.rowHeight = UITableView.automaticDimension
+        $0.backgroundColor = .secondarySystemBackground
+        $0.layer.cornerRadius = 12
+        $0.register(ExpectedLevelCell.self, forCellReuseIdentifier: ExpectedLevelCell.identifier)
     }
     
     let confirmButton = UIButton.commonButton(title: "완료")
@@ -46,8 +49,7 @@ class ExpectedLevelViewController: UIViewController {
         self.title = "설정 완료"
         view.backgroundColor = .systemBackground
         setupLayout()
-        bindDataSources()
-        bindRx()
+        bind()
     }
     
     private func setupLayout() {
@@ -69,10 +71,11 @@ class ExpectedLevelViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(24)
         }
         
-        scrollViewContainer.addSubview(stackView)
-        stackView.snp.makeConstraints {
+        scrollViewContainer.addSubview(tableView)
+        tableView.snp.makeConstraints {
             $0.top.equalTo(expectedLevelDescriptionLabel.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(24)
+            $0.height.greaterThanOrEqualTo(tableView.contentSize.height)
         }
         
         view.addSubview(confirmButton)
@@ -84,98 +87,29 @@ class ExpectedLevelViewController: UIViewController {
         }
     }
     
-    private func bindDataSources() {
-        let dataSoruces = [
-            ["레벨": "초급자"],
-            ["예상 1회 기록": "50"],
-            ["예상 3회 기록": "50"],
-            ["예상 5회 기록": "50"],
-            ["예상 3대 기록": "150"]
+    private func bind() {
+        let dataSource = [
+            Expectation(type: .level, record: "초급자"),
+            Expectation(type: .maximum1Rep, record: "50"),
+            Expectation(type: .maximum3Rep, record: "50"),
+            Expectation(type: .maximum5Rep, record: "50"),
+            Expectation(type: .sbdRecord, record: "150")
         ]
         
-        for (_, dataSource) in dataSoruces.enumerated() {
-            let view = ExpectedLevelInformationView(expectedLevel: dataSource)
-            stackView.addArrangedSubview(view)
-        }
-    }
-    
-    private func bindRx() {
+        Observable.just(dataSource)
+            .bind(to: tableView.rx.items(
+                cellIdentifier: ExpectedLevelCell.identifier,
+                cellType: ExpectedLevelCell.self)
+            ) { row, element, cell in
+                cell.informationTitle.text = element.type.rawValue
+                cell.expectedLevel.text = element.record
+            }.disposed(by: disposeBag)
+        
+        
         confirmButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
                 owner.dismiss(animated: true)
             }).disposed(by: disposeBag)
-    }
-}
-
-fileprivate class ExpectedLevelInformationView: UIView {
-    
-    private let expectedLevelDictionary: [String: String]
-    
-    let wrapperView = UIView().then {
-        $0.backgroundColor = .secondarySystemBackground
-        $0.layer.cornerRadius = 12
-    }
-    
-    let informationIcon = UIImageView().then {
-        $0.image = UIImage(systemName: "figure.run")
-        $0.tintColor = .white
-    }
-    
-    let informationTitle = UILabel().then {
-        $0.textColor = .secondaryLabel
-        $0.font = .systemFont(ofSize: 14, weight: .medium)
-        $0.textAlignment = .left
-        $0.numberOfLines = 0
-    }
-    
-    let expectedLevel = UILabel().then {
-        $0.textColor = .systemGreen
-        $0.font = .systemFont(ofSize: 18, weight: .medium)
-        $0.textAlignment = .left
-        $0.numberOfLines = 0
-    }
-    
-    init(expectedLevel: [String: String]) {
-        self.expectedLevelDictionary = expectedLevel
-        super.init(frame: .zero)
-        setupLayout()
-        bind()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupLayout() {
-        addSubview(wrapperView)
-        wrapperView.snp.makeConstraints {
-            $0.directionalEdges.equalToSuperview()
-        }
-        
-        wrapperView.addSubview(informationIcon)
-        informationIcon.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(12)
-            $0.centerY.equalToSuperview()
-            $0.size.equalTo(22)
-        }
-        
-        wrapperView.addSubview(informationTitle)
-        informationTitle.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(12)
-            $0.leading.equalTo(informationIcon.snp.trailing).offset(14)
-        }
-        
-        wrapperView.addSubview(expectedLevel)
-        expectedLevel.snp.makeConstraints {
-            $0.top.equalTo(informationTitle.snp.bottom)
-            $0.leading.equalTo(informationTitle)
-            $0.bottom.equalToSuperview().offset(-12)
-        }
-    }
-    
-    private func bind() {
-        informationTitle.text = expectedLevelDictionary.keys.first
-        expectedLevel.text = expectedLevelDictionary.values.first
     }
 }

@@ -128,3 +128,16 @@ enum Personal: String, Questionnaire, CaseIterable {
         return nil
     }
 }
+
+struct Expectation {
+    let type: ExpectedLevelType
+    let record: String
+}
+
+enum ExpectedLevelType: String, CaseIterable {
+    case level = "레벨"
+    case maximum1Rep = "예상 1회 기록"
+    case maximum3Rep = "예상 3회 기록"
+    case maximum5Rep = "예상 5회 기록"
+    case sbdRecord = "예상 3대 운동 기록"
+}
