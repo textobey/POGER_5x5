@@ -37,19 +37,25 @@ class ExpectedLevelViewController: UIViewController {
         $0.isScrollEnabled = false
         $0.estimatedRowHeight = 44
         $0.rowHeight = UITableView.automaticDimension
-        $0.backgroundColor = .secondarySystemBackground
+        $0.backgroundColor = .clear
         $0.layer.cornerRadius = 12
         $0.register(ExpectedLevelCell.self, forCellReuseIdentifier: ExpectedLevelCell.identifier)
     }
     
     let confirmButton = UIButton.commonButton(title: "완료")
     
+    lazy var activityIndicator = ActivityIndicator(superview: view)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "설정 완료"
         view.backgroundColor = .systemBackground
         setupLayout()
-        bind()
+        activityIndicator.showActivityIndicator(text: "계산 중")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            self.bind()
+            self.activityIndicator.stopActivityIndicator()
+        }
     }
     
     private func setupLayout() {
@@ -101,8 +107,16 @@ class ExpectedLevelViewController: UIViewController {
                 cellIdentifier: ExpectedLevelCell.identifier,
                 cellType: ExpectedLevelCell.self)
             ) { row, element, cell in
-                cell.informationTitle.text = element.type.rawValue
-                cell.expectedLevel.text = element.record
+                cell.alpha = 0
+                cell.configureCell(element)
+                
+                UIView.animate(
+                    withDuration: 0.5,
+                    delay: 0.5 * Double(row),
+                    animations: {
+                        cell.alpha = 1
+                    }
+                )
             }.disposed(by: disposeBag)
         
         

@@ -122,7 +122,7 @@ class PickerButton: UIButton {
     private func didTapButton() {
         updateSelectedRow()
         DispatchQueue.main.async {
-            self.titleLabel?.textColor = .systemBlue
+            self.titleLabel?.textColor = .systemGreen
         }
         UIView.animate(withDuration: 0.3) {
             self.becomeFirstResponder()

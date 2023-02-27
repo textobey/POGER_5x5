@@ -16,7 +16,12 @@ class ExpectedLevelCell: UITableViewCell {
     
     var disposeBag = DisposeBag()
     
-    //private let expectedLevelDictionary: [String: String]
+    //var model: Expectation? {
+    //    willSet {
+    //        guard let newValue = newValue else { return }
+    //        informationIcon.image = newValue.type.icon
+    //    }
+    //}
     
     let wrapperView = UIView().then {
         $0.backgroundColor = .secondarySystemBackground
@@ -71,7 +76,7 @@ class ExpectedLevelCell: UITableViewCell {
         
         wrapperView.addSubview(informationIcon)
         informationIcon.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(12)
+            $0.leading.equalToSuperview().offset(16)
             $0.centerY.equalToSuperview()
             $0.size.equalTo(22)
         }
@@ -90,7 +95,9 @@ class ExpectedLevelCell: UITableViewCell {
         }
     }
     
-    func configureCell() {
-        
+    func configureCell(_ model: Expectation) {
+        informationIcon.image = model.type.icon
+        informationTitle.text = model.type.rawValue
+        expectedLevel.text = model.record
     }
 }

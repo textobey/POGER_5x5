@@ -19,6 +19,7 @@
 		A614B28D299CB0B600B9652D /* TrainingSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */; };
 		A619F0442996771800BD55B6 /* TrainingBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A619F0432996771800BD55B6 /* TrainingBoxCell.swift */; };
 		A6301757299F1DB60014DBF2 /* TrainingBoxHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6301756299F1DB60014DBF2 /* TrainingBoxHeaderView.swift */; };
+		A63B078629AC443D007DE54F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B078529AC443D007DE54F /* ActivityIndicator.swift */; };
 		A655079229A5AD2E00C615D3 /* InputListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655079129A5AD2E00C615D3 /* InputListCell.swift */; };
 		A655079429A5AE1000C615D3 /* IntputCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655079329A5AE1000C615D3 /* IntputCategory.swift */; };
 		A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */; };
@@ -63,6 +64,7 @@
 		A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSectionModel.swift; sourceTree = "<group>"; };
 		A619F0432996771800BD55B6 /* TrainingBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoxCell.swift; sourceTree = "<group>"; };
 		A6301756299F1DB60014DBF2 /* TrainingBoxHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoxHeaderView.swift; sourceTree = "<group>"; };
+		A63B078529AC443D007DE54F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		A655079129A5AD2E00C615D3 /* InputListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputListCell.swift; sourceTree = "<group>"; };
 		A655079329A5AE1000C615D3 /* IntputCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntputCategory.swift; sourceTree = "<group>"; };
 		A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseNavigationController.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				A68E5F93298CA61E00112ED7 /* Then.swift */,
+				A63B078529AC443D007DE54F /* ActivityIndicator.swift */,
 				A607A9EF29A4C11100487350 /* PickerButton */,
 				A6A519132990D0EB002CBC01 /* DynamicHeightTableView.swift */,
 			);
@@ -432,6 +435,7 @@
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
 				A614B28D299CB0B600B9652D /* TrainingSectionModel.swift in Sources */,
 				CBE1DD58299C9504003E717D /* UITableViewCell+.swift in Sources */,
+				A63B078629AC443D007DE54F /* ActivityIndicator.swift in Sources */,
 				A6A519162990D348002CBC01 /* UIButton+.swift in Sources */,
 				A690252129A8791A00BE42F5 /* ExpectedLevelCell.swift in Sources */,
 				A68E5F91298CA5E900112ED7 /* UIViewController+Rx.swift in Sources */,

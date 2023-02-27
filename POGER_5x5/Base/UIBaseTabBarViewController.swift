@@ -52,8 +52,8 @@ final class UIBaseTabBarController: UITabBarController {
                 rootViewController.tabBarItem = tabbarItem
                 
                 return UINavigationController(rootViewController: rootViewController).then {
-                    $0.navigationBar.topItem?.title = tabbarItem.title
                     $0.navigationBar.prefersLargeTitles = true
+                    $0.navigationBar.topItem?.title = tabbarItem.title
                 }
             }
     }
