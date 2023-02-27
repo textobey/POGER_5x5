@@ -16,15 +16,6 @@ class TrainingViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
-    /// run once
-    private lazy var takeOncePush: Void = {
-        let startViewController = StartViewController()
-        let navigationController = UINavigationController(rootViewController: startViewController)
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: true)
-    }()
-    
     let dataSource = RxCollectionViewSectionedReloadDataSource<TrainingViewSection>(
         configureCell: { dataSource, collectionView, indexPath, sectionItem in
             switch sectionItem {
@@ -78,15 +69,19 @@ class TrainingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.presentStartViewController()
+        }
         setupLayout()
         bind()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //MARK: - Start Guide Flow 잠시 비활성화
-        //TODO: 초기 실행시, TrainingViewController 잠시 표시된 이후에 present 되는 문제 해결
-        _ = takeOncePush
+    private func presentStartViewController() {
+        let startViewController = StartViewController()
+        let navigationController = UINavigationController(rootViewController: startViewController)
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: false)
     }
     
     private func setupLayout() {
