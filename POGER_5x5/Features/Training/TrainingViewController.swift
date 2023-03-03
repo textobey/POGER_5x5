@@ -11,7 +11,6 @@ import RxDataSources
 import RxSwift
 import SnapKit
 
-//TODO: 사용되지 않는 소스 정리
 //TODO: 운동 리스트 GUI 조정하기
 //TODO: 선택된 DAY에 대한 Hightlight 효과 추가
 class TrainingViewController: UIViewController {
@@ -73,7 +72,7 @@ class TrainingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //presentStartViewController()
+        presentStartViewController()
         setupNavigationBarItem()
         setupLayout()
         bind()
@@ -123,40 +122,8 @@ class TrainingViewController: UIViewController {
             }
             return .none
         }
-        
-        layout.register(
-            TrainingProcessDecorationView.self,
-            forDecorationViewOfKind: TrainingProcessDecorationView.identifier
-        )
         return layout
     }
-    
-//    private func generateWeekSectionLayout() -> NSCollectionLayoutSection {
-//        let itemSize = NSCollectionLayoutSize(
-//            widthDimension: .absolute(80),
-//            heightDimension: .absolute(80)
-//        )
-//
-//        let weekItem = NSCollectionLayoutItem(layoutSize: itemSize)
-//
-//        let groupSize = NSCollectionLayoutSize(
-//            widthDimension: .absolute(80),
-//            heightDimension: .absolute(80)
-//        )
-//
-//        let group = NSCollectionLayoutGroup.horizontal(
-//            layoutSize: groupSize,
-//            subitem: weekItem,
-//            count: 1
-//        )
-//
-//        let section = NSCollectionLayoutSection(group: group)
-//        section.orthogonalScrollingBehavior = .continuous
-//        section.contentInsets = .init(top: 16, leading: 24, bottom: 16, trailing: 24)
-//        section.interGroupSpacing = 8
-//
-//        return section
-//    }
     
     private func generateTrainingSectionLayout() -> NSCollectionLayoutSection {
         let layoutSize = NSCollectionLayoutSize(
@@ -171,14 +138,9 @@ class TrainingViewController: UIViewController {
             ),
             subitems: [.init(layoutSize: layoutSize)]
         )
-        
-        //group.interItemSpacing = .fixed(100)
 
         let section = NSCollectionLayoutSection(group: group)
         
-        //section.decorationItems = [
-        //    NSCollectionLayoutDecorationItem.background(elementKind: TrainingProcessDecorationView.identifier)
-        //]
         section.contentInsets = .init(top: 0, leading: 24, bottom: 0, trailing: 24)
         // cell spacing
         section.interGroupSpacing = 0

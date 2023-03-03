@@ -13,11 +13,9 @@
 		A60519DF298BA66C00557E7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60519DD298BA66C00557E7E /* LaunchScreen.storyboard */; };
 		A607A9E329A4642C00487350 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A607A9E229A4642C00487350 /* Color+.swift */; };
 		A607A9F129A4C12800487350 /* PickerButtonToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A607A9F029A4C12800487350 /* PickerButtonToolbarView.swift */; };
-		A60B49262997DDF700565520 /* WeekCircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B49252997DDF700565520 /* WeekCircleCell.swift */; };
 		A614B287299CB03300B9652D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A614B286299CB03300B9652D /* Kingfisher */; };
 		A614B28A299CB05600B9652D /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = A614B289299CB05600B9652D /* RxDataSources */; };
 		A614B28D299CB0B600B9652D /* TrainingSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */; };
-		A619F0442996771800BD55B6 /* TrainingBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A619F0432996771800BD55B6 /* TrainingBoxCell.swift */; };
 		A63B078629AC443D007DE54F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B078529AC443D007DE54F /* ActivityIndicator.swift */; };
 		A655079229A5AD2E00C615D3 /* InputListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655079129A5AD2E00C615D3 /* InputListCell.swift */; };
 		A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */; };
@@ -55,7 +53,6 @@
 		A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */; };
 		A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3909298CE8A600FB5642 /* PickerButton.swift */; };
 		A6FA25C929B185A900A65C29 /* TrainingProcessHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */; };
-		A6FA25CB29B185FE00A65C29 /* TrainingProcessDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25CA29B185FE00A65C29 /* TrainingProcessDecorationView.swift */; };
 		A6FA25CD29B1CB0F00A65C29 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25CC29B1CB0F00A65C29 /* UICollectionView+.swift */; };
 		A6FA25CF29B1CC3E00A65C29 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25CE29B1CC3E00A65C29 /* Direction.swift */; };
 		CBE1DD58299C9504003E717D /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1DD57299C9504003E717D /* UITableViewCell+.swift */; };
@@ -70,9 +67,7 @@
 		A60519E0298BA66C00557E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A607A9E229A4642C00487350 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		A607A9F029A4C12800487350 /* PickerButtonToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButtonToolbarView.swift; sourceTree = "<group>"; };
-		A60B49252997DDF700565520 /* WeekCircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCircleCell.swift; sourceTree = "<group>"; };
 		A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSectionModel.swift; sourceTree = "<group>"; };
-		A619F0432996771800BD55B6 /* TrainingBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoxCell.swift; sourceTree = "<group>"; };
 		A63B078529AC443D007DE54F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		A655079129A5AD2E00C615D3 /* InputListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputListCell.swift; sourceTree = "<group>"; };
 		A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseNavigationController.swift; sourceTree = "<group>"; };
@@ -108,7 +103,6 @@
 		A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCheckViewController.swift; sourceTree = "<group>"; };
 		A6CD3909298CE8A600FB5642 /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
 		A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProcessHeaderView.swift; sourceTree = "<group>"; };
-		A6FA25CA29B185FE00A65C29 /* TrainingProcessDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProcessDecorationView.swift; sourceTree = "<group>"; };
 		A6FA25CC29B1CB0F00A65C29 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		A6FA25CE29B1CC3E00A65C29 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		CBE1DD57299C9504003E717D /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
@@ -184,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */,
-				A6FA25CA29B185FE00A65C29 /* TrainingProcessDecorationView.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -192,8 +185,6 @@
 		A6301755299F1DA00014DBF2 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				A619F0432996771800BD55B6 /* TrainingBoxCell.swift */,
-				A60B49252997DDF700565520 /* WeekCircleCell.swift */,
 				A6B4285C29B0813C0065D245 /* TrainingProcessCell.swift */,
 			);
 			path = Cell;
@@ -482,9 +473,7 @@
 				A607A9F129A4C12800487350 /* PickerButtonToolbarView.swift in Sources */,
 				A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */,
 				A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */,
-				A6FA25CB29B185FE00A65C29 /* TrainingProcessDecorationView.swift in Sources */,
 				A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */,
-				A60B49262997DDF700565520 /* WeekCircleCell.swift in Sources */,
 				A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */,
 				A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */,
 				A6FA25CD29B1CB0F00A65C29 /* UICollectionView+.swift in Sources */,
@@ -507,7 +496,6 @@
 				A6B4285D29B0813C0065D245 /* TrainingProcessCell.swift in Sources */,
 				A607A9E329A4642C00487350 /* Color+.swift in Sources */,
 				A60519D5298BA66B00557E7E /* SceneDelegate.swift in Sources */,
-				A619F0442996771800BD55B6 /* TrainingBoxCell.swift in Sources */,
 				A6B4287029B08AC30065D245 /* DayTraining.swift in Sources */,
 				A6A5191C2990DF9D002CBC01 /* BMIViewController.swift in Sources */,
 				A68E5F94298CA61E00112ED7 /* Then.swift in Sources */,
