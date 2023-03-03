@@ -8,23 +8,12 @@
 import Foundation
 import RxDataSources
 
-struct Training2 {
-    let name: String
-    let weight: String
-}
-
-struct Week {
-    let number: String
-}
-
 enum TrainingViewSection {
-    case week(items: [TrainingViewSectionItem])
     case training(day: String, items: [TrainingViewSectionItem])
 }
 
 enum TrainingViewSectionItem {
-    case week(Week)
-    case training(Training2)
+    case training(DayTraining)
 }
 
 extension TrainingViewSection: SectionModelType {
@@ -33,9 +22,6 @@ extension TrainingViewSection: SectionModelType {
     
     var items: [TrainingViewSectionItem] {
         switch self {
-        case .week(let items):
-            return items
-            
         case .training(_, let items):
             return items
         }
@@ -43,9 +29,6 @@ extension TrainingViewSection: SectionModelType {
     
     init(original: TrainingViewSection, items: [TrainingViewSectionItem]) {
         switch original {
-        case .week(let items):
-            self = .week(items: items)
-            
         case .training(let day, let items):
             self = .training(day: day, items: items)
         }

@@ -65,7 +65,7 @@ class PickerButton: UIButton {
             .do(onNext: { [weak self] in
                 self?.selectedRawValue = $0?.filterUnit()
             })
-            .compactMap { $0?.dataSource }
+            .compactMap { $0?.pickerDataSource }
             .bind(to: pickerView.rx.itemTitles) { $1 }
             .disposed(by: disposeBag)
         
@@ -122,7 +122,7 @@ class PickerButton: UIButton {
     private func didTapButton() {
         updateSelectedRow()
         DispatchQueue.main.async {
-            self.titleLabel?.textColor = .systemGreen
+            self.titleLabel?.textColor = .systemBlue
         }
         UIView.animate(withDuration: 0.3) {
             self.becomeFirstResponder()
@@ -130,7 +130,7 @@ class PickerButton: UIButton {
     }
     
     private func updateSelectedRow() {
-        if let rawValue = selectedRawValue, let row = modelStream.value?.dataSource.firstIndex(of: rawValue) {
+        if let rawValue = selectedRawValue, let row = modelStream.value?.pickerDataSource.firstIndex(of: rawValue) {
             pickerView.selectRow(row, inComponent: 0, animated: false)
         }
     }

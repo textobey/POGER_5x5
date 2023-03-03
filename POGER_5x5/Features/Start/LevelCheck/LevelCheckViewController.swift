@@ -46,7 +46,7 @@ class LevelCheckViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // TODO: 훈련 환경 입력 화면으로 Push시에 BackButton 타이틀이 "스트렝스 레벨 입력"이 아닌 "Back"으로 표시되는 문제 원인 파악
-        self.title = "스트렝스 레벨 입력"
+        self.title = "웨이트 레벨 입력"
         view.backgroundColor = .systemBackground
         setupLayout()
         bind()
@@ -89,7 +89,7 @@ class LevelCheckViewController: UIViewController {
     }
     
     private func bind() {
-        Observable.just(Training.allCases)
+        Observable.just(Training.weightTop5)
             .bind(to: tableView.rx.items(
                 cellIdentifier: InputListCell.identifier,
                 cellType: InputListCell.self)

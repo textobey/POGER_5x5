@@ -18,10 +18,8 @@
 		A614B28A299CB05600B9652D /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = A614B289299CB05600B9652D /* RxDataSources */; };
 		A614B28D299CB0B600B9652D /* TrainingSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */; };
 		A619F0442996771800BD55B6 /* TrainingBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A619F0432996771800BD55B6 /* TrainingBoxCell.swift */; };
-		A6301757299F1DB60014DBF2 /* TrainingBoxHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6301756299F1DB60014DBF2 /* TrainingBoxHeaderView.swift */; };
 		A63B078629AC443D007DE54F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B078529AC443D007DE54F /* ActivityIndicator.swift */; };
 		A655079229A5AD2E00C615D3 /* InputListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655079129A5AD2E00C615D3 /* InputListCell.swift */; };
-		A655079429A5AE1000C615D3 /* IntputCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655079329A5AE1000C615D3 /* IntputCategory.swift */; };
 		A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */; };
 		A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */; };
 		A68E5F88298CA41100112ED7 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F87298CA41100112ED7 /* ReactorKit */; };
@@ -38,6 +36,14 @@
 		A6A5191C2990DF9D002CBC01 /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A5191B2990DF9D002CBC01 /* BMIViewController.swift */; };
 		A6A519222990E359002CBC01 /* ExpectedLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A519212990E359002CBC01 /* ExpectedLevelViewController.swift */; };
 		A6AAEC902991E42300F15E21 /* LevelTrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AAEC8F2991E42300F15E21 /* LevelTrendViewController.swift */; };
+		A6B4285D29B0813C0065D245 /* TrainingProcessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4285C29B0813C0065D245 /* TrainingProcessCell.swift */; };
+		A6B4286229B086B30065D245 /* Questionnaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4286129B086B30065D245 /* Questionnaire.swift */; };
+		A6B4286429B086D00065D245 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4286329B086D00065D245 /* Training.swift */; };
+		A6B4286629B086E40065D245 /* Precondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4286529B086E40065D245 /* Precondition.swift */; };
+		A6B4286829B086F40065D245 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4286729B086F40065D245 /* Personal.swift */; };
+		A6B4286A29B087150065D245 /* ExpectedLevelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4286929B087150065D245 /* ExpectedLevelType.swift */; };
+		A6B4286C29B087370065D245 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4286B29B087370065D245 /* Expectation.swift */; };
+		A6B4287029B08AC30065D245 /* DayTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4286F29B08AC30065D245 /* DayTraining.swift */; };
 		A6C612B92991E470005F5BB7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C612B82991E470005F5BB7 /* SettingsViewController.swift */; };
 		A6CD38FD298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38F7298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf */; };
 		A6CD38FE298CD65000FB5642 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6CD38F8298CD65000FB5642 /* Montserrat-Medium.ttf */; };
@@ -48,6 +54,10 @@
 		A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3903298CDE5200FB5642 /* Resource.swift */; };
 		A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */; };
 		A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3909298CE8A600FB5642 /* PickerButton.swift */; };
+		A6FA25C929B185A900A65C29 /* TrainingProcessHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */; };
+		A6FA25CB29B185FE00A65C29 /* TrainingProcessDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25CA29B185FE00A65C29 /* TrainingProcessDecorationView.swift */; };
+		A6FA25CD29B1CB0F00A65C29 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25CC29B1CB0F00A65C29 /* UICollectionView+.swift */; };
+		A6FA25CF29B1CC3E00A65C29 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25CE29B1CC3E00A65C29 /* Direction.swift */; };
 		CBE1DD58299C9504003E717D /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1DD57299C9504003E717D /* UITableViewCell+.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,10 +73,8 @@
 		A60B49252997DDF700565520 /* WeekCircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCircleCell.swift; sourceTree = "<group>"; };
 		A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSectionModel.swift; sourceTree = "<group>"; };
 		A619F0432996771800BD55B6 /* TrainingBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoxCell.swift; sourceTree = "<group>"; };
-		A6301756299F1DB60014DBF2 /* TrainingBoxHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoxHeaderView.swift; sourceTree = "<group>"; };
 		A63B078529AC443D007DE54F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		A655079129A5AD2E00C615D3 /* InputListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputListCell.swift; sourceTree = "<group>"; };
-		A655079329A5AE1000C615D3 /* IntputCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntputCategory.swift; sourceTree = "<group>"; };
 		A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseNavigationController.swift; sourceTree = "<group>"; };
 		A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTabBarViewController.swift; sourceTree = "<group>"; };
 		A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
@@ -81,6 +89,14 @@
 		A6A5191B2990DF9D002CBC01 /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
 		A6A519212990E359002CBC01 /* ExpectedLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedLevelViewController.swift; sourceTree = "<group>"; };
 		A6AAEC8F2991E42300F15E21 /* LevelTrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTrendViewController.swift; sourceTree = "<group>"; };
+		A6B4285C29B0813C0065D245 /* TrainingProcessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProcessCell.swift; sourceTree = "<group>"; };
+		A6B4286129B086B30065D245 /* Questionnaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questionnaire.swift; sourceTree = "<group>"; };
+		A6B4286329B086D00065D245 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
+		A6B4286529B086E40065D245 /* Precondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Precondition.swift; sourceTree = "<group>"; };
+		A6B4286729B086F40065D245 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
+		A6B4286929B087150065D245 /* ExpectedLevelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedLevelType.swift; sourceTree = "<group>"; };
+		A6B4286B29B087370065D245 /* Expectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expectation.swift; sourceTree = "<group>"; };
+		A6B4286F29B08AC30065D245 /* DayTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTraining.swift; sourceTree = "<group>"; };
 		A6C612B82991E470005F5BB7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A6CD38F7298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NOTOSANSKR-REGULAR-HESTIA.ttf"; sourceTree = "<group>"; };
 		A6CD38F8298CD65000FB5642 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
@@ -91,6 +107,10 @@
 		A6CD3903298CDE5200FB5642 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCheckViewController.swift; sourceTree = "<group>"; };
 		A6CD3909298CE8A600FB5642 /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
+		A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProcessHeaderView.swift; sourceTree = "<group>"; };
+		A6FA25CA29B185FE00A65C29 /* TrainingProcessDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProcessDecorationView.swift; sourceTree = "<group>"; };
+		A6FA25CC29B1CB0F00A65C29 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		A6FA25CE29B1CC3E00A65C29 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		CBE1DD57299C9504003E717D /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,7 +173,9 @@
 		A614B28B299CB08200B9652D /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
-				A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */,
+				A6B4285F29B0867B0065D245 /* Enums */,
+				A6B4285E29B086730065D245 /* Models */,
+				A6B4286029B086A00065D245 /* Protocols */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -161,7 +183,8 @@
 		A619F0402996758F00BD55B6 /* Subview */ = {
 			isa = PBXGroup;
 			children = (
-				A6301756299F1DB60014DBF2 /* TrainingBoxHeaderView.swift */,
+				A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */,
+				A6FA25CA29B185FE00A65C29 /* TrainingProcessDecorationView.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -171,6 +194,7 @@
 			children = (
 				A619F0432996771800BD55B6 /* TrainingBoxCell.swift */,
 				A60B49252997DDF700565520 /* WeekCircleCell.swift */,
+				A6B4285C29B0813C0065D245 /* TrainingProcessCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -178,7 +202,6 @@
 		A655079029A5ACFE00C615D3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				A655079329A5AE1000C615D3 /* IntputCategory.swift */,
 				A655079129A5AD2E00C615D3 /* InputListCell.swift */,
 			);
 			path = Cell;
@@ -213,6 +236,7 @@
 				A6A519152990D348002CBC01 /* UIButton+.swift */,
 				A68E5F9A298CCFC200112ED7 /* UIFont+.swift */,
 				CBE1DD57299C9504003E717D /* UITableViewCell+.swift */,
+				A6FA25CC29B1CB0F00A65C29 /* UICollectionView+.swift */,
 				A607A9E229A4642C00487350 /* Color+.swift */,
 			);
 			path = Extension;
@@ -291,6 +315,36 @@
 				A6C612B82991E470005F5BB7 /* SettingsViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		A6B4285E29B086730065D245 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A6B4286B29B087370065D245 /* Expectation.swift */,
+				A6B4286F29B08AC30065D245 /* DayTraining.swift */,
+				A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A6B4285F29B0867B0065D245 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				A6B4286329B086D00065D245 /* Training.swift */,
+				A6B4286529B086E40065D245 /* Precondition.swift */,
+				A6B4286729B086F40065D245 /* Personal.swift */,
+				A6B4286929B087150065D245 /* ExpectedLevelType.swift */,
+				A6FA25CE29B1CC3E00A65C29 /* Direction.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		A6B4286029B086A00065D245 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A6B4286129B086B30065D245 /* Questionnaire.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		A6BCAD93298BB12C0069ABA5 /* Application */ = {
@@ -420,31 +474,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6A519142990D0EB002CBC01 /* DynamicHeightTableView.swift in Sources */,
+				A6FA25C929B185A900A65C29 /* TrainingProcessHeaderView.swift in Sources */,
 				A68E5F99298CC5A200112ED7 /* TrainingViewController.swift in Sources */,
+				A6FA25CF29B1CC3E00A65C29 /* Direction.swift in Sources */,
 				A655079229A5AD2E00C615D3 /* InputListCell.swift in Sources */,
 				A6A519192990DB30002CBC01 /* TrainingEnvironmentViewController.swift in Sources */,
 				A607A9F129A4C12800487350 /* PickerButtonToolbarView.swift in Sources */,
 				A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */,
 				A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */,
+				A6FA25CB29B185FE00A65C29 /* TrainingProcessDecorationView.swift in Sources */,
 				A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */,
 				A60B49262997DDF700565520 /* WeekCircleCell.swift in Sources */,
 				A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */,
-				A6301757299F1DB60014DBF2 /* TrainingBoxHeaderView.swift in Sources */,
 				A68E5F96298CC20900112ED7 /* StartViewController.swift in Sources */,
-				A655079429A5AE1000C615D3 /* IntputCategory.swift in Sources */,
+				A6FA25CD29B1CB0F00A65C29 /* UICollectionView+.swift in Sources */,
+				A6B4286C29B087370065D245 /* Expectation.swift in Sources */,
+				A6B4286829B086F40065D245 /* Personal.swift in Sources */,
+				A6B4286A29B087150065D245 /* ExpectedLevelType.swift in Sources */,
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
 				A614B28D299CB0B600B9652D /* TrainingSectionModel.swift in Sources */,
+				A6B4286629B086E40065D245 /* Precondition.swift in Sources */,
 				CBE1DD58299C9504003E717D /* UITableViewCell+.swift in Sources */,
 				A63B078629AC443D007DE54F /* ActivityIndicator.swift in Sources */,
 				A6A519162990D348002CBC01 /* UIButton+.swift in Sources */,
 				A690252129A8791A00BE42F5 /* ExpectedLevelCell.swift in Sources */,
 				A68E5F91298CA5E900112ED7 /* UIViewController+Rx.swift in Sources */,
 				A6AAEC902991E42300F15E21 /* LevelTrendViewController.swift in Sources */,
+				A6B4286229B086B30065D245 /* Questionnaire.swift in Sources */,
+				A6B4286429B086D00065D245 /* Training.swift in Sources */,
 				A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */,
 				A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */,
+				A6B4285D29B0813C0065D245 /* TrainingProcessCell.swift in Sources */,
 				A607A9E329A4642C00487350 /* Color+.swift in Sources */,
 				A60519D5298BA66B00557E7E /* SceneDelegate.swift in Sources */,
 				A619F0442996771800BD55B6 /* TrainingBoxCell.swift in Sources */,
+				A6B4287029B08AC30065D245 /* DayTraining.swift in Sources */,
 				A6A5191C2990DF9D002CBC01 /* BMIViewController.swift in Sources */,
 				A68E5F94298CA61E00112ED7 /* Then.swift in Sources */,
 				A6A519222990E359002CBC01 /* ExpectedLevelViewController.swift in Sources */,

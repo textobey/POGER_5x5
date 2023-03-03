@@ -12,10 +12,7 @@ struct R {
     struct Weight { }
     struct Unit { }
     struct Expectation { }
-}
-
-extension R {
-    static let strengths: [String] = ["스쿼트", "벤치프레스", "데드리프트", "펜들레이로우", "오버헤드프레스"]
+    struct Process { }
 }
 
 extension R.Margin {
@@ -41,4 +38,28 @@ extension R.Unit {
     static let per = "%"
     static let day = "일"
     static let week = "주"
+}
+
+extension R.Process {
+    //TODO: 각 Day별로 계산식에 따라 12개(12주)치를 만드는 로직이 필요해보임
+    static let day1DataSource: [DayTraining] = [
+        DayTraining(rep: "5x", weight: "35", training: .squat),
+        DayTraining(rep: "5x", weight: "35", training: .benchpress),
+        DayTraining(rep: "5x", weight: "35", training: .pendlayrow),
+        DayTraining(rep: "4x", weight: "최대한", training: .pullups)
+    ]
+    
+    static let day2DataSource: [DayTraining] = [
+        DayTraining(rep: "5x", weight: "35", training: .deadlift),
+        DayTraining(rep: "5x", weight: "35", training: .overheadpress),
+        DayTraining(rep: "5x", weight: "35", training: .machinepress),
+        DayTraining(rep: "4x", weight: "최대한", training: .highbarsquat)
+    ]
+    
+    static let day3DataSource: [DayTraining] = [
+        DayTraining(rep: "5x", weight: "35", training: .squat),
+        DayTraining(rep: "5x", weight: "35", training: .benchpress),
+        DayTraining(rep: "5x", weight: "35", training: .pendlayrow),
+        DayTraining(rep: "4x", weight: "최대한", training: .chinups)
+    ]
 }

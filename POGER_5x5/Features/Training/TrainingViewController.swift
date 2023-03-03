@@ -11,7 +11,9 @@ import RxDataSources
 import RxSwift
 import SnapKit
 
-//TODO: UI 구상하기 when isSelected
+//TODO: 사용되지 않는 소스 정리
+//TODO: 운동 리스트 GUI 조정하기
+//TODO: 선택된 DAY에 대한 Hightlight 효과 추가
 class TrainingViewController: UIViewController {
     
     var disposeBag = DisposeBag()
@@ -19,19 +21,17 @@ class TrainingViewController: UIViewController {
     let dataSource = RxCollectionViewSectionedReloadDataSource<TrainingViewSection>(
         configureCell: { dataSource, collectionView, indexPath, sectionItem in
             switch sectionItem {
-            case .week(let week):
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: WeekCircleCell.identifier,
-                    for: indexPath
-                ) as! WeekCircleCell
-                cell.configureCell(week)
-                return cell
             case .training(let training):
                 let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: TrainingBoxCell.identifier,
+                    withReuseIdentifier: TrainingProcessCell.identifier,
                     for: indexPath
-                ) as! TrainingBoxCell
+                ) as! TrainingProcessCell
                 cell.configureCell(training)
+                if collectionView.isFirstCell(indexPath) {
+                    cell.appendCornerRadius(at: .top)
+                } else if collectionView.isLastCell(indexPath) {
+                    cell.appendCornerRadius(at: .bottom)
+                }
                 return cell
             }
         },
@@ -39,14 +39,12 @@ class TrainingViewController: UIViewController {
             if kind == UICollectionView.elementKindSectionHeader {
                 let header = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
-                    withReuseIdentifier: TrainingBoxHeaderView.identifier
-                    , for: indexPath
-                ) as! TrainingBoxHeaderView
+                    withReuseIdentifier: TrainingProcessHeaderView.identifier,
+                    for: indexPath
+                ) as! TrainingProcessHeaderView
                 switch dataSource[indexPath.section] {
                 case .training(let day, _):
                     header.dayLabel.text = day
-                default:
-                    break
                 }
                 return header
             }
@@ -54,34 +52,46 @@ class TrainingViewController: UIViewController {
         }
     )
     
+    //TODO: 이미지를 제작하여 표시할것인지, Label Text Button으로 표시할것인지 GUI 결정
+    private let allWeekButton = UIButton().then {
+        $0.setTitle("변경", for: .normal)
+        $0.setTitleColor(.systemBlue, for: .normal)
+        $0.setTitleColor(.systemGray, for: .highlighted)
+    }
+    
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: fetchCollectionViewLayout()).then {
-        $0.backgroundColor = .clear
         $0.showsVerticalScrollIndicator = false
         $0.showsHorizontalScrollIndicator = false
-        $0.register(WeekCircleCell.self, forCellWithReuseIdentifier: WeekCircleCell.identifier)
-        $0.register(TrainingBoxCell.self, forCellWithReuseIdentifier: TrainingBoxCell.identifier)
+        $0.register(TrainingProcessCell.self, forCellWithReuseIdentifier: TrainingProcessCell.identifier)
         $0.register(
-            TrainingBoxHeaderView.self,
+            TrainingProcessHeaderView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: TrainingBoxHeaderView.identifier
+            withReuseIdentifier: TrainingProcessHeaderView.identifier
         )
+        $0.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.presentStartViewController()
-        }
+        //presentStartViewController()
+        setupNavigationBarItem()
         setupLayout()
         bind()
     }
     
     private func presentStartViewController() {
-        let startViewController = StartViewController()
-        let navigationController = UINavigationController(rootViewController: startViewController)
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: false)
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            let startViewController = StartViewController()
+            let navigationController = UINavigationController(rootViewController: startViewController)
+            navigationController.navigationBar.prefersLargeTitles = true
+            navigationController.modalPresentationStyle = .fullScreen
+            self.present(navigationController, animated: false)
+        }
+    }
+    
+    private func setupNavigationBarItem() {
+        let barButtonItem = UIBarButtonItem(customView: allWeekButton)
+        navigationItem.setRightBarButtonItems([barButtonItem], animated: false)
     }
     
     private func setupLayout() {
@@ -94,28 +104,10 @@ class TrainingViewController: UIViewController {
     }
     
     private func bind() {
-        let weekItem = Array(repeating: "WEEK ", count: 12)
-            .enumerated()
-            .map { index, element in
-                element + "\(index + 1)"
-            }.map { number in
-                return TrainingViewSectionItem.week(Week(number: number))
-            }
-        
-        let trainingItem: [TrainingViewSectionItem] = [
-            .training(Training2(name: "데드리프트", weight: "50")),
-            .training(Training2(name: "스쿼트", weight: "50")),
-            .training(Training2(name: "벤치프레스", weight: "50")),
-            .training(Training2(name: "펜들레이로우", weight: "50")),
-            .training(Training2(name: "하이바", weight: "50")),
-            .training(Training2(name: "오버헤드프레스", weight: "50")),
-        ]
-        
         let sections: [TrainingViewSection] = [
-            .week(items: weekItem),
-            .training(day: "DAY 1", items: trainingItem),
-            .training(day: "DAY 2", items: trainingItem),
-            .training(day: "DAY 3", items: trainingItem),
+            .training(day: "DAY 1", items: R.Process.day1DataSource.map { TrainingViewSectionItem.training($0) }),
+            .training(day: "DAY 2", items: R.Process.day2DataSource.map { TrainingViewSectionItem.training($0) }),
+            .training(day: "DAY 3", items: R.Process.day3DataSource.map { TrainingViewSectionItem.training($0) })
         ]
 
         Observable.just(sections)
@@ -124,52 +116,55 @@ class TrainingViewController: UIViewController {
     }
     
     private func fetchCollectionViewLayout() -> UICollectionViewLayout {
-        return UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment -> NSCollectionLayoutSection? in
+        let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
             guard let `self` = self else { return .none }
-            switch self.dataSource[sectionIndex] {
-            case .week:
-                return self.generateWeekSectionLayout()
-                
-            case .training:
+            if case .training = self.dataSource[sectionIndex] {
                 return self.generateTrainingSectionLayout()
             }
+            return .none
         }
+        
+        layout.register(
+            TrainingProcessDecorationView.self,
+            forDecorationViewOfKind: TrainingProcessDecorationView.identifier
+        )
+        return layout
     }
     
-    private func generateWeekSectionLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(80),
-            heightDimension: .absolute(80)
-        )
-        
-        let weekItem = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(80),
-            heightDimension: .absolute(80)
-        )
-        
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize,
-            subitem: weekItem,
-            count: 1
-        )
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuous
-        section.contentInsets = .init(top: 16, leading: 24, bottom: 16, trailing: 24)
-        section.interGroupSpacing = 8
-        
-        return section
-    }
+//    private func generateWeekSectionLayout() -> NSCollectionLayoutSection {
+//        let itemSize = NSCollectionLayoutSize(
+//            widthDimension: .absolute(80),
+//            heightDimension: .absolute(80)
+//        )
+//
+//        let weekItem = NSCollectionLayoutItem(layoutSize: itemSize)
+//
+//        let groupSize = NSCollectionLayoutSize(
+//            widthDimension: .absolute(80),
+//            heightDimension: .absolute(80)
+//        )
+//
+//        let group = NSCollectionLayoutGroup.horizontal(
+//            layoutSize: groupSize,
+//            subitem: weekItem,
+//            count: 1
+//        )
+//
+//        let section = NSCollectionLayoutSection(group: group)
+//        section.orthogonalScrollingBehavior = .continuous
+//        section.contentInsets = .init(top: 16, leading: 24, bottom: 16, trailing: 24)
+//        section.interGroupSpacing = 8
+//
+//        return section
+//    }
     
     private func generateTrainingSectionLayout() -> NSCollectionLayoutSection {
         let layoutSize = NSCollectionLayoutSize(
-            widthDimension: .estimated(150),
+            widthDimension: .absolute(UIScreen.main.bounds.size.width - 48),
             heightDimension: .estimated(50)
         )
 
-        let group = NSCollectionLayoutGroup.horizontal(
+        let group = NSCollectionLayoutGroup.vertical(
             layoutSize: .init(
                 widthDimension: layoutSize.widthDimension,
                 heightDimension: layoutSize.heightDimension
@@ -177,20 +172,16 @@ class TrainingViewController: UIViewController {
             subitems: [.init(layoutSize: layoutSize)]
         )
         
-        let containerGroupSize = NSCollectionLayoutSize(
-            widthDimension: .estimated(150),
-            heightDimension: .estimated(100)
-        )
-        
-        let containerGroup = NSCollectionLayoutGroup.horizontal(
-            layoutSize: containerGroupSize,
-            subitems: [group]
-        )
+        //group.interItemSpacing = .fixed(100)
 
-        let section = NSCollectionLayoutSection(group: containerGroup) //group)
-        section.orthogonalScrollingBehavior = .continuous
+        let section = NSCollectionLayoutSection(group: group)
+        
+        //section.decorationItems = [
+        //    NSCollectionLayoutDecorationItem.background(elementKind: TrainingProcessDecorationView.identifier)
+        //]
         section.contentInsets = .init(top: 0, leading: 24, bottom: 0, trailing: 24)
-        section.interGroupSpacing = 8
+        // cell spacing
+        section.interGroupSpacing = 0
         
         section.boundarySupplementaryItems = [
             NSCollectionLayoutBoundarySupplementaryItem(
@@ -202,7 +193,7 @@ class TrainingViewController: UIViewController {
                 alignment: .top
             )
         ]
-
+        
         return section
     }
 }

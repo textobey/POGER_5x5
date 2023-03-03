@@ -1,16 +1,16 @@
 //
-//  TrainingBoxHeaderView.swift
+//  TrainingProcessHeaderView.swift
 //  POGER_5x5
 //
-//  Created by 이서준 on 2023/02/17.
+//  Created by 이서준 on 2023/03/03.
 //
 
 import UIKit
 import SnapKit
 
-class TrainingBoxHeaderView: UICollectionReusableView {
+class TrainingProcessHeaderView: UICollectionReusableView {
     
-    static let identifier = String(describing: TrainingBoxHeaderView.self)
+    static let identifier = String(describing: TrainingProcessHeaderView.self)
     
     let wrapperView = UIView().then {
         $0.backgroundColor = .systemBackground
@@ -19,7 +19,7 @@ class TrainingBoxHeaderView: UICollectionReusableView {
     let dayLabel = UILabel().then {
         $0.text = "DAY 1"
         $0.textColor = .label
-        $0.font = .preferredFont(forTextStyle: .title3)
+        $0.font = .preferredFont(forTextStyle: .title1)
     }
     
     override init(frame: CGRect) {
