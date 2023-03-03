@@ -19,7 +19,8 @@ class TrainingProcessHeaderView: UICollectionReusableView {
     let dayLabel = UILabel().then {
         $0.text = "DAY 1"
         $0.textColor = .label
-        $0.font = .preferredFont(forTextStyle: .title1)
+        $0.font = .systemFont(ofSize: 22, weight: .bold)
+        //$0.font = .preferredFont(forTextStyle: .title1)
     }
     
     override init(frame: CGRect) {

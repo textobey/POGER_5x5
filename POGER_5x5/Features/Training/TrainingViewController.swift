@@ -67,12 +67,12 @@ class TrainingViewController: UIViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: TrainingProcessHeaderView.identifier
         )
-        $0.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
+        $0.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presentStartViewController()
+        //presentStartViewController()
         setupNavigationBarItem()
         setupLayout()
         bind()
@@ -127,8 +127,8 @@ class TrainingViewController: UIViewController {
     
     private func generateTrainingSectionLayout() -> NSCollectionLayoutSection {
         let layoutSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(UIScreen.main.bounds.size.width - 48),
-            heightDimension: .estimated(50)
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(100)
         )
 
         let group = NSCollectionLayoutGroup.vertical(
@@ -141,7 +141,7 @@ class TrainingViewController: UIViewController {
 
         let section = NSCollectionLayoutSection(group: group)
         
-        section.contentInsets = .init(top: 0, leading: 24, bottom: 0, trailing: 24)
+        section.contentInsets = .init(top: 0, leading: 20, bottom: 10, trailing: 20)
         // cell spacing
         section.interGroupSpacing = 0
         

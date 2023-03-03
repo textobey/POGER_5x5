@@ -5,7 +5,7 @@
 //  Created by 이서준 on 2023/02/03.
 //
 
-import Foundation
+import UIKit
 
 struct R {
     struct Margin { }
@@ -13,6 +13,7 @@ struct R {
     struct Unit { }
     struct Expectation { }
     struct Process { }
+    struct SFSymbol { }
 }
 
 extension R.Margin {
@@ -43,23 +44,28 @@ extension R.Unit {
 extension R.Process {
     //TODO: 각 Day별로 계산식에 따라 12개(12주)치를 만드는 로직이 필요해보임
     static let day1DataSource: [DayTraining] = [
-        DayTraining(rep: "5x", weight: "35", training: .squat),
-        DayTraining(rep: "5x", weight: "35", training: .benchpress),
-        DayTraining(rep: "5x", weight: "35", training: .pendlayrow),
-        DayTraining(rep: "4x", weight: "최대한", training: .pullups)
+        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .squat),
+        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .benchpress),
+        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .pendlayrow),
+        DayTraining(rep: R.SFSymbol.goforwardPlus, weight: "최대한", training: .pullups)
     ]
     
     static let day2DataSource: [DayTraining] = [
-        DayTraining(rep: "5x", weight: "35", training: .deadlift),
-        DayTraining(rep: "5x", weight: "35", training: .overheadpress),
-        DayTraining(rep: "5x", weight: "35", training: .machinepress),
-        DayTraining(rep: "4x", weight: "최대한", training: .highbarsquat)
+        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .deadlift),
+        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .overheadpress),
+        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .machinepress),
+        DayTraining(rep: R.SFSymbol.goforwardPlus, weight: "최대한", training: .highbarsquat)
     ]
     
     static let day3DataSource: [DayTraining] = [
-        DayTraining(rep: "5x", weight: "35", training: .squat),
-        DayTraining(rep: "5x", weight: "35", training: .benchpress),
-        DayTraining(rep: "5x", weight: "35", training: .pendlayrow),
-        DayTraining(rep: "4x", weight: "최대한", training: .chinups)
+        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .squat),
+        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .benchpress),
+        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .pendlayrow),
+        DayTraining(rep: R.SFSymbol.goforwardPlus, weight: "최대한", training: .chinups)
     ]
+}
+
+extension R.SFSymbol {
+    static let goforwardFive = UIImage(systemName: "goforward.5")!
+    static let goforwardPlus = UIImage(systemName: "goforward.plus")!
 }

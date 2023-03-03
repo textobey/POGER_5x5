@@ -27,7 +27,7 @@ final class UIBaseTabBarController: UITabBarController {
         super.viewDidLoad()
         self.viewControllers = fetchRootViewControllers()
         self.setupTabBarController()
-        self.setupNavigationController()
+        //self.setupNavigationController()
     }
     
     private func setupTabBarController() {
@@ -40,6 +40,7 @@ final class UIBaseTabBarController: UITabBarController {
     }
     
     private func setupNavigationController() {
+        // 비활성화, Large Title의 left margin을 추가
         let style = NSMutableParagraphStyle()
         style.firstLineHeadIndent = 8
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.paragraphStyle: style]
