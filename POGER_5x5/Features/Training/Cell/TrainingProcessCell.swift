@@ -32,10 +32,9 @@ class TrainingProcessCell: UICollectionViewCell {
     //}
     
     let repIcon = UIImageView().then {
-        $0.image = UIImage()
+        $0.image = R.SFSymbol.goforwardFive
         $0.backgroundColor = .clear
         $0.tintColor = .systemGray
-        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     let trainingNameLabel = UILabel().then {
@@ -62,7 +61,7 @@ class TrainingProcessCell: UICollectionViewCell {
         
         wrapperView.addSubview(repIcon)
         repIcon.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(12)
+            $0.top.bottom.equalTo(wrapperView).inset(12)
             $0.leading.equalToSuperview().offset(16)
             $0.size.equalTo(24)
         }
@@ -74,11 +73,11 @@ class TrainingProcessCell: UICollectionViewCell {
             $0.trailing.equalToSuperview().offset(-10)
         }
 
-        contentView.addSubview(separator)
-        separator.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview()
-            $0.height.equalTo(1)
-        }
+        //contentView.addSubview(separator)
+        //separator.snp.makeConstraints {
+        //    $0.leading.trailing.bottom.equalToSuperview()
+        //    $0.height.equalTo(1)
+        //}
     }
     
     func configureCell(_ model: DayTraining) {

@@ -17,7 +17,7 @@ class TrainingViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
-    let dataSource = RxCollectionViewSectionedReloadDataSource<TrainingViewSection>(
+    lazy var dataSource = RxCollectionViewSectionedReloadDataSource<TrainingViewSection>(
         configureCell: { dataSource, collectionView, indexPath, sectionItem in
             switch sectionItem {
             case .training(let training):
@@ -44,6 +44,12 @@ class TrainingViewController: UIViewController {
                 switch dataSource[indexPath.section] {
                 case .training(let day, _):
                     header.dayLabel.text = day
+                    header.startButton.rx.tap
+                        .map { dataSource[indexPath.section] }
+                        .subscribe(onNext: { [weak self] section in
+                            self?.navigateToDetailViewController(section)
+                        })
+                        .disposed(by: header.disposeBag)
                 }
                 return header
             }
@@ -52,10 +58,10 @@ class TrainingViewController: UIViewController {
     )
     
     //TODO: 이미지를 제작하여 표시할것인지, Label Text Button으로 표시할것인지 GUI 결정
-    private let allWeekButton = UIButton().then {
-        $0.setTitle("변경", for: .normal)
+    private let everyWeekButton = UIButton().then {
+        $0.setTitle("모든 운동", for: .normal)
         $0.setTitleColor(.systemBlue, for: .normal)
-        $0.setTitleColor(.systemGray, for: .highlighted)
+        $0.setTitleColor(.systemBlue.withAlphaComponent(0.6), for: .highlighted)
     }
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: fetchCollectionViewLayout()).then {
@@ -89,7 +95,7 @@ class TrainingViewController: UIViewController {
     }
     
     private func setupNavigationBarItem() {
-        let barButtonItem = UIBarButtonItem(customView: allWeekButton)
+        let barButtonItem = UIBarButtonItem(customView: everyWeekButton)
         navigationItem.setRightBarButtonItems([barButtonItem], animated: false)
     }
     
@@ -111,6 +117,20 @@ class TrainingViewController: UIViewController {
 
         Observable.just(sections)
             .bind(to: collectionView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.itemSelected
+            .withUnretained(self)
+            .map { $0.0.dataSource[$0.1.section] }
+            .subscribe(onNext: { [weak self] section in
+                self?.navigateToDetailViewController(section)
+            })
+            .disposed(by: disposeBag)
+        
+        everyWeekButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.presentToEveryWeekViewController()
+            })
             .disposed(by: disposeBag)
     }
     
@@ -157,5 +177,13 @@ class TrainingViewController: UIViewController {
         ]
         
         return section
+    }
+    
+    private func presentToEveryWeekViewController() {
+        print("didTap everyWeekButton")
+    }
+    
+    private func navigateToDetailViewController(_ section: TrainingViewSection) {
+        print(section)
     }
 }
