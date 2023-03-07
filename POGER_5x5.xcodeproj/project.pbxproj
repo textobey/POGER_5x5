@@ -18,6 +18,8 @@
 		A614B28D299CB0B600B9652D /* TrainingSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */; };
 		A63B078629AC443D007DE54F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B078529AC443D007DE54F /* ActivityIndicator.swift */; };
 		A655079229A5AD2E00C615D3 /* InputListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655079129A5AD2E00C615D3 /* InputListCell.swift */; };
+		A67BF18629B5CC4300D6F84A /* TrainingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BF18529B5CC4300D6F84A /* TrainingDetailViewController.swift */; };
+		A67BF18929B5DFA500D6F84A /* TrainingContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BF18829B5DFA500D6F84A /* TrainingContentCell.swift */; };
 		A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */; };
 		A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */; };
 		A68E5F88298CA41100112ED7 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F87298CA41100112ED7 /* ReactorKit */; };
@@ -70,6 +72,8 @@
 		A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSectionModel.swift; sourceTree = "<group>"; };
 		A63B078529AC443D007DE54F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		A655079129A5AD2E00C615D3 /* InputListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputListCell.swift; sourceTree = "<group>"; };
+		A67BF18529B5CC4300D6F84A /* TrainingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailViewController.swift; sourceTree = "<group>"; };
+		A67BF18829B5DFA500D6F84A /* TrainingContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingContentCell.swift; sourceTree = "<group>"; };
 		A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseNavigationController.swift; sourceTree = "<group>"; };
 		A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTabBarViewController.swift; sourceTree = "<group>"; };
 		A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
@@ -168,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				A6B4285F29B0867B0065D245 /* Enums */,
-				A6B4285E29B086730065D245 /* Models */,
 				A6B4286029B086A00065D245 /* Protocols */,
 			);
 			path = DataSources;
@@ -194,6 +197,23 @@
 			isa = PBXGroup;
 			children = (
 				A655079129A5AD2E00C615D3 /* InputListCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A67BF18429B5CC2300D6F84A /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A67BF18729B5CC7700D6F84A /* Cell */,
+				A67BF18529B5CC4300D6F84A /* TrainingDetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		A67BF18729B5CC7700D6F84A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A67BF18829B5DFA500D6F84A /* TrainingContentCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -247,9 +267,11 @@
 		A68E5F97298CC57200112ED7 /* Training */ = {
 			isa = PBXGroup;
 			children = (
+				A6A3FCA729B6CB2200BD094B /* Model */,
 				A6301755299F1DA00014DBF2 /* Cell */,
 				A619F0402996758F00BD55B6 /* Subview */,
 				A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */,
+				A67BF18429B5CC2300D6F84A /* Detail */,
 			);
 			path = Training;
 			sourceTree = "<group>";
@@ -265,6 +287,23 @@
 				A6CD38F7298CD65000FB5642 /* NOTOSANSKR-REGULAR-HESTIA.ttf */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		A6A3FCA729B6CB2200BD094B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6B4286F29B08AC30065D245 /* DayTraining.swift */,
+				A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A6A3FCA829B6CB4C00BD094B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6B4286B29B087370065D245 /* Expectation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A6A519172990DAE5002CBC01 /* TrainingEnvironment */ = {
@@ -286,6 +325,7 @@
 		A6A519202990E34B002CBC01 /* ExpectedLevel */ = {
 			isa = PBXGroup;
 			children = (
+				A6A3FCA829B6CB4C00BD094B /* Model */,
 				A690252029A8791A00BE42F5 /* ExpectedLevelCell.swift */,
 				A6A519212990E359002CBC01 /* ExpectedLevelViewController.swift */,
 			);
@@ -306,16 +346,6 @@
 				A6C612B82991E470005F5BB7 /* SettingsViewController.swift */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		A6B4285E29B086730065D245 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				A6B4286B29B087370065D245 /* Expectation.swift */,
-				A6B4286F29B08AC30065D245 /* DayTraining.swift */,
-				A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		A6B4285F29B0867B0065D245 /* Enums */ = {
@@ -472,6 +502,7 @@
 				A6A519192990DB30002CBC01 /* TrainingEnvironmentViewController.swift in Sources */,
 				A607A9F129A4C12800487350 /* PickerButtonToolbarView.swift in Sources */,
 				A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */,
+				A67BF18929B5DFA500D6F84A /* TrainingContentCell.swift in Sources */,
 				A68E5F9B298CCFC200112ED7 /* UIFont+.swift in Sources */,
 				A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */,
 				A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */,
@@ -481,6 +512,7 @@
 				A6B4286829B086F40065D245 /* Personal.swift in Sources */,
 				A6B4286A29B087150065D245 /* ExpectedLevelType.swift in Sources */,
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
+				A67BF18629B5CC4300D6F84A /* TrainingDetailViewController.swift in Sources */,
 				A614B28D299CB0B600B9652D /* TrainingSectionModel.swift in Sources */,
 				A6B4286629B086E40065D245 /* Precondition.swift in Sources */,
 				CBE1DD58299C9504003E717D /* UITableViewCell+.swift in Sources */,

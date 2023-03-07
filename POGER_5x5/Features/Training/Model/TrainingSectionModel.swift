@@ -9,7 +9,7 @@ import Foundation
 import RxDataSources
 
 enum TrainingViewSection {
-    case training(day: String, items: [TrainingViewSectionItem])
+    case training(title: String, items: [TrainingViewSectionItem])
 }
 
 enum TrainingViewSectionItem {
@@ -29,8 +29,8 @@ extension TrainingViewSection: SectionModelType {
     
     init(original: TrainingViewSection, items: [TrainingViewSectionItem]) {
         switch original {
-        case .training(let day, let items):
-            self = .training(day: day, items: items)
+        case .training(let title, let items):
+            self = .training(title: title, items: items)
         }
     }
 }

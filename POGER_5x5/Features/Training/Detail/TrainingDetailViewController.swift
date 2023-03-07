@@ -1,8 +1,8 @@
 //
-//  TrainingViewController.swift
+//  TrainingDetailViewController.swift
 //  POGER_5x5
 //
-//  Created by 이서준 on 2023/02/03.
+//  Created by 이서준 on 2023/03/06.
 //
 
 import UIKit
@@ -11,26 +11,28 @@ import RxDataSources
 import RxSwift
 import SnapKit
 
-//TODO: 운동 리스트 GUI 조정하기
-//TODO: 선택된 DAY에 대한 Hightlight 효과 추가
-class TrainingViewController: UIViewController {
+class TrainingDetailViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
-    lazy var dataSource = RxCollectionViewSectionedReloadDataSource<TrainingViewSection>(
+    let section: TrainingViewSection
+    
+    //TODO: 이미지를 제작하여 표시할것인지, Label Text Button으로 표시할것인지 GUI 결정
+    private let everyWeekButton = UIButton().then {
+        $0.setTitle("모든 운동", for: .normal)
+        $0.setTitleColor(.systemBlue, for: .normal)
+        $0.setTitleColor(.systemBlue.withAlphaComponent(0.6), for: .highlighted)
+    }
+    
+    let dataSource = RxCollectionViewSectionedReloadDataSource<TrainingViewSection>(
         configureCell: { dataSource, collectionView, indexPath, sectionItem in
             switch sectionItem {
             case .training(let training):
                 let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: TrainingProcessCell.identifier,
+                    withReuseIdentifier: TrainingContentCell.identifier,
                     for: indexPath
-                ) as! TrainingProcessCell
+                ) as! TrainingContentCell
                 cell.configureCell(training)
-                if collectionView.isFirstCell(indexPath) {
-                    cell.appendCornerRadius(at: .top)
-                } else if collectionView.isLastCell(indexPath) {
-                    cell.appendCornerRadius(at: .bottom)
-                }
                 return cell
             }
         },
@@ -43,13 +45,9 @@ class TrainingViewController: UIViewController {
                 ) as! TrainingProcessHeaderView
                 switch dataSource[indexPath.section] {
                 case .training(let title, _):
-                    header.dayLabel.text = title
-                    header.startButton.rx.tap
-                        .map { dataSource[indexPath.section] }
-                        .subscribe(onNext: { [weak self] section in
-                            self?.navigateToDetailViewController(section)
-                        })
-                        .disposed(by: header.disposeBag)
+                    //header.dayLabel.text = title
+                    header.dayLabel.text = "스쿼트"
+                    header.startButton.isHidden = true
                 }
                 return header
             }
@@ -57,10 +55,13 @@ class TrainingViewController: UIViewController {
         }
     )
     
-    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: fetchCollectionViewLayout()).then {
+    lazy var collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: fetchCollectionViewLayout()
+    ).then {
         $0.showsVerticalScrollIndicator = false
         $0.showsHorizontalScrollIndicator = false
-        $0.register(TrainingProcessCell.self, forCellWithReuseIdentifier: TrainingProcessCell.identifier)
+        $0.register(TrainingContentCell.self, forCellWithReuseIdentifier: TrainingContentCell.identifier)
         $0.register(
             TrainingProcessHeaderView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -68,23 +69,36 @@ class TrainingViewController: UIViewController {
         )
         $0.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
     }
-
+    
+    init(section: TrainingViewSection) {
+        self.section = section
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        presentStartViewController()
-        view.backgroundColor = .systemBackground
+        configureView()
+        setupNavigationBarItem()
         setupLayout()
         bind()
     }
     
-    private func presentStartViewController() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            let startViewController = StartViewController()
-            let navigationController = UINavigationController(rootViewController: startViewController)
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationController.modalPresentationStyle = .fullScreen
-            self.present(navigationController, animated: false)
+    private func configureView() {
+        view.backgroundColor = .systemBackground
+        if case let .training(day, _) = section {
+            self.title = day
+        } else {
+            self.title = "프로그램"
         }
+    }
+    
+    private func setupNavigationBarItem() {
+        let barButtonItem = UIBarButtonItem(customView: everyWeekButton)
+        navigationItem.setRightBarButtonItems([barButtonItem], animated: false)
     }
     
     private func setupLayout() {
@@ -97,21 +111,15 @@ class TrainingViewController: UIViewController {
     }
     
     private func bind() {
-        let sections: [TrainingViewSection] = [
-            .training(title: "DAY 1", items: R.Process.day1DataSource.map { TrainingViewSectionItem.training($0) }),
-            .training(title: "DAY 2", items: R.Process.day2DataSource.map { TrainingViewSectionItem.training($0) }),
-            .training(title: "DAY 3", items: R.Process.day3DataSource.map { TrainingViewSectionItem.training($0) })
-        ]
-
-        Observable.just(sections)
+        print(section)
+        
+        Observable.just([section])
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        collectionView.rx.itemSelected
-            .withUnretained(self)
-            .map { $0.0.dataSource[$0.1.section] }
-            .subscribe(onNext: { [weak self] section in
-                self?.navigateToDetailViewController(section)
+        everyWeekButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.presentToEveryWeekViewController()
             })
             .disposed(by: disposeBag)
     }
@@ -120,14 +128,14 @@ class TrainingViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
             guard let `self` = self else { return .none }
             if case .training = self.dataSource[sectionIndex] {
-                return self.generateTrainingSectionLayout()
+                return self.generateSectionLayout()
             }
             return .none
         }
         return layout
     }
     
-    private func generateTrainingSectionLayout() -> NSCollectionLayoutSection {
+    private func generateSectionLayout() -> NSCollectionLayoutSection {
         let layoutSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .estimated(100)
@@ -140,12 +148,15 @@ class TrainingViewController: UIViewController {
             ),
             subitems: [.init(layoutSize: layoutSize)]
         )
+        
+        // section spacing
+        //group.interItemSpacing = .fixed(0)
 
         let section = NSCollectionLayoutSection(group: group)
         
         section.contentInsets = .init(top: 0, leading: 20, bottom: 10, trailing: 20)
         // cell spacing
-        section.interGroupSpacing = 0
+        section.interGroupSpacing = 10
         
         section.boundarySupplementaryItems = [
             NSCollectionLayoutBoundarySupplementaryItem(
@@ -161,9 +172,7 @@ class TrainingViewController: UIViewController {
         return section
     }
     
-    private func navigateToDetailViewController(_ section: TrainingViewSection) {
-        let viewController = TrainingDetailViewController(section: section)
-        viewController.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(viewController, animated: true)
+    private func presentToEveryWeekViewController() {
+        print("didTap everyWeekButton")
     }
 }

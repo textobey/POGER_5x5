@@ -16,21 +16,6 @@ class TrainingProcessCell: UICollectionViewCell {
         $0.backgroundColor = .secondarySystemBackground
     }
     
-    //TODO: separator를 추가했을때, 터치 영역이 전체보다는 개별 Cell로 보이는듯한 UX가 되어버려서 결정이 필요함
-    let separator = UIView().then {
-        $0.isHidden = true
-        $0.backgroundColor = .tertiarySystemBackground
-    }
-    
-    //TODO: label을 사용할지 vs image를 사용해서 아이콘을 보여줄지 결정이 필요함
-    //let repLabel = UILabel().then {
-    //    $0.text = "5x"
-    //    $0.textColor = .label
-    //    $0.textAlignment = .center
-    //    $0.numberOfLines = 1
-    //    $0.font = .preferredFont(forTextStyle: .body)
-    //}
-    
     let repIcon = UIImageView().then {
         $0.image = R.SFSymbol.goforwardFive
         $0.backgroundColor = .clear
@@ -72,18 +57,11 @@ class TrainingProcessCell: UICollectionViewCell {
             $0.leading.equalTo(repIcon.snp.trailing).offset(10)
             $0.trailing.equalToSuperview().offset(-10)
         }
-
-        //contentView.addSubview(separator)
-        //separator.snp.makeConstraints {
-        //    $0.leading.trailing.bottom.equalToSuperview()
-        //    $0.height.equalTo(1)
-        //}
     }
     
     func configureCell(_ model: DayTraining) {
         repIcon.image = model.rep
         trainingNameLabel.text = model.training.rawValue
-        //separator.isHidden = false
     }
     
     func appendCornerRadius(at direction: Direction) {
@@ -93,7 +71,6 @@ class TrainingProcessCell: UICollectionViewCell {
         } else if case .bottom = direction {
             wrapperView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             wrapperView.layer.cornerRadius = 12
-            //separator.isHidden = true
         }
     }
 }
