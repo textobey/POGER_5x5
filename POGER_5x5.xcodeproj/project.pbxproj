@@ -148,96 +148,16 @@
 			children = (
 				A60519E0298BA66C00557E7E /* Info.plist */,
 				A6BCAD93298BB12C0069ABA5 /* Application */,
-				A683743D29936C5C00A37A8D /* Base */,
-				A614B28B299CB08200B9652D /* DataSources */,
 				A68E5F8F298CA5C800112ED7 /* Extension */,
-				A68E5F92298CA60C00112ED7 /* Foundation */,
-				A6BCAD95298BB1560069ABA5 /* Features */,
+				A6A3FCB229B7080E00BD094B /* Enums */,
+				A6A3FCB129B707FB00BD094B /* Models */,
+				A6A3FCAE29B7079A00BD094B /* Views */,
+				A6A3FCAF29B707B300BD094B /* ViewControllers */,
+				A6A3FCB329B7084F00BD094B /* Utils */,
 				A6BCAD94298BB13D0069ABA5 /* Resources */,
 				A68E5F9C298CCFE800112ED7 /* Supporting files */,
 			);
 			path = POGER_5x5;
-			sourceTree = "<group>";
-		};
-		A607A9EF29A4C11100487350 /* PickerButton */ = {
-			isa = PBXGroup;
-			children = (
-				A6CD3909298CE8A600FB5642 /* PickerButton.swift */,
-				A607A9F029A4C12800487350 /* PickerButtonToolbarView.swift */,
-			);
-			path = PickerButton;
-			sourceTree = "<group>";
-		};
-		A614B28B299CB08200B9652D /* DataSources */ = {
-			isa = PBXGroup;
-			children = (
-				A6B4285F29B0867B0065D245 /* Enums */,
-				A6B4286029B086A00065D245 /* Protocols */,
-			);
-			path = DataSources;
-			sourceTree = "<group>";
-		};
-		A619F0402996758F00BD55B6 /* Subview */ = {
-			isa = PBXGroup;
-			children = (
-				A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */,
-			);
-			path = Subview;
-			sourceTree = "<group>";
-		};
-		A6301755299F1DA00014DBF2 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				A6B4285C29B0813C0065D245 /* TrainingProcessCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		A655079029A5ACFE00C615D3 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				A655079129A5AD2E00C615D3 /* InputListCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		A67BF18429B5CC2300D6F84A /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				A67BF18729B5CC7700D6F84A /* Cell */,
-				A67BF18529B5CC4300D6F84A /* TrainingDetailViewController.swift */,
-			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
-		A67BF18729B5CC7700D6F84A /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				A67BF18829B5DFA500D6F84A /* TrainingContentCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		A683743D29936C5C00A37A8D /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */,
-				A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		A68E5F84298CA01A00112ED7 /* Start */ = {
-			isa = PBXGroup;
-			children = (
-				A655079029A5ACFE00C615D3 /* Cell */,
-				A68E5F95298CC20900112ED7 /* StartViewController.swift */,
-				A6CD3908298CDFC000FB5642 /* LevelCheck */,
-				A6A519172990DAE5002CBC01 /* TrainingEnvironment */,
-				A6A5191A2990DEF2002CBC01 /* BMI */,
-				A6A519202990E34B002CBC01 /* ExpectedLevel */,
-			);
-			path = Start;
 			sourceTree = "<group>";
 		};
 		A68E5F8F298CA5C800112ED7 /* Extension */ = {
@@ -253,29 +173,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		A68E5F92298CA60C00112ED7 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				A68E5F93298CA61E00112ED7 /* Then.swift */,
-				A63B078529AC443D007DE54F /* ActivityIndicator.swift */,
-				A607A9EF29A4C11100487350 /* PickerButton */,
-				A6A519132990D0EB002CBC01 /* DynamicHeightTableView.swift */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
-		A68E5F97298CC57200112ED7 /* Training */ = {
-			isa = PBXGroup;
-			children = (
-				A6A3FCA729B6CB2200BD094B /* Model */,
-				A6301755299F1DA00014DBF2 /* Cell */,
-				A619F0402996758F00BD55B6 /* Subview */,
-				A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */,
-				A67BF18429B5CC2300D6F84A /* Detail */,
-			);
-			path = Training;
-			sourceTree = "<group>";
-		};
 		A68E5F9C298CCFE800112ED7 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,66 +186,52 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
-		A6A3FCA729B6CB2200BD094B /* Model */ = {
+		A6A3FCAE29B7079A00BD094B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A6B4286F29B08AC30065D245 /* DayTraining.swift */,
-				A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A6A3FCA829B6CB4C00BD094B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A6B4286B29B087370065D245 /* Expectation.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A6A519172990DAE5002CBC01 /* TrainingEnvironment */ = {
-			isa = PBXGroup;
-			children = (
-				A6A519182990DB30002CBC01 /* TrainingEnvironmentViewController.swift */,
-			);
-			path = TrainingEnvironment;
-			sourceTree = "<group>";
-		};
-		A6A5191A2990DEF2002CBC01 /* BMI */ = {
-			isa = PBXGroup;
-			children = (
-				A6A5191B2990DF9D002CBC01 /* BMIViewController.swift */,
-			);
-			path = BMI;
-			sourceTree = "<group>";
-		};
-		A6A519202990E34B002CBC01 /* ExpectedLevel */ = {
-			isa = PBXGroup;
-			children = (
-				A6A3FCA829B6CB4C00BD094B /* Model */,
+				A63B078529AC443D007DE54F /* ActivityIndicator.swift */,
+				A6CD3909298CE8A600FB5642 /* PickerButton.swift */,
+				A607A9F029A4C12800487350 /* PickerButtonToolbarView.swift */,
+				A6A519132990D0EB002CBC01 /* DynamicHeightTableView.swift */,
+				A655079129A5AD2E00C615D3 /* InputListCell.swift */,
 				A690252029A8791A00BE42F5 /* ExpectedLevelCell.swift */,
+				A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */,
+				A6B4285C29B0813C0065D245 /* TrainingProcessCell.swift */,
+				A67BF18829B5DFA500D6F84A /* TrainingContentCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A6A3FCAF29B707B300BD094B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */,
+				A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */,
+				A68E5F95298CC20900112ED7 /* StartViewController.swift */,
+				A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */,
+				A6A519182990DB30002CBC01 /* TrainingEnvironmentViewController.swift */,
+				A6A5191B2990DF9D002CBC01 /* BMIViewController.swift */,
 				A6A519212990E359002CBC01 /* ExpectedLevelViewController.swift */,
-			);
-			path = ExpectedLevel;
-			sourceTree = "<group>";
-		};
-		A6AAEC8E2991E3E800F15E21 /* LevelTrend */ = {
-			isa = PBXGroup;
-			children = (
+				A68E5F98298CC5A200112ED7 /* TrainingViewController.swift */,
+				A67BF18529B5CC4300D6F84A /* TrainingDetailViewController.swift */,
 				A6AAEC8F2991E42300F15E21 /* LevelTrendViewController.swift */,
-			);
-			path = LevelTrend;
-			sourceTree = "<group>";
-		};
-		A6AAEC912991E43800F15E21 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
 				A6C612B82991E470005F5BB7 /* SettingsViewController.swift */,
 			);
-			path = Settings;
+			name = ViewControllers;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		A6B4285F29B0867B0065D245 /* Enums */ = {
+		A6A3FCB129B707FB00BD094B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A6B4286129B086B30065D245 /* Questionnaire.swift */,
+				A6A3FCB429B708AD00BD094B /* Sections */,
+			);
+			name = Models;
+			path = Types;
+			sourceTree = "<group>";
+		};
+		A6A3FCB229B7080E00BD094B /* Enums */ = {
 			isa = PBXGroup;
 			children = (
 				A6B4286329B086D00065D245 /* Training.swift */,
@@ -356,16 +239,26 @@
 				A6B4286729B086F40065D245 /* Personal.swift */,
 				A6B4286929B087150065D245 /* ExpectedLevelType.swift */,
 				A6FA25CE29B1CC3E00A65C29 /* Direction.swift */,
+				A6B4286B29B087370065D245 /* Expectation.swift */,
+				A6B4286F29B08AC30065D245 /* DayTraining.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		A6B4286029B086A00065D245 /* Protocols */ = {
+		A6A3FCB329B7084F00BD094B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A6B4286129B086B30065D245 /* Questionnaire.swift */,
+				A68E5F93298CA61E00112ED7 /* Then.swift */,
 			);
-			path = Protocols;
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A6A3FCB429B708AD00BD094B /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				A614B28C299CB0B600B9652D /* TrainingSectionModel.swift */,
+			);
+			path = Sections;
 			sourceTree = "<group>";
 		};
 		A6BCAD93298BB12C0069ABA5 /* Application */ = {
@@ -385,25 +278,6 @@
 				A6CD3903298CDE5200FB5642 /* Resource.swift */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		A6BCAD95298BB1560069ABA5 /* Features */ = {
-			isa = PBXGroup;
-			children = (
-				A68E5F84298CA01A00112ED7 /* Start */,
-				A68E5F97298CC57200112ED7 /* Training */,
-				A6AAEC8E2991E3E800F15E21 /* LevelTrend */,
-				A6AAEC912991E43800F15E21 /* Settings */,
-			);
-			path = Features;
-			sourceTree = "<group>";
-		};
-		A6CD3908298CDFC000FB5642 /* LevelCheck */ = {
-			isa = PBXGroup;
-			children = (
-				A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */,
-			);
-			path = LevelCheck;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
