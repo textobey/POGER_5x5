@@ -17,12 +17,8 @@ class TrainingDetailViewController: UIViewController {
     
     let section: TrainingViewSection
     
-    //TODO: 이미지를 제작하여 표시할것인지, Label Text Button으로 표시할것인지 GUI 결정
-    private let everyWeekButton = UIButton().then {
-        $0.setTitle("모든 운동", for: .normal)
-        $0.setTitleColor(.systemBlue, for: .normal)
-        $0.setTitleColor(.systemBlue.withAlphaComponent(0.6), for: .highlighted)
-    }
+    //TODO: UserDefaults에 저장된 데이터값으로 초기값 설정하도록 수정
+    private var selectedWeekRelay = BehaviorRelay<EveryWeek>(value: .week1)
     
     let dataSource = RxCollectionViewSectionedReloadDataSource<TrainingViewSection>(
         configureCell: { dataSource, collectionView, indexPath, sectionItem in
@@ -45,9 +41,9 @@ class TrainingDetailViewController: UIViewController {
                 ) as! TrainingProcessHeaderView
                 switch dataSource[indexPath.section] {
                 case .training(let title, _):
-                    //header.dayLabel.text = title
-                    header.dayLabel.text = "스쿼트"
-                    header.startButton.isHidden = true
+                    header.startButton.setTitle(title, for: .normal)
+                    header.startButton.setImage(nil, for: .normal)
+                    header.startButton.isUserInteractionEnabled = false
                 }
                 return header
             }
@@ -82,7 +78,6 @@ class TrainingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        setupNavigationBarItem()
         setupLayout()
         bind()
     }
@@ -94,11 +89,6 @@ class TrainingDetailViewController: UIViewController {
         } else {
             self.title = "프로그램"
         }
-    }
-    
-    private func setupNavigationBarItem() {
-        let barButtonItem = UIBarButtonItem(customView: everyWeekButton)
-        navigationItem.setRightBarButtonItems([barButtonItem], animated: false)
     }
     
     private func setupLayout() {
@@ -117,10 +107,12 @@ class TrainingDetailViewController: UIViewController {
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        everyWeekButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.presentToEveryWeekViewController()
-            })
+        selectedWeekRelay
+            .map { [weak self] week -> UIBarButtonItem in
+                let menu = UIMenu(title: "", options: [], children: self?.generateMenuItems(selected: week) ?? [])
+                return UIBarButtonItem(title: "모든 운동", image: nil, menu: menu)
+            }
+            .bind(to: navigationItem.rx.rightBarButtonItem)
             .disposed(by: disposeBag)
     }
     
@@ -172,7 +164,17 @@ class TrainingDetailViewController: UIViewController {
         return section
     }
     
-    private func presentToEveryWeekViewController() {
-        print("didTap everyWeekButton")
+    private func generateMenuItems(selected: EveryWeek) -> [UIAction] {
+        return EveryWeek.allCases
+            .map { week -> UIAction in
+                UIAction(
+                    title: week.rawValue,
+                    image: nil,
+                    state: selected == week ? .on : .off,
+                    handler: { [weak self] _ in
+                        self?.selectedWeekRelay.accept(week)
+                    }
+                )
+            }
     }
 }

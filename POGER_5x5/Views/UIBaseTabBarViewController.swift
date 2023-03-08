@@ -9,16 +9,17 @@ import UIKit
 
 final class UIBaseTabBarController: UITabBarController {
     
+    //TODO: 트렌드 화면은 추후 고도화 화면으로 개발 진행
     fileprivate enum UIComponets {
         static let rootViewControllers = [
             TrainingViewController(),
-            LevelTrendViewController(),
+            //LevelTrendViewController(),
             SettingsViewController()
         ]
         
         static let tabBarItems = [
             UITabBarItem(title: "운동", image: UIImage(systemName: "figure.strengthtraining.traditional"), tag: 0),
-            UITabBarItem(title: "트렌드", image: UIImage(systemName: "chart.line.uptrend.xyaxis"), tag: 1),
+            //UITabBarItem(title: "트렌드", image: UIImage(systemName: "chart.line.uptrend.xyaxis"), tag: 1),
             UITabBarItem(title: "설정", image: UIImage(systemName: "gearshape"), tag: 2),
         ]
     }

@@ -19,22 +19,15 @@ class TrainingProcessHeaderView: UICollectionReusableView {
         $0.backgroundColor = .systemBackground
     }
     
-    let dayLabel = UILabel().then {
-        $0.text = "DAY 1"
-        $0.textColor = .label
-        $0.font = .systemFont(ofSize: 22, weight: .bold)
-    }
-    
-    //TODO: 버튼 타이틀을 무엇으로 할지 결정이 필요함(시작하기? 더보기? 상세?)
-    //TODO: 버튼 이미지 추가를 할지 결정이 필요함
     let startButton = UIButton().then {
-        $0.setTitle("시작하기", for: .normal)
-        //$0.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        //$0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-        $0.tintColor = .systemBlue
-        $0.titleLabel?.font = .preferredFont(forTextStyle: .body)
-        $0.setTitleColor(.systemBlue, for: .normal)
-        $0.setTitleColor(.systemBlue.withAlphaComponent(0.6), for: .highlighted)
+        $0.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
+        $0.setTitleColor(.label, for: .normal)
+        $0.setTitleColor(.label.withAlphaComponent(0.6), for: .highlighted)
+        let boldConfiguration = UIImage.SymbolConfiguration(weight: .bold)
+        $0.setImage(UIImage(systemName: "chevron.backward", withConfiguration: boldConfiguration), for: .normal)
+        $0.tintColor = .systemGray
+        //TODO: UIButton.Configuration 객체를 사용하여 label 관련 프로퍼티를 함께 핸들링 할 수 있는법 조사가 필요함
+        $0.imageEdgeInsets = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: -8)
         $0.semanticContentAttribute = .forceRightToLeft
     }
     
@@ -58,17 +51,11 @@ class TrainingProcessHeaderView: UICollectionReusableView {
             $0.directionalEdges.equalToSuperview()
         }
         
-        addSubview(dayLabel)
-        dayLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(24)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-24)
-        }
-        
         addSubview(startButton)
         startButton.snp.makeConstraints {
-            $0.centerY.equalTo(dayLabel)
-            $0.trailing.equalToSuperview()
+            $0.top.equalToSuperview().offset(24)
+            $0.leading.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-24)
         }
     }
 }

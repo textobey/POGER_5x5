@@ -48,7 +48,7 @@ class TrainingProcessCell: UICollectionViewCell {
         repIcon.snp.makeConstraints {
             $0.top.bottom.equalTo(wrapperView).inset(12)
             $0.leading.equalToSuperview().offset(16)
-            $0.size.equalTo(24)
+            $0.size.equalTo(24).priority(.high)
         }
         
         wrapperView.addSubview(trainingNameLabel)

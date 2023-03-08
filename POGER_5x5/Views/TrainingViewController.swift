@@ -43,7 +43,7 @@ class TrainingViewController: UIViewController {
                 ) as! TrainingProcessHeaderView
                 switch dataSource[indexPath.section] {
                 case .training(let title, _):
-                    header.dayLabel.text = title
+                    header.startButton.setTitle(title, for: .normal)
                     header.startButton.rx.tap
                         .map { dataSource[indexPath.section] }
                         .subscribe(onNext: { [weak self] section in
@@ -71,8 +71,8 @@ class TrainingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presentStartViewController()
         view.backgroundColor = .systemBackground
+        presentStartViewController()
         setupLayout()
         bind()
     }
@@ -143,7 +143,7 @@ class TrainingViewController: UIViewController {
 
         let section = NSCollectionLayoutSection(group: group)
         
-        section.contentInsets = .init(top: 0, leading: 20, bottom: 10, trailing: 20)
+        section.contentInsets = .init(top: 0, leading: 20, bottom: 20, trailing: 20)
         // cell spacing
         section.interGroupSpacing = 0
         
@@ -163,7 +163,8 @@ class TrainingViewController: UIViewController {
     
     private func navigateToDetailViewController(_ section: TrainingViewSection) {
         let viewController = TrainingDetailViewController(section: section)
-        viewController.hidesBottomBarWhenPushed = true
+        //TODO: hidesBottomBarWhenPushed 프로퍼티를 true? false?
+        //viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
