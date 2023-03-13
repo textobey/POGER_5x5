@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    var serviceProvider = ServiceProvider()
     
     func scene(
         _ scene: UIScene,
@@ -20,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .systemBackground
         window?.overrideUserInterfaceStyle = UIUserInterfaceStyle.dark
-        window?.rootViewController = UIBaseTabBarController()
+        window?.rootViewController = UIBaseTabBarController(provider: self.serviceProvider)
         window?.makeKeyAndVisible()
     }
 

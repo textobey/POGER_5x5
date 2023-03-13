@@ -13,9 +13,7 @@ import SnapKit
 
 //TODO: 운동 리스트 GUI 조정하기
 //TODO: 선택된 DAY에 대한 Hightlight 효과 추가
-class TrainingViewController: UIViewController {
-    
-    var disposeBag = DisposeBag()
+class TrainingViewController: UIBaseViewController {
     
     lazy var dataSource = RxCollectionViewSectionedReloadDataSource<TrainingViewSection>(
         configureCell: { dataSource, collectionView, indexPath, sectionItem in

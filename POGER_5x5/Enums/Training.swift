@@ -35,4 +35,85 @@ enum Training: String, Questionnaire, CaseIterable {
     var alertMessage: String? {
         return nil
     }
+    
+    var bestRecord: CGFloat? {
+        switch self {
+        case .squat:
+            return Defaults.shared.get(for: .sq)
+            
+        case .highbarsquat:
+            //TODO: 전용 계산식 작성
+            return 0
+            
+        case .benchpress:
+            return Defaults.shared.get(for: .bp)
+            
+        case .deadlift:
+            return Defaults.shared.get(for: .dl)
+            
+        case .pendlayrow:
+            return Defaults.shared.get(for: .pr)
+            
+        case .overheadpress:
+            return Defaults.shared.get(for: .oh)
+            
+        case .machinepress:
+            //TODO: 전용 계산식이 필요 없을 경우 작성
+            return 0
+            
+        default:
+            //TODO: 전용 계산식이 필요 없을 경우 작성(풀업, 친업)
+            return 0
+        }
+    }
+    
+    var weightDifference: CGFloat? {
+        switch self {
+        case .squat:
+            return Defaults.shared.get(for: .sqInt)
+            
+        case .benchpress:
+            return Defaults.shared.get(for: .bpInt)
+            
+        case .deadlift:
+            return Defaults.shared.get(for: .dlInt)
+            
+        case .pendlayrow:
+            return Defaults.shared.get(for: .prInt)
+            
+        case .overheadpress:
+            return Defaults.shared.get(for: .ohInt)
+            
+        default:
+            //TODO: 세트간 무게차이가 없을 경우 작성
+            return 0
+        }
+    }
+    
+    var rep: Int {
+        switch self {
+        case .squat, .benchpress:
+            return 6
+            
+        case .highbarsquat:
+            //TODO: 전용 계산식 작성
+            return 0
+            
+        case .deadlift:
+            return 4
+            
+        case .pendlayrow:
+            return 6
+            
+        case .overheadpress:
+            return 5
+            
+        case .machinepress:
+            return 4
+            
+        default:
+            //TODO: 전용 계산식이 필요 없을 경우 작성(풀업, 친업)
+            return 0
+        }
+    }
 }
