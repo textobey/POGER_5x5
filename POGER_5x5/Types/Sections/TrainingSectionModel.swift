@@ -13,7 +13,7 @@ enum TrainingViewSection {
 }
 
 enum TrainingViewSectionItem {
-    case training(DayTraining)
+    case training(DayTrainingDetail)
 }
 
 extension TrainingViewSection: SectionModelType {

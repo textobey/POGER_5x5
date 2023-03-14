@@ -8,7 +8,7 @@
 import Foundation
 
 protocol WeightCalculationServiceType {
-    func calculateWeight(of training: Training, turn: Turn) -> CGFloat
+    func calculateWeight(of training: DayTrainingDetail) -> CGFloat
 }
 
 final class WeightCalculationService: WeightCalculationServiceType {
@@ -21,18 +21,20 @@ final class WeightCalculationService: WeightCalculationServiceType {
         Defaults.shared.get(for: .plate)!
     }
     
-    func calculateWeight(of training: Training, turn: Turn) -> CGFloat {
+    func calculateWeight(of training: DayTrainingDetail) -> CGFloat {
         // 특정 운동에 대한 나의 1RM
-        let oneRM = training.bestRecord!
-        let differ = training.weightDifference!
+        let oneRM = training.training.bestRecord!
+        let differ = training.training.weightDifference!
         
-        guard turn != .main else {
-            return round(oneRM * pow(1.025, CGFloat(currentWeek - 1)) / (2 * minPlate)) * (2 * minPlate)
-        }
+        return 0
         
-        let mainWeight = calculateWeight(of: training, turn: .main)
+        //guard turn != .main else {
+        //    return round(oneRM * pow(1.025, CGFloat(currentWeek - 1)) / (2 * minPlate)) * (2 * minPlate)
+        //}
         
-        return round(mainWeight * (1 - differ * CGFloat(5 - turn.rawValue)) / (2 * minPlate)) * (2 * minPlate)
+        //let mainWeight = calculateWeight(of: training, turn: .main)
+        
+        //return round(mainWeight * (1 - differ * CGFloat(5 - turn.rawValue)) / (2 * minPlate)) * (2 * minPlate)
     }
 }
 
@@ -40,7 +42,7 @@ final class WeightCalculationService: WeightCalculationServiceType {
 // first : round(main 무게값 * (1 - sqint * 4) / (2 * minPlate)) * (2 * minPlate)
 // second: round(main 무게값 * (1 - sqint * 3) / (2 * minPlate)) * (2 * minPlate)
 // third : round(main 무게값 * (1 - sqint * 2) / (2 * minPlate)) * (2 * minPlate)
-// fourth: round(main 무게값 * (1 - sqint) / (2 * minPlate)) * (2 * minPlate)
+// fourth: round(main 무게값 * (1 - sqint * 1) / (2 * minPlate)) * (2 * minPlate)
 // main  : round(main 무게값 * pow(1.025, (currentWeak - 1)) / (2 * minPlate)) * (2 * minPlate)
 // finish: round(main 무게값 * (1 - sqint * 3) / (2 * minPlate)) * (2 * minPlate)
 

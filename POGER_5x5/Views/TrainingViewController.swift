@@ -94,12 +94,22 @@ class TrainingViewController: UIBaseViewController {
         }
     }
     
+    //TODO: Mockup Data 구성 소스 간소화 및 가독성 증가 작업
+    //TODO: 상세화면에서 모든 운동에 대해 레이아웃 구성되도록 수정
+    //TODO: DayTraining <-> DayTrainingDetail 맞바꾸기
+    //TODO: 상세화면에서 사용될 계산식 완성하기
     private func bind() {
-        let sections: [TrainingViewSection] = [
-            .training(title: "DAY 1", items: R.Process.day1DataSource.map { TrainingViewSectionItem.training($0) }),
-            .training(title: "DAY 2", items: R.Process.day2DataSource.map { TrainingViewSectionItem.training($0) }),
-            .training(title: "DAY 3", items: R.Process.day3DataSource.map { TrainingViewSectionItem.training($0) })
-        ]
+
+        let sections: [TrainingViewSection] = Day.allCases.map { $0.trainingList }.map { trainings in
+            trainings.map { training in
+                provider.programScheduleService.fetchDetail(of: training, at: .day1)
+            }
+        }.map { trainingItem -> TrainingViewSection in
+            TrainingViewSection.training(
+                title: "DAY 1",
+                items: trainingItem.map { TrainingViewSectionItem.training($0) }
+            )
+        }
 
         Observable.just(sections)
             .bind(to: collectionView.rx.items(dataSource: dataSource))

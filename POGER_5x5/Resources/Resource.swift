@@ -44,24 +44,24 @@ extension R.Unit {
 extension R.Process {
     //TODO: 각 Day별로 계산식에 따라 12개(12주)치를 만드는 로직이 필요해보임
     static let day1DataSource: [DayTraining] = [
-        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .squat),
-        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .benchpress),
-        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .pendlayrow),
-        DayTraining(rep: R.SFSymbol.goforwardPlus, weight: "최대한", training: .pullups)
+        DayTraining(training: .squat, weight: 35, rep: 6),
+        DayTraining(training: .benchpress, weight: 35, rep: 6),
+        DayTraining(training: .pendlayrow, weight: 35, rep: 5),
+        DayTraining(training: .pullups, weight: -1, rep: -1)
     ]
     
     static let day2DataSource: [DayTraining] = [
-        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .deadlift),
-        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .overheadpress),
-        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .machinepress),
-        DayTraining(rep: R.SFSymbol.goforwardPlus, weight: "최대한", training: .highbarsquat)
+        DayTraining(training: .deadlift, weight: 35, rep: 6),
+        DayTraining(training: .overheadpress, weight: 35, rep: 6),
+        DayTraining(training: .machinepress, weight: 35, rep: 5),
+        DayTraining(training: .highbarsquat, weight: -1, rep: -1)
     ]
     
     static let day3DataSource: [DayTraining] = [
-        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .squat),
-        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .benchpress),
-        DayTraining(rep: R.SFSymbol.goforwardFive, weight: "35", training: .pendlayrow),
-        DayTraining(rep: R.SFSymbol.goforwardPlus, weight: "최대한", training: .chinups)
+        DayTraining(training: .squat, weight: 35, rep: 6),
+        DayTraining(training: .benchpress, weight: 35, rep: 6),
+        DayTraining(training: .pendlayrow, weight: 35, rep: 5),
+        DayTraining(training: .chinups, weight: -1, rep: -1)
     ]
 }
 

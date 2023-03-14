@@ -63,6 +63,7 @@
 		A6CD3904298CDE5200FB5642 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3903298CDE5200FB5642 /* Resource.swift */; };
 		A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */; };
 		A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3909298CE8A600FB5642 /* PickerButton.swift */; };
+		A6ED81A129C000CE006390EE /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ED81A029C000CE006390EE /* Day.swift */; };
 		A6FA25C929B185A900A65C29 /* TrainingProcessHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */; };
 		A6FA25CD29B1CB0F00A65C29 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25CC29B1CB0F00A65C29 /* UICollectionView+.swift */; };
 		A6FA25CF29B1CC3E00A65C29 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25CE29B1CC3E00A65C29 /* Direction.swift */; };
@@ -124,6 +125,7 @@
 		A6CD3903298CDE5200FB5642 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCheckViewController.swift; sourceTree = "<group>"; };
 		A6CD3909298CE8A600FB5642 /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
+		A6ED81A029C000CE006390EE /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProcessHeaderView.swift; sourceTree = "<group>"; };
 		A6FA25CC29B1CB0F00A65C29 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		A6FA25CE29B1CC3E00A65C29 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
@@ -246,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				A6B4286129B086B30065D245 /* Questionnaire.swift */,
+				A6B4286B29B087370065D245 /* Expectation.swift */,
+				A6B4286F29B08AC30065D245 /* DayTraining.swift */,
 				A6A3FCB429B708AD00BD094B /* Sections */,
 			);
 			name = Models;
@@ -261,10 +265,9 @@
 				A60C414C29BAEF34007AAAF5 /* Gender.swift */,
 				A6B4286929B087150065D245 /* ExpectedLevelType.swift */,
 				A6FA25CE29B1CC3E00A65C29 /* Direction.swift */,
-				A6B4286B29B087370065D245 /* Expectation.swift */,
-				A6B4286F29B08AC30065D245 /* DayTraining.swift */,
 				A673332129B859BF002424F8 /* EveryWeek.swift */,
 				A6C1042C29BF112D00F48392 /* Turn.swift */,
+				A6ED81A029C000CE006390EE /* Day.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				A6C1042929BF03F400F48392 /* UIBaseViewController.swift in Sources */,
 				A6B4286A29B087150065D245 /* ExpectedLevelType.swift in Sources */,
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
+				A6ED81A129C000CE006390EE /* Day.swift in Sources */,
 				A67BF18629B5CC4300D6F84A /* TrainingDetailViewController.swift in Sources */,
 				A614B28D299CB0B600B9652D /* TrainingSectionModel.swift in Sources */,
 				A6C1042729BEBF9800F48392 /* ServiceProvider.swift in Sources */,

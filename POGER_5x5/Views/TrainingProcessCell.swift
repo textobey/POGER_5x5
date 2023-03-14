@@ -59,8 +59,8 @@ class TrainingProcessCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(_ model: DayTraining) {
-        repIcon.image = model.rep
+    func configureCell(_ model: DayTrainingDetail) {
+        repIcon.image = model.mainSet != nil ? R.SFSymbol.goforwardFive : R.SFSymbol.goforwardPlus
         trainingNameLabel.text = model.training.rawValue
     }
     

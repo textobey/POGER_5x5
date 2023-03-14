@@ -11,8 +11,10 @@ import Foundation
 
 protocol ServiceProviderType {
     var programScheduleService: ProgramScheduleServiceType { get }
+    var weightCalculationService: WeightCalculationServiceType { get }
 }
 
 final class ServiceProvider: ServiceProviderType {
-    var programScheduleService: ProgramScheduleServiceType = ProgramScheduleService()
+    lazy var programScheduleService: ProgramScheduleServiceType = ProgramScheduleService(service: weightCalculationService)
+    var weightCalculationService: WeightCalculationServiceType = WeightCalculationService()
 }

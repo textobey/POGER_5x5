@@ -90,30 +90,30 @@ enum Training: String, Questionnaire, CaseIterable {
         }
     }
     
-    var rep: Int {
-        switch self {
-        case .squat, .benchpress:
-            return 6
-            
-        case .highbarsquat:
-            //TODO: 전용 계산식 작성
-            return 0
-            
-        case .deadlift:
-            return 4
-            
-        case .pendlayrow:
-            return 6
-            
-        case .overheadpress:
-            return 5
-            
-        case .machinepress:
-            return 4
-            
-        default:
-            //TODO: 전용 계산식이 필요 없을 경우 작성(풀업, 친업)
-            return 0
-        }
-    }
+//    var rep: Int {
+//        switch self {
+//        case .squat, .benchpress:
+//            return 6
+//
+//        case .highbarsquat:
+//            //TODO: 전용 계산식 작성
+//            return 0
+//
+//        case .deadlift:
+//            return 4
+//
+//        case .pendlayrow:
+//            return 6
+//
+//        case .overheadpress:
+//            return 5
+//
+//        case .machinepress:
+//            return 4
+//
+//        default:
+//            //TODO: 전용 계산식이 필요 없을 경우 작성(풀업, 친업)
+//            return 0
+//        }
+//    }
 }
