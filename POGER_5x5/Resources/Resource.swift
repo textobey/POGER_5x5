@@ -41,31 +41,31 @@ extension R.Unit {
     static let week = "주"
 }
 
-extension R.Process {
-    //TODO: 각 Day별로 계산식에 따라 12개(12주)치를 만드는 로직이 필요해보임
-    static let day1DataSource: [DayTraining] = [
-        DayTraining(training: .squat, weight: 35, rep: 6),
-        DayTraining(training: .benchpress, weight: 35, rep: 6),
-        DayTraining(training: .pendlayrow, weight: 35, rep: 5),
-        DayTraining(training: .pullups, weight: -1, rep: -1)
-    ]
-    
-    static let day2DataSource: [DayTraining] = [
-        DayTraining(training: .deadlift, weight: 35, rep: 6),
-        DayTraining(training: .overheadpress, weight: 35, rep: 6),
-        DayTraining(training: .machinepress, weight: 35, rep: 5),
-        DayTraining(training: .highbarsquat, weight: -1, rep: -1)
-    ]
-    
-    static let day3DataSource: [DayTraining] = [
-        DayTraining(training: .squat, weight: 35, rep: 6),
-        DayTraining(training: .benchpress, weight: 35, rep: 6),
-        DayTraining(training: .pendlayrow, weight: 35, rep: 5),
-        DayTraining(training: .chinups, weight: -1, rep: -1)
-    ]
-}
+//extension R.Process {
+//    static let day1DataSource: [WeekTraining] = [
+//        WeekTraining(training: .squat, weight: 35, rep: 6),
+//        WeekTraining(training: .benchpress, weight: 35, rep: 6),
+//        WeekTraining(training: .pendlayrow, weight: 35, rep: 5),
+//        WeekTraining(training: .pullups, weight: -1, rep: -1)
+//    ]
+//
+//    static let day2DataSource: [WeekTraining] = [
+//        WeekTraining(training: .deadlift, weight: 35, rep: 6),
+//        WeekTraining(training: .overheadpress, weight: 35, rep: 6),
+//        WeekTraining(training: .machinepress, weight: 35, rep: 5),
+//        WeekTraining(training: .highbarsquat, weight: -1, rep: -1)
+//    ]
+//
+//    static let day3DataSource: [WeekTraining] = [
+//        WeekTraining(training: .squat, weight: 35, rep: 6),
+//        WeekTraining(training: .benchpress, weight: 35, rep: 6),
+//        WeekTraining(training: .pendlayrow, weight: 35, rep: 5),
+//        WeekTraining(training: .chinups, weight: -1, rep: -1)
+//    ]
+//}
 
 extension R.SFSymbol {
     static let goforwardFive = UIImage(systemName: "goforward.5")!
+    static let goforwardThree = UIImage(named: "goforward.3")!
     static let goforwardPlus = UIImage(systemName: "goforward.plus")!
 }

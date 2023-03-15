@@ -8,11 +8,11 @@
 import UIKit
 
 struct DayTraining {
-    var training: Training
-    var weight: CGFloat
-    var rep: Int
-    var week: CGFloat?
+    var training: Training?
+    var rep: Int?
+    //var week: CGFloat?
     var day: Day?
-    var mainTurn: Int?
-    var finishTurn: Int?
+    var mainSet: Int?
+    var mainSetRep: Int?
+    var hasfinish: Bool?
 }

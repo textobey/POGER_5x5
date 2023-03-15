@@ -59,9 +59,12 @@ class TrainingProcessCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(_ model: DayTrainingDetail) {
-        repIcon.image = model.mainSet != nil ? R.SFSymbol.goforwardFive : R.SFSymbol.goforwardPlus
-        trainingNameLabel.text = model.training.rawValue
+    func configureCell(_ model: Training) {
+        //repIcon.image = R.SFSymbol.goforwardThree.withRenderingMode(.alwaysTemplate)
+        //repIcon.tintColor = .white
+        //repIcon.image = model.mainSet != nil ? R.SFSymbol.goforwardFive : R.SFSymbol.goforwardPlus
+        repIcon.image = R.SFSymbol.goforwardFive
+        trainingNameLabel.text = model.rawValue
     }
     
     func appendCornerRadius(at direction: Direction) {

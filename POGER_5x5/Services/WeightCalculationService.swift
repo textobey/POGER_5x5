@@ -8,10 +8,10 @@
 import Foundation
 
 protocol WeightCalculationServiceType {
-    func calculateWeight(of training: DayTrainingDetail) -> CGFloat
+    //func calculateWeight(of training: WeekTraining) -> CGFloat
 }
 
-final class WeightCalculationService: WeightCalculationServiceType {
+final class WeightCalculationService: BaseService, WeightCalculationServiceType {
     
     private var currentWeek: Int {
         Defaults.shared.get(for: .crWeek) ?? 1
@@ -21,10 +21,10 @@ final class WeightCalculationService: WeightCalculationServiceType {
         Defaults.shared.get(for: .plate)!
     }
     
-    func calculateWeight(of training: DayTrainingDetail) -> CGFloat {
+    func calculateWeight() -> CGFloat {
         // 특정 운동에 대한 나의 1RM
-        let oneRM = training.training.bestRecord!
-        let differ = training.training.weightDifference!
+        //let oneRM = training.training.bestRecord!
+        //let differ = training.training.weightDifference!
         
         return 0
         

@@ -13,9 +13,10 @@ import SnapKit
 
 class TrainingDetailViewController: UIViewController {
     
-    var disposeBag = DisposeBag()
+    private let provider: ServiceProviderType
+    private let day: Day
     
-    let section: TrainingViewSection
+    private let disposeBag = DisposeBag()
     
     //TODO: UserDefaults에 저장된 데이터값으로 초기값 설정하도록 수정
     private var selectedWeekRelay = BehaviorRelay<EveryWeek>(value: .week1)
@@ -23,13 +24,15 @@ class TrainingDetailViewController: UIViewController {
     let dataSource = RxCollectionViewSectionedReloadDataSource<TrainingViewSection>(
         configureCell: { dataSource, collectionView, indexPath, sectionItem in
             switch sectionItem {
-            case .training(let training):
+            case .detaily(let training):
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: TrainingContentCell.identifier,
                     for: indexPath
                 ) as! TrainingContentCell
                 cell.configureCell(training)
                 return cell
+            default:
+                return UICollectionViewCell()
             }
         },
         configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
@@ -66,8 +69,10 @@ class TrainingDetailViewController: UIViewController {
         $0.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
     }
     
-    init(section: TrainingViewSection) {
-        self.section = section
+    //TODO: UIBaseViewController에서 provider 전달받는 구조 삭제
+    init(provider: ServiceProviderType, day: Day) {
+        self.provider = provider
+        self.day = day
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -77,18 +82,9 @@ class TrainingDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        view.backgroundColor = .systemBackground
         setupLayout()
         bind()
-    }
-    
-    private func configureView() {
-        view.backgroundColor = .systemBackground
-        if case let .training(day, _) = section {
-            self.title = day
-        } else {
-            self.title = "프로그램"
-        }
     }
     
     private func setupLayout() {
@@ -101,9 +97,15 @@ class TrainingDetailViewController: UIViewController {
     }
     
     private func bind() {
-        print(section)
+        let sections = provider.programScheduleService.makeProgramSchedule(of: day)
+            .map { trainings -> TrainingViewSection in
+                TrainingViewSection.training(
+                    title: trainings.first?.training?.rawValue ?? "",
+                    items: trainings.map { TrainingViewSectionItem.detaily($0) }
+                )
+            }
         
-        Observable.just([section])
+        Observable.just(sections)
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         

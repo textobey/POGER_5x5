@@ -24,7 +24,6 @@
 		A673332229B859BF002424F8 /* EveryWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = A673332129B859BF002424F8 /* EveryWeek.swift */; };
 		A67BF18629B5CC4300D6F84A /* TrainingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BF18529B5CC4300D6F84A /* TrainingDetailViewController.swift */; };
 		A67BF18929B5DFA500D6F84A /* TrainingContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BF18829B5DFA500D6F84A /* TrainingContentCell.swift */; };
-		A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */; };
 		A683744129936C9F00A37A8D /* UIBaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */; };
 		A68E5F88298CA41100112ED7 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F87298CA41100112ED7 /* ReactorKit */; };
 		A68E5F8B298CA45000112ED7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A68E5F8A298CA45000112ED7 /* SnapKit */; };
@@ -50,7 +49,6 @@
 		A6B4287029B08AC30065D245 /* DayTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4286F29B08AC30065D245 /* DayTraining.swift */; };
 		A6C1042529BEB65300F48392 /* ProgramScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C1042429BEB65300F48392 /* ProgramScheduleService.swift */; };
 		A6C1042729BEBF9800F48392 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C1042629BEBF9800F48392 /* ServiceProvider.swift */; };
-		A6C1042929BF03F400F48392 /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C1042829BF03F400F48392 /* UIBaseViewController.swift */; };
 		A6C1042B29BF09A800F48392 /* WeightCalculationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C1042A29BF09A800F48392 /* WeightCalculationService.swift */; };
 		A6C1042D29BF112D00F48392 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C1042C29BF112D00F48392 /* Turn.swift */; };
 		A6C612B92991E470005F5BB7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C612B82991E470005F5BB7 /* SettingsViewController.swift */; };
@@ -64,6 +62,7 @@
 		A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */; };
 		A6CD390A298CE8A600FB5642 /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CD3909298CE8A600FB5642 /* PickerButton.swift */; };
 		A6ED81A129C000CE006390EE /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ED81A029C000CE006390EE /* Day.swift */; };
+		A6ED81A329C166E7006390EE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ED81A229C166E7006390EE /* BaseService.swift */; };
 		A6FA25C929B185A900A65C29 /* TrainingProcessHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */; };
 		A6FA25CD29B1CB0F00A65C29 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25CC29B1CB0F00A65C29 /* UICollectionView+.swift */; };
 		A6FA25CF29B1CC3E00A65C29 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA25CE29B1CC3E00A65C29 /* Direction.swift */; };
@@ -88,7 +87,6 @@
 		A673332129B859BF002424F8 /* EveryWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveryWeek.swift; sourceTree = "<group>"; };
 		A67BF18529B5CC4300D6F84A /* TrainingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailViewController.swift; sourceTree = "<group>"; };
 		A67BF18829B5DFA500D6F84A /* TrainingContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingContentCell.swift; sourceTree = "<group>"; };
-		A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseNavigationController.swift; sourceTree = "<group>"; };
 		A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTabBarViewController.swift; sourceTree = "<group>"; };
 		A68E5F90298CA5E900112ED7 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		A68E5F93298CA61E00112ED7 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 		A6B4286F29B08AC30065D245 /* DayTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTraining.swift; sourceTree = "<group>"; };
 		A6C1042429BEB65300F48392 /* ProgramScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramScheduleService.swift; sourceTree = "<group>"; };
 		A6C1042629BEBF9800F48392 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
-		A6C1042829BF03F400F48392 /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
 		A6C1042A29BF09A800F48392 /* WeightCalculationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightCalculationService.swift; sourceTree = "<group>"; };
 		A6C1042C29BF112D00F48392 /* Turn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
 		A6C612B82991E470005F5BB7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +123,7 @@
 		A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCheckViewController.swift; sourceTree = "<group>"; };
 		A6CD3909298CE8A600FB5642 /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
 		A6ED81A029C000CE006390EE /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		A6ED81A229C166E7006390EE /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		A6FA25C829B185A900A65C29 /* TrainingProcessHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProcessHeaderView.swift; sourceTree = "<group>"; };
 		A6FA25CC29B1CB0F00A65C29 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		A6FA25CE29B1CC3E00A65C29 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
@@ -227,9 +225,7 @@
 		A6A3FCAF29B707B300BD094B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A683743E29936C8F00A37A8D /* UIBaseNavigationController.swift */,
 				A683744029936C9F00A37A8D /* UIBaseTabBarViewController.swift */,
-				A6C1042829BF03F400F48392 /* UIBaseViewController.swift */,
 				A68E5F95298CC20900112ED7 /* StartViewController.swift */,
 				A6CD3906298CDFBC00FB5642 /* LevelCheckViewController.swift */,
 				A6A519182990DB30002CBC01 /* TrainingEnvironmentViewController.swift */,
@@ -312,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				A6C1042629BEBF9800F48392 /* ServiceProvider.swift */,
+				A6ED81A229C166E7006390EE /* BaseService.swift */,
 				A6C1042429BEB65300F48392 /* ProgramScheduleService.swift */,
 				A6C1042A29BF09A800F48392 /* WeightCalculationService.swift */,
 			);
@@ -424,7 +421,6 @@
 				A6FA25CD29B1CB0F00A65C29 /* UICollectionView+.swift in Sources */,
 				A6B4286C29B087370065D245 /* Expectation.swift in Sources */,
 				A6B4286829B086F40065D245 /* Personal.swift in Sources */,
-				A6C1042929BF03F400F48392 /* UIBaseViewController.swift in Sources */,
 				A6B4286A29B087150065D245 /* ExpectedLevelType.swift in Sources */,
 				A60519D3298BA66B00557E7E /* AppDelegate.swift in Sources */,
 				A6ED81A129C000CE006390EE /* Day.swift in Sources */,
@@ -442,7 +438,6 @@
 				A6B4286229B086B30065D245 /* Questionnaire.swift in Sources */,
 				A6B4286429B086D00065D245 /* Training.swift in Sources */,
 				A6CD3907298CDFBC00FB5642 /* LevelCheckViewController.swift in Sources */,
-				A683743F29936C8F00A37A8D /* UIBaseNavigationController.swift in Sources */,
 				A6B4285D29B0813C0065D245 /* TrainingProcessCell.swift in Sources */,
 				A607A9E329A4642C00487350 /* Color+.swift in Sources */,
 				A673332229B859BF002424F8 /* EveryWeek.swift in Sources */,
@@ -454,6 +449,7 @@
 				A60C414B29BACFE7007AAAF5 /* DefaultsKey+.swift in Sources */,
 				A6A519222990E359002CBC01 /* ExpectedLevelViewController.swift in Sources */,
 				A6C1042D29BF112D00F48392 /* Turn.swift in Sources */,
+				A6ED81A329C166E7006390EE /* BaseService.swift in Sources */,
 				A6C612B92991E470005F5BB7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

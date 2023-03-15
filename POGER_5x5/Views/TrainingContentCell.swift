@@ -75,8 +75,9 @@ class TrainingContentCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(_ model: DayTrainingDetail) {
-        weightLabel.text = "\(model.weight ?? 0)"
+    func configureCell(_ model: DayTraining) {
+        //weightLabel.text = model.we
+        weightLabel.text = "0" //\(model.weight ?? 0)"
         //repLabel.text = model.rep
     }
 }

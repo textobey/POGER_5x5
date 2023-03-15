@@ -6,8 +6,22 @@
 //
 
 import UIKit
+import RxSwift
 
-class SettingsViewController: UIBaseViewController {
+class SettingsViewController: UIViewController {
+    
+    private let provider: ServiceProviderType
+    
+    private let disposeBag = DisposeBag()
+    
+    init(provider: ServiceProviderType) {
+        self.provider = provider
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

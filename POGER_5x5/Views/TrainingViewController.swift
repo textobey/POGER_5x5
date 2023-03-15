@@ -11,14 +11,16 @@ import RxDataSources
 import RxSwift
 import SnapKit
 
-//TODO: 운동 리스트 GUI 조정하기
-//TODO: 선택된 DAY에 대한 Hightlight 효과 추가
-class TrainingViewController: UIBaseViewController {
+class TrainingViewController: UIViewController {
+    
+    private let provider: ServiceProviderType
+    
+    private let disposeBag = DisposeBag()
     
     lazy var dataSource = RxCollectionViewSectionedReloadDataSource<TrainingViewSection>(
         configureCell: { dataSource, collectionView, indexPath, sectionItem in
             switch sectionItem {
-            case .training(let training):
+            case .roughly(let training):
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: TrainingProcessCell.identifier,
                     for: indexPath
@@ -30,6 +32,8 @@ class TrainingViewController: UIBaseViewController {
                     cell.appendCornerRadius(at: .bottom)
                 }
                 return cell
+            default:
+                return UICollectionViewCell()
             }
         },
         configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
@@ -66,11 +70,20 @@ class TrainingViewController: UIBaseViewController {
         )
         $0.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
     }
-
+    
+    init(provider: ServiceProviderType) {
+        self.provider = provider
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        presentStartViewController()
+        //presentStartViewController()
         setupLayout()
         bind()
     }
@@ -94,23 +107,16 @@ class TrainingViewController: UIBaseViewController {
         }
     }
     
-    //TODO: Mockup Data 구성 소스 간소화 및 가독성 증가 작업
-    //TODO: 상세화면에서 모든 운동에 대해 레이아웃 구성되도록 수정
-    //TODO: DayTraining <-> DayTrainingDetail 맞바꾸기
-    //TODO: 상세화면에서 사용될 계산식 완성하기
     private func bind() {
-
-        let sections: [TrainingViewSection] = Day.allCases.map { $0.trainingList }.map { trainings in
-            trainings.map { training in
-                provider.programScheduleService.fetchDetail(of: training, at: .day1)
-            }
-        }.map { trainingItem -> TrainingViewSection in
+        let sections = Day.allCases.map { day in
+            (day, provider.programScheduleService.fetchSchedule(of: day))
+        }.map { (day, trainings) -> TrainingViewSection in
             TrainingViewSection.training(
-                title: "DAY 1",
-                items: trainingItem.map { TrainingViewSectionItem.training($0) }
+                title: day.rawValue,
+                items: trainings.map { TrainingViewSectionItem.roughly($0) }
             )
         }
-
+        
         Observable.just(sections)
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
@@ -170,7 +176,9 @@ class TrainingViewController: UIBaseViewController {
     }
     
     private func navigateToDetailViewController(_ section: TrainingViewSection) {
-        let viewController = TrainingDetailViewController(section: section)
+        guard case let .training(title, _) = section, let day = Day(rawValue: title) else { return }
+        let viewController = TrainingDetailViewController(provider: provider, day: day)
+        viewController.title = day.rawValue
         //TODO: hidesBottomBarWhenPushed 프로퍼티를 true? false?
         //viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
