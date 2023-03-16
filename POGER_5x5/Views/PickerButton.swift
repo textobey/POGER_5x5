@@ -14,15 +14,12 @@ class PickerButton: UIButton {
     
     private let disposeBag = DisposeBag()
     
+    /// Initial Model of PickerButton
     let modelStream = BehaviorRelay<Questionnaire?>(value: nil)
+    /// PickerButton Tap Event Stream
     let didTapButtonStream = PublishRelay<Void>()
-    
-    var selectedRawValue: String? {
-        willSet {
-            guard let newValue = newValue, let unit = modelStream.value?.unit else { return }
-            setTitle(newValue + " " + unit, for: .normal)
-        }
-    }
+    /// Selected value from PickerButton
+    let selectedStream = BehaviorRelay<String?>(value: nil)
     
     let pickerView = UIPickerView().then {
         $0.backgroundColor = .secondarySystemBackground
@@ -62,11 +59,16 @@ class PickerButton: UIButton {
     
     private func bindRx() {
         modelStream
-            .do(onNext: { [weak self] in
-                self?.selectedRawValue = $0?.filterUnit()
-            })
             .compactMap { $0?.pickerDataSource }
             .bind(to: pickerView.rx.itemTitles) { $1 }
+            .disposed(by: disposeBag)
+        
+        selectedStream
+            .withUnretained(self)
+            .subscribe { owner, value in
+                guard let value = value, let unit = owner.modelStream.value?.unit else { return }
+                owner.setTitle(value + " " + unit, for: .normal)
+            }
             .disposed(by: disposeBag)
         
         didTapButtonStream
@@ -77,11 +79,9 @@ class PickerButton: UIButton {
             .disposed(by: disposeBag)
         
         toolbar.doneButton.rx.tap
-            .withLatestFrom(modelStream)
-            .compactMap { $0?.unit }
             .withUnretained(self)
             .subscribe(onNext: { owner, unit in
-                owner.selectedRawValue = owner.didTapDone()
+                owner.didTapDone()
                 owner.closePickerView()
             })
             .disposed(by: disposeBag)
@@ -108,13 +108,12 @@ class PickerButton: UIButton {
         closePickerView()
     }
     
-    private func didTapDone() -> String {
+    private func didTapDone() {
         let row = pickerView.selectedRow(inComponent: pickerView.numberOfComponents - 1)
         if let title = pickerView.delegate?.pickerView?(pickerView, titleForRow: row, forComponent: pickerView.numberOfComponents) {
-            return title
+            selectedStream.accept(title)
         } else {
             assertionFailure("Failed to get pickerView value.")
-            return ""
         }
     }
     
@@ -130,7 +129,7 @@ class PickerButton: UIButton {
     }
     
     private func updateSelectedRow() {
-        if let rawValue = selectedRawValue, let row = modelStream.value?.pickerDataSource.firstIndex(of: rawValue) {
+        if let rawValue = selectedStream.value, let row = modelStream.value?.pickerDataSource.firstIndex(of: rawValue) {
             pickerView.selectRow(row, inComponent: 0, animated: false)
         }
     }

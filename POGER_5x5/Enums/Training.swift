@@ -35,7 +35,7 @@ enum Training: String, Questionnaire, CaseIterable {
     var alertMessage: String? {
         return nil
     }
-    
+
     var bestRecord: CGFloat? {
         switch self {
         case .squat:
@@ -67,53 +67,26 @@ enum Training: String, Questionnaire, CaseIterable {
         }
     }
     
-    var weightDifference: CGFloat? {
+    func saveInput(_ input: String) {
+        guard let input = input.convertCGFloat() else { return }
         switch self {
         case .squat:
-            return Defaults.shared.get(for: .sqInt)
+            return Defaults.shared.set(input, for: .sq)
             
         case .benchpress:
-            return Defaults.shared.get(for: .bpInt)
+            return Defaults.shared.set(input, for: .bp)
             
         case .deadlift:
-            return Defaults.shared.get(for: .dlInt)
+            return Defaults.shared.set(input, for: .dl)
             
         case .pendlayrow:
-            return Defaults.shared.get(for: .prInt)
+            return Defaults.shared.set(input, for: .pr)
             
         case .overheadpress:
-            return Defaults.shared.get(for: .ohInt)
+            return Defaults.shared.set(input, for: .oh)
             
         default:
-            //TODO: 세트간 무게차이가 없을 경우 작성
-            return 0
+            break
         }
     }
-    
-//    var rep: Int {
-//        switch self {
-//        case .squat, .benchpress:
-//            return 6
-//
-//        case .highbarsquat:
-//            //TODO: 전용 계산식 작성
-//            return 0
-//
-//        case .deadlift:
-//            return 4
-//
-//        case .pendlayrow:
-//            return 6
-//
-//        case .overheadpress:
-//            return 5
-//
-//        case .machinepress:
-//            return 4
-//
-//        default:
-//            //TODO: 전용 계산식이 필요 없을 경우 작성(풀업, 친업)
-//            return 0
-//        }
-//    }
 }

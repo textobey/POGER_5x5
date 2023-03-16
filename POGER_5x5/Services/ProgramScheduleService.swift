@@ -16,7 +16,7 @@ protocol ProgramScheduleServiceType {
 final class ProgramScheduleService: BaseService, ProgramScheduleServiceType {
     
     private var currentWeek: Int {
-        Defaults.shared.get(for: .crWeek) ?? 1
+        Int(Defaults.shared.get(for: .crWeek) ?? 1)
     }
     
     func makeProgramSchedule(of day: Day) -> [[DayTraining]] {

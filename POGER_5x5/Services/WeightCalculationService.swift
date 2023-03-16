@@ -14,7 +14,7 @@ protocol WeightCalculationServiceType {
 final class WeightCalculationService: BaseService, WeightCalculationServiceType {
     
     private var currentWeek: Int {
-        Defaults.shared.get(for: .crWeek) ?? 1
+        Int(Defaults.shared.get(for: .crWeek) ?? 1)
     }
     
     private var minPlate: CGFloat {

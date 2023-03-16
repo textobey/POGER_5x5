@@ -16,16 +16,7 @@ class InputListCell: UITableViewCell {
     
     var disposeBag = DisposeBag()
     
-    let selectedRawValue = BehaviorRelay<String?>(value: nil)
-    
-    var model: Questionnaire? {
-        willSet {
-            guard let newValue = newValue else { return }
-            typeLabel.text = newValue.category
-            pickerButton.setTitle(newValue.placeholder, for: .normal)
-            pickerButton.modelStream.accept(newValue)
-        }
-    }
+    var model: Questionnaire?
     
     let wrapperView = UIView().then {
         $0.backgroundColor = .secondarySystemBackground
@@ -65,6 +56,14 @@ class InputListCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         selectionStyle = .none
     }
+    
+    func configureCell(_ model: Questionnaire) {
+        self.model = model
+        typeLabel.text = model.category
+        pickerButton.setTitle(model.placeholder, for: .normal)
+        pickerButton.modelStream.accept(model)
+        pickerButton.selectedStream.accept(model.filterUnit())
+    }
 
     private func setupLayout() {
         contentView.addSubview(wrapperView)
@@ -87,9 +86,12 @@ class InputListCell: UITableViewCell {
     }
     
     private func bindRx() {
-        pickerButton.pickerView.rx.modelSelected(String.self)
-            .map { $0.first }
-            .bind(to: selectedRawValue)
+        pickerButton.selectedStream
+            .compactMap { $0 }
+            .withUnretained(self)
+            .subscribe(onNext: { owner, value in
+                owner.model?.saveInput(value)
+            })
             .disposed(by: disposeBag)
     }
 }

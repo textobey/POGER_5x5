@@ -91,18 +91,18 @@ class TrainingEnvironmentViewController: UIViewController {
             .bind(to: tableView.rx.items(
                 cellIdentifier: InputListCell.identifier,
                 cellType: InputListCell.self)
-            ) { row, element, cell in
-                cell.model = element
+            ) { [weak self] row, element, cell in
+                guard let `self` = self else { return }
+                cell.configureCell(element)
                 
                 cell.pickerButton.rx.tap
-                    .withUnretained(self)
-                    .subscribe(onNext: { owner, _ in
-                        if cell.selectedRawValue.value != nil {
-                            cell.pickerButton.didTapButtonStream.accept(())
-                        } else {
-                            owner.showAlert(element.alertMessage ?? "", completionHandler: {
+                    .subscribe(onNext: {
+                        if let alertMessage = element.alertMessage, !alertMessage.isEmpty {
+                            self.showAlert(alertMessage, completionHandler: {
                                 cell.pickerButton.didTapButtonStream.accept(())
                             })
+                        } else {
+                            cell.pickerButton.didTapButtonStream.accept(())
                         }
                     })
                     .disposed(by: cell.disposeBag)
@@ -131,7 +131,8 @@ class TrainingEnvironmentViewController: UIViewController {
             style: .default,
             handler: { _ in
                 completionHandler()
-        }))
+            }
+        ))
         present(alert, animated: true)
     }
 }

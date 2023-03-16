@@ -39,4 +39,14 @@ enum Personal: String, Questionnaire, CaseIterable {
     var alertMessage: String? {
         return nil
     }
+    
+    func saveInput(_ input: String) {
+        guard case .gender = self, let input = Gender(rawValue: input) else {
+            if let input = input.convertCGFloat() {
+                Defaults.shared.set(input, for: self == .height ? .height : .weight)
+            }
+            return
+        }
+        Defaults.shared.set(input, for: .gender)
+    }
 }

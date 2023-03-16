@@ -14,6 +14,7 @@ protocol Questionnaire {
     var unit: String { get }
     var alertMessage: String? { get }
     func filterUnit() -> String
+    func saveInput(_ input: String)
 }
 
 extension Questionnaire where Self: RawRepresentable, RawValue == String {
@@ -26,5 +27,12 @@ extension Questionnaire where Self: RawRepresentable, RawValue == String {
             of: unit,
             with: ""
         ).trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+}
+
+extension String {
+    func convertCGFloat() -> CGFloat? {
+        guard let double = Double(self) else { return nil }
+        return CGFloat(double)
     }
 }

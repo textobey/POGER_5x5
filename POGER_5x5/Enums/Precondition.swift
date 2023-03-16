@@ -41,10 +41,42 @@ enum Precondition: String, Questionnaire, CaseIterable {
     }
     
     var alertMessage: String? {
-        return "정말로 설정된 권장 값을 변경하시겠어요?"
+        var savedData: CGFloat?
+        let initialValue = filterUnit()
+        
+        switch self {
+        case .rep:
+            savedData = Defaults.shared.get(for: .rep)
+            
+        case .weightGap:
+            savedData = Defaults.shared.get(for: .interval)
+            
+        case .minimumPlate:
+            savedData = Defaults.shared.get(for: .plate)
+            
+        case .originalLevel:
+            savedData = Defaults.shared.get(for: .prWeek)
+        }
+        
+        return savedData == initialValue.convertCGFloat()
+        ? "정말로 설정된 권장 값을 변경하시겠어요?"
+        : nil
     }
     
-    //func isEqual(_ compare: Questionnaire) -> Bool {
-    //    return self.category == compare.category && self.filterUnit() == compare.filterUnit()
-    //}
+    func saveInput(_ input: String) {
+        guard let input = input.convertCGFloat() else { return }
+        switch self {
+        case .rep:
+            return Defaults.shared.set(input, for: .rep)
+            
+        case .weightGap:
+            return Defaults.shared.set(input, for: .interval)
+            
+        case .minimumPlate:
+            return Defaults.shared.set(input, for: .plate)
+            
+        case .originalLevel:
+            return Defaults.shared.set(input, for: .prWeek)
+        }
+    }
 }
