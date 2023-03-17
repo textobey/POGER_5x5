@@ -18,6 +18,9 @@ class InputListCell: UITableViewCell {
     
     var model: Questionnaire?
     
+    /// UIPicker를 사용하여 사용자가 특정값을 선택했음
+    var isSubmit: Bool = false
+    
     let wrapperView = UIView().then {
         $0.backgroundColor = .secondarySystemBackground
     }
@@ -62,7 +65,7 @@ class InputListCell: UITableViewCell {
         typeLabel.text = model.category
         pickerButton.setTitle(model.placeholder, for: .normal)
         pickerButton.modelStream.accept(model)
-        pickerButton.selectedStream.accept(model.filterUnit())
+        pickerButton.selectedStream.accept(model.initialValue)
     }
 
     private func setupLayout() {
@@ -91,6 +94,9 @@ class InputListCell: UITableViewCell {
             .withUnretained(self)
             .subscribe(onNext: { owner, value in
                 owner.model?.saveInput(value)
+                if value != owner.model?.initialValue {
+                    owner.isSubmit = true
+                }
             })
             .disposed(by: disposeBag)
     }

@@ -13,7 +13,7 @@ protocol Questionnaire {
     var placeholder: String { get }
     var unit: String { get }
     var alertMessage: String? { get }
-    func filterUnit() -> String
+    var initialValue: String { get }
     func saveInput(_ input: String)
 }
 
@@ -22,7 +22,7 @@ extension Questionnaire where Self: RawRepresentable, RawValue == String {
         return rawValue
     }
     
-    func filterUnit() -> String {
+    var initialValue: String{
         return placeholder.replacingOccurrences(
             of: unit,
             with: ""

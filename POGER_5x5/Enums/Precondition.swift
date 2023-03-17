@@ -42,7 +42,6 @@ enum Precondition: String, Questionnaire, CaseIterable {
     
     var alertMessage: String? {
         var savedData: CGFloat?
-        let initialValue = filterUnit()
         
         switch self {
         case .rep:
@@ -58,7 +57,7 @@ enum Precondition: String, Questionnaire, CaseIterable {
             savedData = Defaults.shared.get(for: .prWeek)
         }
         
-        return savedData == initialValue.convertCGFloat()
+        return savedData == self.initialValue.convertCGFloat()
         ? "정말로 설정된 권장 값을 변경하시겠어요?"
         : nil
     }

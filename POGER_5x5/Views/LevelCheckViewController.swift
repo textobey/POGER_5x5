@@ -103,8 +103,43 @@ class LevelCheckViewController: UIViewController {
         nextButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                let trainingEnvironmentViewController = TrainingEnvironmentViewController()
-                owner.navigationController?.pushViewController(trainingEnvironmentViewController, animated: true)
+                if owner.fetchCompletedSubmit() {
+                    owner.navigateToTrainingEnvironmentViewController()
+                } else {
+                    owner.showSubmitRequestAlert()
+                }
             }).disposed(by: disposeBag)
+    }
+    
+    private func showSubmitRequestAlert() {
+        let alert = UIAlertController(
+            title: "레벨 입력하기",
+            message: "변경되지 않은 무게값이 존재해요. 유지하고 넘어갈까요?",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "취소",
+            style: .cancel
+        ))
+        alert.addAction(UIAlertAction(
+            title: "확인",
+            style: .default,
+            handler: { [weak self] _ in
+                self?.navigateToTrainingEnvironmentViewController()
+            }
+        ))
+        present(alert, animated: true)
+    }
+    
+    private func fetchCompletedSubmit() -> Bool {
+        tableView.cells
+            .map { $0 as! InputListCell }
+            .map { $0.isSubmit }
+            .allSatisfy { $0 }
+    }
+    
+    private func navigateToTrainingEnvironmentViewController() {
+        let trainingEnvironmentViewController = TrainingEnvironmentViewController()
+        navigationController?.pushViewController(trainingEnvironmentViewController, animated: true)
     }
 }

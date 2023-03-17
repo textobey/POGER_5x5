@@ -102,8 +102,41 @@ class BMIViewController: UIViewController {
         completeButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                let expectedLevelViewController = ExpectedLevelViewController()
-                owner.navigationController?.pushViewController(expectedLevelViewController, animated: true)
+                owner.fetchCompletedSubmit()
+                ? owner.navigateToExpectedLevelViewController()
+                : owner.showSubmitRequestAlert()
             }).disposed(by: disposeBag)
+    }
+    
+    private func showSubmitRequestAlert() {
+        let alert = UIAlertController(
+            title: "정보 입력하기",
+            message: "변경되지 않은 정보가 존재해요. 유지하고 넘어갈까요?",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "취소",
+            style: .cancel
+        ))
+        alert.addAction(UIAlertAction(
+            title: "확인",
+            style: .default,
+            handler: { [weak self] _ in
+                self?.navigateToExpectedLevelViewController()
+            }
+        ))
+        present(alert, animated: true)
+    }
+    
+    private func fetchCompletedSubmit() -> Bool {
+        tableView.cells
+            .map { $0 as! InputListCell }
+            .map { $0.isSubmit }
+            .allSatisfy { $0 }
+    }
+    
+    private func navigateToExpectedLevelViewController() {
+        let expectedLevelViewController = ExpectedLevelViewController()
+        navigationController?.pushViewController(expectedLevelViewController, animated: true)
     }
 }
