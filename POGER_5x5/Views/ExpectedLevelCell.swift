@@ -29,8 +29,9 @@ class ExpectedLevelCell: UITableViewCell {
     }
     
     let informationIcon = UIImageView().then {
-        $0.image = UIImage(systemName: "figure.run")
+        //$0.image = UIImage(systemName: "figure.run")
         $0.tintColor = .white
+        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     let informationTitle = UILabel().then {
@@ -68,22 +69,23 @@ class ExpectedLevelCell: UITableViewCell {
     }
 
     private func setupLayout() {
-        addSubview(wrapperView)
+        contentView.addSubview(wrapperView)
         wrapperView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-12)
+            $0.height.equalTo(64)
         }
         
         wrapperView.addSubview(informationIcon)
         informationIcon.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.centerY.equalToSuperview()
-            $0.size.equalTo(22)
+            $0.size.equalTo(24)
         }
         
         wrapperView.addSubview(informationTitle)
         informationTitle.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(12)
+            $0.bottom.equalTo(wrapperView.snp.centerY).offset(-2)
             $0.leading.equalTo(informationIcon.snp.trailing).offset(14)
         }
         
@@ -91,7 +93,6 @@ class ExpectedLevelCell: UITableViewCell {
         expectedLevel.snp.makeConstraints {
             $0.top.equalTo(informationTitle.snp.bottom)
             $0.leading.equalTo(informationTitle)
-            $0.bottom.equalToSuperview().offset(-12)
         }
     }
     

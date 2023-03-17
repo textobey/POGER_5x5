@@ -15,7 +15,7 @@ class ExpectedLevelViewController: UIViewController {
     var disposeBag = DisposeBag()
     
     let scrollView = UIScrollView().then {
-        $0.isScrollEnabled = false
+        $0.isScrollEnabled = true
         $0.backgroundColor = .clear
         $0.alwaysBounceVertical = true
     }
@@ -30,13 +30,13 @@ class ExpectedLevelViewController: UIViewController {
         $0.font = .preferredFont(forTextStyle: .body)
         $0.textAlignment = .left
         $0.numberOfLines = 0
+        $0.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
     
-    let tableView = DynamicHeightTableView().then {
+    let tableView = UITableView().then {
         $0.separatorStyle = .none
         $0.isScrollEnabled = false
-        $0.estimatedRowHeight = 44
-        $0.rowHeight = UITableView.automaticDimension
+        $0.rowHeight = 76
         $0.backgroundColor = .clear
         $0.layer.cornerRadius = 12
         $0.register(ExpectedLevelCell.self, forCellReuseIdentifier: ExpectedLevelCell.identifier)
@@ -62,6 +62,7 @@ class ExpectedLevelViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
         scrollView.addSubview(scrollViewContainer)
@@ -73,7 +74,7 @@ class ExpectedLevelViewController: UIViewController {
         
         scrollViewContainer.addSubview(expectedLevelDescriptionLabel)
         expectedLevelDescriptionLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(16)//.priority(.high)
             $0.leading.trailing.equalToSuperview().inset(24)
         }
         
@@ -81,16 +82,48 @@ class ExpectedLevelViewController: UIViewController {
         tableView.snp.makeConstraints {
             $0.top.equalTo(expectedLevelDescriptionLabel.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.greaterThanOrEqualTo(tableView.contentSize.height)
+            $0.height.equalTo(76 * 5)//rowHeight * content count
         }
         
-        view.addSubview(confirmButton)
-        confirmButton.snp.makeConstraints {
-            $0.top.equalTo(scrollView.snp.bottom)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-52)
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(52)
+        scrollViewContainer.layoutIfNeeded()
+        
+        setupConfirmButtonLayout()
+    }
+    
+    private func setupConfirmButtonLayout() {
+        if isScrollableDivice() {
+            scrollViewContainer.addSubview(confirmButton)
+            confirmButton.snp.makeConstraints {
+                $0.top.equalTo(tableView.snp.bottom).offset(40)
+                $0.leading.trailing.equalToSuperview().inset(24)
+                $0.bottom.equalToSuperview().offset(-52).priority(.high)
+                $0.height.equalTo(52)
+            }
+        } else {
+            scrollView.isScrollEnabled = false
+            
+            scrollView.snp.remakeConstraints {
+                $0.top.leading.trailing.equalToSuperview()
+            }
+            
+            view.addSubview(confirmButton)
+            confirmButton.snp.makeConstraints {
+                $0.top.equalTo(scrollView.snp.bottom)
+                $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-52)
+                $0.leading.trailing.equalToSuperview().inset(24)
+                $0.height.equalTo(52)
+            }
         }
+    }
+    
+    private func isScrollableDivice() -> Bool {
+        let viewIntrinsicContentSize = view.frame.height - (navigationController?.navigationBar.frame.height ?? 0)
+        let contentsHeight = [expectedLevelDescriptionLabel, tableView].map { $0.frame.height }
+        
+        let confirmButtonHeight = 52
+        let margins = 100
+        
+        return viewIntrinsicContentSize < contentsHeight.reduce(0, +) + CGFloat(confirmButtonHeight + margins)
     }
     
     private func bind() {

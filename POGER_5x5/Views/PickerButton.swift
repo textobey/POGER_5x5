@@ -21,7 +21,7 @@ class PickerButton: UIButton {
     /// Selected value from PickerButton
     let selectedStream = BehaviorRelay<String?>(value: nil)
     
-    let pickerView = UIPickerView().then {
+    lazy var pickerView = UIPickerView().then {
         $0.backgroundColor = .secondarySystemBackground
     }
     
