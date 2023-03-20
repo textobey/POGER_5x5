@@ -22,7 +22,7 @@ class PickerButton: UIButton {
     let selectedStream = BehaviorRelay<String?>(value: nil)
     
     lazy var pickerView = UIPickerView().then {
-        $0.backgroundColor = .secondarySystemBackground
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)
     }
     
     override var inputView: UIView? {
@@ -60,7 +60,15 @@ class PickerButton: UIButton {
     private func bindRx() {
         modelStream
             .compactMap { $0?.pickerDataSource }
-            .bind(to: pickerView.rx.itemTitles) { $1 }
+            .bind(to: pickerView.rx.itemAttributedTitles) {
+                //FIXED: iOS16 버전에서 초기 1회 UIPickerView BackgroundColor에 DarkMode Theme가 적용되지 않은 문제
+                return NSAttributedString(
+                    string: $1,
+                    attributes: [
+                        .foregroundColor: UIColor.white
+                    ]
+                )
+            }
             .disposed(by: disposeBag)
         
         selectedStream
@@ -92,6 +100,8 @@ class PickerButton: UIButton {
                 owner.didTapClose()
             })
             .disposed(by: disposeBag)
+        
+        //pickerView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     
     private func closePickerView() {
@@ -125,6 +135,7 @@ class PickerButton: UIButton {
         }
         UIView.animate(withDuration: 0.3) {
             self.becomeFirstResponder()
+            
         }
     }
     
@@ -132,5 +143,20 @@ class PickerButton: UIButton {
         if let rawValue = selectedStream.value, let row = modelStream.value?.pickerDataSource.firstIndex(of: rawValue) {
             pickerView.selectRow(row, inComponent: 0, animated: false)
         }
+    }
+}
+
+extension PickerButton: UIPickerViewDelegate {
+    func pickerView(
+        _ pickerView: UIPickerView,
+        attributedTitleForRow row: Int,
+        forComponent component: Int) -> NSAttributedString? {
+            guard let dataSources = modelStream.value?.pickerDataSource else {
+                return .none
+            }
+            return NSAttributedString(
+                string: dataSources[row],
+                attributes: [.foregroundColor: UIColor.label]
+            )
     }
 }
