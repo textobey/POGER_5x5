@@ -16,11 +16,11 @@ enum ExpectedLevelType: String, CaseIterable {
     
     var icon: UIImage {
         switch self {
-        case .level: return UIImage(systemName: "figure.run")!
+        case .level: return UIImage(systemName: "figure.run") ?? UIImage(systemName: "star")!
         case .maximum1Rep: return UIImage(systemName: "1.circle")!
         case .maximum3Rep: return UIImage(systemName: "3.circle")!
         case .maximum5Rep: return UIImage(systemName: "5.circle")!
-        case .sbdRecord: return UIImage(systemName: "figure.strengthtraining.traditional")!
+        case .sbdRecord: return UIImage(systemName: "figure.strengthtraining.traditional") ?? UIImage(systemName: "chart.bar")!
         }
     }
 }

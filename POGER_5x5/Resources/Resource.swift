@@ -65,7 +65,8 @@ extension R.Unit {
 //}
 
 extension R.SFSymbol {
-    static let goforwardFive = UIImage(systemName: "goforward.5")!
+    static let goforwardFive = UIImage(systemName: "goforward.5") ?? UIImage(systemName: "5.circle")
+    //static let goforwardThree = UIImage(named: "3.circle")
     static let goforwardThree = UIImage(named: "goforward.3")!
-    static let goforwardPlus = UIImage(systemName: "goforward.plus")!
+    static let goforwardPlus = UIImage(systemName: "goforward.plus") ?? UIImage(systemName: "plus.circle")
 }
