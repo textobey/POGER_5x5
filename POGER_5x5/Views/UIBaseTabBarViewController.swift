@@ -13,14 +13,20 @@ final class UIBaseTabBarController: UITabBarController {
     
     lazy var rootViewControllers = [
         TrainingViewController(provider: self.provider),
-        //LevelTrendViewController(),
         SettingsViewController(provider: self.provider)
     ]
     
     let tabBarItems = [
-        UITabBarItem(title: "운동", image: UIImage(systemName: "figure.strengthtraining.traditional"), tag: 0),
-        //UITabBarItem(title: "트렌드", image: UIImage(systemName: "chart.line.uptrend.xyaxis"), tag: 1),
-        UITabBarItem(title: "설정", image: UIImage(systemName: "gearshape"), tag: 2),
+        UITabBarItem(
+            title: "운동",
+            image: UIImage(systemName: "figure.strengthtraining.traditional") ?? UIImage(systemName: "figure.walk"),
+            tag: 0
+        ),
+        UITabBarItem(
+            title: "설정",
+            image: UIImage(systemName: "gearshape"),
+            tag: 2
+        )
     ]
     
     init(provider: ServiceProviderType) {

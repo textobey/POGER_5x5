@@ -100,8 +100,6 @@ class PickerButton: UIButton {
                 owner.didTapClose()
             })
             .disposed(by: disposeBag)
-        
-        //pickerView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     
     private func closePickerView() {
@@ -120,8 +118,12 @@ class PickerButton: UIButton {
     
     private func didTapDone() {
         let row = pickerView.selectedRow(inComponent: pickerView.numberOfComponents - 1)
-        if let title = pickerView.delegate?.pickerView?(pickerView, titleForRow: row, forComponent: pickerView.numberOfComponents) {
-            selectedStream.accept(title)
+        if let title = pickerView.delegate?.pickerView?(
+            pickerView,
+            attributedTitleForRow: row,
+            forComponent: pickerView.numberOfComponents
+        ) {
+            selectedStream.accept(title.string)
         } else {
             assertionFailure("Failed to get pickerView value.")
         }
@@ -143,20 +145,5 @@ class PickerButton: UIButton {
         if let rawValue = selectedStream.value, let row = modelStream.value?.pickerDataSource.firstIndex(of: rawValue) {
             pickerView.selectRow(row, inComponent: 0, animated: false)
         }
-    }
-}
-
-extension PickerButton: UIPickerViewDelegate {
-    func pickerView(
-        _ pickerView: UIPickerView,
-        attributedTitleForRow row: Int,
-        forComponent component: Int) -> NSAttributedString? {
-            guard let dataSources = modelStream.value?.pickerDataSource else {
-                return .none
-            }
-            return NSAttributedString(
-                string: dataSources[row],
-                attributes: [.foregroundColor: UIColor.label]
-            )
     }
 }
